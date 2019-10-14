@@ -1,8 +1,10 @@
 package Model;
 
+import View.Observable;
+
 import java.util.Collection;
 
-public class AbstractElement {
+public class AbstractElement extends Observable {
     private String _name;
     private int _value;
     private Collection<AbstractElement> _history;
@@ -13,8 +15,16 @@ public class AbstractElement {
     }
     public void setValue(int value){
         this._value = value;
+        notifyObservers(value);
     }
     public int getValue(){
         return this._value;
+    }
+    public String get_name() {
+        return _name;
+    }
+
+    public Collection<AbstractElement> get_history() {
+        return _history;
     }
 }

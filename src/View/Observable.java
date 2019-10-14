@@ -6,18 +6,18 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public abstract class Observable {
-    private Collection<AbstractElement> _observers;
+    private Collection<ElementObserver> _observers;
 
     public Observable() {
         _observers = new ArrayList<>();
     }
 
-    public void add(AbstractElement observer) {
+    public void add(ElementObserver observer) {
         _observers.add(observer);
     }
 
-    public void notifyObservers() {  //DETERMINER LES PARAMETER
-        for (AbstractElement observer : _observers)
-            observer.update();
+    public void notifyObservers(int value) {  //DETERMINER LES PARAMETER
+        for (ElementObserver observer : _observers)
+            observer.update(value);
     }
 }

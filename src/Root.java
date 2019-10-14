@@ -35,11 +35,13 @@ public class Root {
 
         /** Ajout des listener **/
 
+        /** Calcul valeur indicateur**/
+        argent_disponible.MAJValue();
 
         /** View **/
         ProvisoryView view = new ProvisoryView(EC);
     }
-    public void main(String[] args){
+    public static void main(String[] args){
         new Root();
     }
 }

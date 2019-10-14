@@ -29,11 +29,13 @@ public class ElementControl {
     public Indicateur createIndicateur(String name, int value){
         Indicateur indic = new Indicateur(name,value);
         this._Elements.add(indic);
+        this._MapElement.put(name,indic);
         return indic;
     }
     public Levier createLevier(String name, int value){
         Levier levier = new Levier(name,value);
         this._Elements.add(levier);
+        this._MapElement.put(name,levier);
         return levier;
     }
 }

@@ -3,7 +3,7 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 
-public abstract class PresidentView extends JFrame implements ElementObserver {
+public abstract class PresidentView extends JFrame{
     public PresidentView() {
 
 

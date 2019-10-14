@@ -1,5 +1,5 @@
 package View;
 
 public interface ElementObserver {
-    public abstract void update();
+    public abstract void update(int value);
 }
