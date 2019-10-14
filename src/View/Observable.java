@@ -1,7 +1,6 @@
-package observateur;
+package View;
 
 import Model.AbstractElement;
-import view.provisoryView;
 
 import java.util.ArrayList;
 import java.util.Collection;
