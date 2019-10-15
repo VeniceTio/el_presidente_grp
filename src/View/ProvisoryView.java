@@ -1,19 +1,52 @@
 package View;
 
 import Control.ElementControl;
+import Model.FamilleLevier;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class ProvisoryView extends PresidentView {
 
     private ElementControl _EC;
+    private JTabbedPane onglet;
 
     public ProvisoryView(ElementControl EC) {
         super();
         this._EC = EC;
 
+        this.setLocationRelativeTo(null);
+
+        //Création de plusieurs Panneau
+        Collection<GroupeLevier> tPan = new ArrayList<GroupeLevier>();
+        for(FamilleLevier GL : EC.getGroupes()){
+            tPan.add(new GroupeLevier(GL,_EC));
+        }
+
+
+        //Création de notre conteneur d'onglets
+        onglet = new JTabbedPane();
+        int i = 0;
+        for(GroupeLevier pan : tPan){
+            //Méthode d'ajout d'onglet
+            onglet.add(pan.getName(), pan);
+            //Vous pouvez aussi utiliser la méthode addTab
+            //onglet.addTab("Onglet n° "+(++i), pan);
+
+        }
+        //On passe ensuite les onglets au content pane
+        this.getContentPane().add(onglet);
+        this.setVisible(true);
+
+
+
+
+
+
+        /**
         JPanel groupeLevier = (JPanel) this.getContentPane();
         groupeLevier.setLayout(new GridLayout(10,1,10,10));
 
@@ -43,6 +76,6 @@ public class ProvisoryView extends PresidentView {
         //pan4.setAlignmentX(Component.CENTER_ALIGNMENT);
         groupeLevier.add(pan5);
 
-        this.setVisible(true);
+        this.setVisible(true);**/
     }
 }
