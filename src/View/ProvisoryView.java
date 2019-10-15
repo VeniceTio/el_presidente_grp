@@ -39,6 +39,10 @@ public class ProvisoryView extends PresidentView {
         }
         //On passe ensuite les onglets au content pane
         this.getContentPane().add(onglet);
+
+        IndicPanelDyn panelTitre = new IndicPanelDyn("argent_disponible",EC);
+        this.getContentPane().add(panelTitre, BorderLayout.SOUTH);
+
         this.setVisible(true);
 
 
