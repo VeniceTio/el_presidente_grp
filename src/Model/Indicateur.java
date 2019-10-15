@@ -13,18 +13,29 @@ public class Indicateur extends AbstractElement{
     public void addFacteur(AbstractElement AB, String action){
         this._formule.put(AB,action);
     }
-    public void MAJValue(){
+    public void MajOneValue(Levier levier){
+        int oldValue = levier.getOldValue();
+        int IndicValue;
+        System.out.println(oldValue);
+        if ( (String)_formule.get(levier)=="+") {
+            IndicValue = this.getValue()-oldValue;
+            System.out.println(IndicValue);
+            this.setValue(IndicValue + levier.getValue());
+        }
+        else if ((String)_formule.get(levier)=="-"){
+            IndicValue = this.getValue()+oldValue;
+            this.setValue(IndicValue - levier.getValue());
+        }
+    }
+    public void MAJALLValue(){
         for (Map.Entry mapEntry : this._formule.entrySet()) {
-            switch((String)mapEntry.getValue()){
-                case "+":
-                    this.setValue(this.getValue() + ((AbstractElement)mapEntry.getKey()).getValue());
-                case "-":
+            System.out.println(mapEntry);
+                if ( (String)mapEntry.getValue()=="+") {
+                    this.setValue(this.getValue() + ((AbstractElement) mapEntry.getKey()).getValue());
+                }
+                else if ((String)mapEntry.getValue()=="-"){
                     this.setValue(this.getValue() - ((AbstractElement)mapEntry.getKey()).getValue());
-                case "/":
-                    this.setValue(this.getValue() / ((AbstractElement)mapEntry.getKey()).getValue());
-                default:
-                    this.setValue(this.getValue() + ((AbstractElement)mapEntry.getKey()).getValue());
-            }
+                }
         }
     }
 }

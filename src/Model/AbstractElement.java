@@ -6,7 +6,8 @@ import java.util.Collection;
 
 public class AbstractElement extends Observable {
     private String _name;
-    private int _value;
+    int _value;
+    int _oldValue;
     private Collection<AbstractElement> _history;
 
     public AbstractElement(String name, int value){
@@ -14,8 +15,12 @@ public class AbstractElement extends Observable {
         _value = value;
     }
     public void setValue(int value){
+        this._oldValue = _value;
         this._value = value;
         notifyObservers(value);
+    }
+    public int getOldValue(){
+        return _oldValue;
     }
     public int getValue(){
         return this._value;

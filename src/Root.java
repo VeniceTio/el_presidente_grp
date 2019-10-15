@@ -34,9 +34,14 @@ public class Root {
         argent_disponible.addFacteur(subEtat,"+");
 
         /** Ajout des listener **/
-
+        fContractuel.addInfluencer(argent_disponible);
+        fTitulaire.addInfluencer(argent_disponible);
+        fPrimes.addInfluencer(argent_disponible);
+        rContractuel.addInfluencer(argent_disponible);
+        rTitulaire.addInfluencer(argent_disponible);
+        rPrimes.addInfluencer(argent_disponible);
         /** Calcul valeur indicateur**/
-        argent_disponible.MAJValue();
+        argent_disponible.MAJALLValue();
 
         /** View **/
         ProvisoryView view = new ProvisoryView(EC);
