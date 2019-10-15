@@ -13,13 +13,12 @@ public class ProvisoryView extends PresidentView {
     public ProvisoryView(ElementControl EC) {
         super();
         this._EC = EC;
-        this.setTitle("El Presidente");
+
+        JPanel groupeLevier = (JPanel) this.getContentPane();
+        groupeLevier.setLayout(new GridLayout(10,1,10,10));
+
         IndicPanelDyn panelTitre = new IndicPanelDyn("argent_disponible",EC);
-        setContentPane(panelTitre);
-
-        Box groupeLevier = Box.createVerticalBox();
-
-        groupeLevier.setLayout(new BoxLayout(groupeLevier,BoxLayout.Y_AXIS));
+        groupeLevier.add(panelTitre);
         JPanel pan = new LevierPanel("fContractuel",EC);
         //pan.setAlignmentX(Component.CENTER_ALIGNMENT);
         groupeLevier.add(pan);
@@ -36,13 +35,13 @@ public class ProvisoryView extends PresidentView {
         //pan3.setAlignmentX(Component.CENTER_ALIGNMENT);
         groupeLevier.add(pan3);
 
-        JPanel pan4 = new LevierPanel("rContractuel",EC);
+        JPanel pan4 = new LevierPanel("rTitulaire",EC);
         //pan4.setAlignmentX(Component.CENTER_ALIGNMENT);
         groupeLevier.add(pan4);
 
-        this.getContentPane().add(groupeLevier);
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel pan5 = new LevierPanel("rPrimes",EC);
+        //pan4.setAlignmentX(Component.CENTER_ALIGNMENT);
+        groupeLevier.add(pan5);
 
         this.setVisible(true);
     }

@@ -15,7 +15,7 @@ public class IndicPanelDyn  extends JPanel implements ElementObserver{
             _EC = EC;
             _name = name;
             _labelValue = new JLabel(name + " : " +  EC.get_Element(name).getValue());
-            this.add(new JLabel(name));
+            //this.add(new JLabel(name));
 
             this.add(_labelValue);
             EC.get_Element(name).add(this);

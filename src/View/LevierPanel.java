@@ -3,6 +3,7 @@ package View;
 import Control.ElementControl;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class LevierPanel extends JPanel implements ElementObserver{
@@ -14,24 +15,33 @@ public class LevierPanel extends JPanel implements ElementObserver{
         super();
         _EC = EC;
         _name = name;
+        Dimension DimButton = new Dimension(100, 30);
         _labelValue = new JLabel(String.valueOf(EC.get_Element(name).getValue()));
+        _labelValue.setPreferredSize(DimButton);
+        _labelValue.setHorizontalAlignment(SwingConstants.CENTER);
+
+        this.setLayout(new FlowLayout(FlowLayout.RIGHT));
         this.add(new JLabel(name));
 
-        this.add(new JButton(new AbstractAction("moins") {
+        JButton JBMoins = new JButton(new AbstractAction("moins") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 EC.get_Element(name).setValue(EC.get_Element(name).getValue() - 10000);
             }
-        }));
+        });
+        JBMoins.setPreferredSize(DimButton);
+        this.add(JBMoins);
 
         this.add(_labelValue);
 
-        this.add(new JButton(new AbstractAction("plus") {
+        JButton JBPlus = new JButton(new AbstractAction("plus") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 EC.get_Element(name).setValue(EC.get_Element(name).getValue() + 10000);
             }
-        }));
+        });
+        JBPlus.setPreferredSize(DimButton);
+        this.add(JBPlus);
         EC.get_Element(name).add(this);
     }
 

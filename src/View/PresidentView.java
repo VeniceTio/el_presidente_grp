@@ -6,10 +6,10 @@ import java.awt.*;
 public abstract class PresidentView extends JFrame{
     public PresidentView() {
 
-
-        //this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        this.setSize(600, 480);
-        this.setLayout(new BorderLayout());
+        super("El Presidente !");
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setSize(800, 600);
+        this.setLocationRelativeTo(null);
 
 
     }
