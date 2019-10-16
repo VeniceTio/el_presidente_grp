@@ -10,6 +10,7 @@ public class Root {
         ElementControl EC = new ElementControl();
         /** Création Indicateur **/
         Indicateur argent_disponible = EC.createIndicateur("argent_disponible",0);
+        Indicateur nombre_professeur = EC.createIndicateur("nombre_professeur",0);
 
         /** Création famille de levier **/
         FamilleLevier Central = new FamilleLevier("Central");

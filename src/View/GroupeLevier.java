@@ -13,7 +13,7 @@ public class GroupeLevier extends JPanel {
     public GroupeLevier(FamilleLevier FL, ElementControl EC){
         super();
         this._FL = FL;
-        this.setLayout(new GridLayout(10,1,10,10));
+        this.setLayout(new GridLayout(7,1,10,10));
         for (Levier levier: FL.getContenus()
              ) {
             this.add(new LevierPanel(levier.get_name(),EC));
