@@ -1,16 +1,13 @@
 import Control.ElementControl;
-import Model.FamilleLevier;
-import Model.Indicateur;
-import Model.Levier;
-import View.PresidentView;
+import Model.*;
 import View.ProvisoryView;
 
 public class Root {
     public Root(){
         ElementControl EC = new ElementControl();
         /** Création Indicateur **/
-        Indicateur argent_disponible = EC.createIndicateur("argent_disponible",0);
-        Indicateur nombre_professeur = EC.createIndicateur("nombre_professeur",0);
+        Indicateur argent_disponible = EC.createIndicateur("argent_disponible",0, new Argent());
+        Indicateur nombre_professeur = EC.createIndicateur("nombre_professeur",0, new NombreProfesseur());
 
         /** Création famille de levier **/
         FamilleLevier Central = new FamilleLevier("Central");
@@ -86,13 +83,20 @@ public class Root {
 
         argent_disponible.addFacteur(subEtat,"+");
 
+        /** Ajout des facteurs de l'argent_disponible **/
+        nombre_professeur.addFacteur(fContractuel,"28800");
+        nombre_professeur.addFacteur(fTitulaire,"57600");
+
+        nombre_professeur.addFacteur(rContractuel,"30800");
+        nombre_professeur.addFacteur(rTitulaire,"60600");
+
         /** Ajout Famille Levier au ElementControl **/
         EC.addGroupe(Central);
         EC.addGroupe(Immobilier);
         EC.addGroupe(Formation);
         EC.addGroupe(Recherche);
 
-        /** Ajout des listener **/
+        /** Ajout du listener argent_disponible**/
         fContractuel.addInfluencer(argent_disponible);
         fTitulaire.addInfluencer(argent_disponible);
         fPrimes.addInfluencer(argent_disponible);
@@ -103,8 +107,15 @@ public class Root {
         iEntretien.addInfluencer(argent_disponible);
         iRenovation.addInfluencer(argent_disponible);
 
+        /** Ajout du listener nombre professeur**/
+        fContractuel.addInfluencer(nombre_professeur);
+        fTitulaire.addInfluencer(nombre_professeur);
+        rContractuel.addInfluencer(nombre_professeur);
+        rTitulaire.addInfluencer(nombre_professeur);
+
         /** Calcul valeur indicateur**/
-        argent_disponible.MAJALLValue();
+        argent_disponible.initValue();
+        nombre_professeur.initValue();
 
         /** View **/
         ProvisoryView view = new ProvisoryView(EC);

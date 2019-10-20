@@ -1,12 +1,13 @@
 package View;
 
 import Control.ElementControl;
+import Uttilities.ElementObserver;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class LevierPanel extends JPanel implements ElementObserver{
+public class LevierPanel extends JPanel implements ElementObserver {
     private JLabel _labelValue;
     private ElementControl _EC;
     private String _name;

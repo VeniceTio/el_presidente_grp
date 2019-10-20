@@ -1,12 +1,12 @@
 package View;
 
 import Control.ElementControl;
+import Uttilities.ElementObserver;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 
-public class IndicPanelDyn  extends JPanel implements ElementObserver{
-        private JLabel _labelValue;
+public class IndicPanelDyn  extends JPanel implements ElementObserver {
+        private JLabel _labelValue1;
         private ElementControl _EC;
         private String _name;
 
@@ -14,15 +14,14 @@ public class IndicPanelDyn  extends JPanel implements ElementObserver{
             super();
             _EC = EC;
             _name = name;
-            _labelValue = new JLabel(name + " : " +  EC.get_Element(name).getValue());
-            //this.add(new JLabel(name));
-
-            this.add(_labelValue);
+            _labelValue1 = new JLabel(_EC.get_Element(_name).toString());
+            System.out.println(_EC.get_Element(_name).toString());
+            this.add(_labelValue1);
             EC.get_Element(name).add(this);
         }
 
         @Override
         public void update(int value) {
-            _labelValue.setText(_name + " : "+ _EC.get_Element(_name).getValue());
+            _labelValue1.setText(_EC.get_Element(_name).toString());
         }
     }

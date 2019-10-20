@@ -1,6 +1,6 @@
 package Model;
 
-import View.Observable;
+import Uttilities.Observable;
 
 import java.util.Collection;
 

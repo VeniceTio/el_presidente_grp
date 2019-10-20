@@ -1,6 +1,4 @@
-package View;
-
-import Model.AbstractElement;
+package Uttilities;
 
 import java.util.ArrayList;
 import java.util.Collection;

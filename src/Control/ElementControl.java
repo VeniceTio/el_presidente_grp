@@ -1,9 +1,6 @@
 package Control;
 
-import Model.AbstractElement;
-import Model.FamilleLevier;
-import Model.Indicateur;
-import Model.Levier;
+import Model.*;
 import View.GroupeLevier;
 
 import java.util.ArrayList;
@@ -26,8 +23,8 @@ public class ElementControl {
         return _MapElement.get(name);
     }
 
-    public Indicateur createIndicateur(String name, int value){
-        Indicateur indic = new Indicateur(name,value);
+    public Indicateur createIndicateur(String name, int value, AbstractFormule AF){
+        Indicateur indic = new Indicateur(name,value,AF);
         this._MapElement.put(name,indic);
         return indic;
     }

@@ -40,16 +40,16 @@ public class ProvisoryView extends PresidentView {
         //On passe ensuite les onglets au content pane
         this.getContentPane().add(onglet);
 
-        IndicPanelDyn panelTitre = new IndicPanelDyn("argent_disponible",EC);
-        this.getContentPane().add(panelTitre, BorderLayout.SOUTH);
+        IndicPanelDyn panelNbProf = new IndicPanelDyn("nombre_professeur",EC);
+        IndicPanelDyn panelArgent = new IndicPanelDyn("argent_disponible",EC);
+        JPanel indicateurPan = new JPanel();
+        indicateurPan.setLayout(new FlowLayout());
+        indicateurPan.add(panelNbProf);
+        indicateurPan.add(panelArgent);
+        indicateurPan.setVisible(true);
+        this.getContentPane().add(indicateurPan, BorderLayout.SOUTH);
 
         this.setVisible(true);
-
-
-
-
-
-
         /**
         JPanel groupeLevier = (JPanel) this.getContentPane();
         groupeLevier.setLayout(new GridLayout(10,1,10,10));
