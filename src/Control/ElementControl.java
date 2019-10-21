@@ -1,7 +1,6 @@
 package Control;
 
 import Model.*;
-import View.GroupeLevier;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,46 +8,98 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ElementControl implements Time{
+    /**
+     * Liste contenant toutes les familles de levier
+     */
+    private Collection<LeverFamily> _familyLevers = new ArrayList<LeverFamily>();
+    /**
+     * Map contenant tous les leviers et indicateurs de l'application
+     */
+    private Map<String, AbstractElement> _mapElement = new HashMap<String, AbstractElement>();
+    /**
+     * Liste contenant les les indicateurs de l'application
+     */
+    private ArrayList<Indicator> _indicators = new ArrayList<Indicator>();
 
-    private Collection<FamilleLevier> _groupes = new ArrayList<FamilleLevier>();
-    private Map<String, AbstractElement> _MapElement = new HashMap<String, AbstractElement>();
-    private ArrayList<Indicateur> _indicateurs = new ArrayList<Indicateur>();
+    /**
+     * Attribut contenant l'instance de la classe
+     */
+    private static ElementControl _instance = null;
 
-    private static ElementControl Instance = null;
-
+    /**
+     * Constructeur de la classe ElementControl
+     */
     private ElementControl(){}
+
+    /**
+     * Méthode permet de créer l'instance de la classe
+     * @return l'instance de la classe
+     */
     public static ElementControl getInstance(){
-        if(Instance == null){
-            Instance = new ElementControl();
+        if(_instance == null){
+            _instance = new ElementControl();
         }
-        return Instance;
-    }
-    public void addGroupe(FamilleLevier GL){
-        this._groupes.add(GL);
-    }
-    public Collection<FamilleLevier> getGroupes() {
-        return _groupes;
-    }
-    public AbstractElement get_Element(String name) {
-        return _MapElement.get(name);
+        return _instance;
     }
 
-
-    public Indicateur createIndicateur(String name, int value, AbstractFormule AF,Boolean statique){
-        Indicateur indic = new Indicateur(name,value,AF,statique);
-        this._MapElement.put(name,indic);
-        this._indicateurs.add(indic);
-        return indic;
-    }
-    public Levier createLevier(String name, int value){
-        Levier levier = new Levier(name,value);
-        this._MapElement.put(name,levier);
-        return levier;
+    /**
+     * Méthode permet d'ajouter une famille de levier à la liste des familles de levier
+     * @param fl la famille de levier qu'on doit ajouter
+     */
+    public void addFamilyLever(LeverFamily fl){
+        _familyLevers.add(fl);
     }
 
+    /**
+     * Méthode renvoie toutes les familles de leviers
+     * @return les familles de leviers
+     */
+    public Collection<LeverFamily> getFamilyLevers() {
+        return _familyLevers;
+    }
+
+    /**
+     * Méthode permet de renvoyer un indicateur ou un levier en fonction de son nom
+     * @param name la nom de l'indicateur/levier qu'on doit retourner
+     * @return l'indicateur/levier correspondant au nom du paramètre
+     */
+    public AbstractElement getElement(String name) {
+        return _mapElement.get(name);
+    }
+
+    /**
+     * Méthode permet de créer un nouvelle indicateur
+     * @param name le nom de l'indicateur
+     * @param value la valeur de l'indicateur
+     * @param af la formule utilisé pour l'indicateur qui vient d'être créer
+     * @param boolStatic: paramètre permettant de savoir si c'est statique ou pas
+     * @return l'indicateur qu'on vient de créer
+     */
+    public Indicator createIndicator(String name, int value, AbstractFormula af, Boolean boolStatic){
+        Indicator indicator = new Indicator(name, value, af, boolStatic);
+        _mapElement.put(name, indicator);
+        _indicators.add(indicator);
+        return indicator;
+    }
+
+    /**
+     * Méthode permet de créer un nouveau levier
+     * @param name le nom du levier
+     * @param value la valeur du levier
+     * @return le levier qu'on vient de créer
+     */
+    public Lever createLever(String name, int value){
+        Lever lever = new Lever(name, value);
+        _mapElement.put(name,lever);
+        return lever;
+    }
+
+    /**
+     * Méthode permet de passer au semestre suivant
+     */
     @Override
     public void ClockForvard() {
-        for(Indicateur indic : _indicateurs){
+        for(Indicator indic : _indicators){
             indic.ClockForvard();
         }
         Semestre.getInstance().ClockForvard();

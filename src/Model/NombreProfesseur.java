@@ -2,23 +2,30 @@ package Model;
 
 import java.util.Map;
 
-public class NombreProfesseur implements AbstractFormule{
-
+public class NombreProfesseur implements AbstractFormula {
+    /**
+     * Méthode permettant de mettre à jour une valeur de l'indicateur à partir d'un levier
+     * @param indicator l'indicateur sur lequelle agit le levier
+     * @param lever le levier qui agit sur l'indicateur
+     */
     @Override
-    public void majOneValue(Indicateur indicateur, Levier levier) {
-        long oldValue = levier.getOldValue();
-        long IndicValue = indicateur.getValue()-(oldValue/(Integer.parseInt(indicateur.getFormule().get(levier))));
+    public void updateByOneLever(Indicator indicator, Lever lever) {
+        long oldValue = lever.getOldValue();
+        long IndicValue = indicator.getValue()-(oldValue/(Integer.parseInt(indicator.getFormula().get(lever))));
         System.out.println(IndicValue);
-        indicateur.setValue(IndicValue + (levier.getValue()/(Integer.parseInt(indicateur.getFormule().get(levier)))));
+        indicator.setValue(IndicValue + (lever.getValue()/(Integer.parseInt(indicator.getFormula().get(lever)))));
     }
 
+    /**
+     * Méthode permettant de mettre à jour la valeur de l'indicateur à partir de ses leviers
+     * @param indicator l'indicateur sur lequelles les leviers agit
+     */
     @Override
-    public void majAllValue(Indicateur indicateur) {
-        for (Map.Entry mapEntry : indicateur.getFormule().entrySet()) {
+    public void updateByLevers(Indicator indicator) {
+        for (Map.Entry mapEntry : indicator.getFormula().entrySet()) {
             System.out.println(mapEntry);
-            System.out.println(indicateur.getValue());
-            indicateur.setValue(indicateur.getValue()+(((Levier)mapEntry.getKey()).getValue()/(Integer.parseInt((String)mapEntry.getValue()))));
+            System.out.println(indicator.getValue());
+            indicator.setValue(indicator.getValue()+(((Lever)mapEntry.getKey()).getValue()/(Integer.parseInt((String)mapEntry.getValue()))));
         }
     }
-    public void clockforward(){}
 }

@@ -1,12 +1,10 @@
 package View;
 
 import Control.ElementControl;
-import Model.FamilleLevier;
-import Model.Semestre;
+import Model.LeverFamily;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -23,7 +21,7 @@ public class ProvisoryView extends PresidentView {
 
         //Création de plusieurs Panneau
         Collection<GroupeLevier> tPan = new ArrayList<GroupeLevier>();
-        for(FamilleLevier GL : _EC.getGroupes()){
+        for(LeverFamily GL : _EC.getFamilyLevers()){
             tPan.add(new GroupeLevier(GL,_EC));
         }
 

@@ -2,48 +2,59 @@ package Model;
 
 import java.util.Map;
 
-public class Argent implements AbstractFormule{
-    public void majOneValue(Indicateur indicateur,Levier levier){
-        if(indicateur.get_name()=="argent disponible") {
-            long oldValue = levier.getOldValue();
+public class Argent implements AbstractFormula {
+    /**
+     * Méthode permettant de mettre à jour une valeur de l'indicateur à partir d'un levier
+     * @param indicator l'indicateur sur lequelle agit le levier
+     * @param lever le levier qui agit sur l'indicateur
+     */
+    public void updateByOneLever(Indicator indicator, Lever lever){
+        if(indicator.get_name()=="argent disponible") {
+            long oldValue = lever.getOldValue();
             long IndicValue;
             //System.out.println(oldValue);
-            if ((String) indicateur.getFormule().get(levier) == "+") {
-                IndicValue = indicateur.getValue() - oldValue;
+            if (indicator.getFormula().get(lever) == "+") {
+                IndicValue = indicator.getValue() - oldValue;
                 System.out.println(IndicValue);
-                indicateur.setValue(IndicValue + levier.getValue());
-            } else if ((String) indicateur.getFormule().get(levier) == "-") {
-                IndicValue = indicateur.getValue() + oldValue;
-                indicateur.setValue(IndicValue - levier.getValue());
+                indicator.setValue(IndicValue + lever.getValue());
+            } else if (indicator.getFormula().get(lever) == "-") {
+                IndicValue = indicator.getValue() + oldValue;
+                indicator.setValue(IndicValue - lever.getValue());
             }
         }
         else {
-            majAllValue(indicateur);
+            updateByLevers(indicator);
         }
     }
-    public void majAllValue(Indicateur indicateur){
+
+    /**
+     * Méthode permettant de mettre à jour la valeur de l'indicateur à partir de ses leviers
+     * @param indicator l'indicateur sur lequelles les leviers agit
+     */
+    public void updateByLevers(Indicator indicator){
         //indicateur.setValue(1);
-        if(indicateur.get_name()!="argent disponible") {indicateur.setValue(1);}
-        for (Map.Entry mapEntry : indicateur.getFormule().entrySet()) {
+        if(indicator.get_name()!="argent disponible") {
+            indicator.setValue(1);}
+        for (Map.Entry mapEntry : indicator.getFormula().entrySet()) {
             System.out.println(mapEntry);
-            if ( (String)mapEntry.getValue()=="+") {
-                indicateur.setValue(indicateur.getValue() + ((AbstractElement) mapEntry.getKey()).getValue());
+            if ( mapEntry.getValue() =="+") {
+                indicator.setValue(indicator.getValue() + ((AbstractElement) mapEntry.getKey()).getValue());
             }
-            else if ((String)mapEntry.getValue()=="-"){
-                indicateur.setValue(indicateur.getValue() - ((AbstractElement)mapEntry.getKey()).getValue());
+            else if (mapEntry.getValue()=="-"){
+                indicator.setValue(indicator.getValue() - ((AbstractElement)mapEntry.getKey()).getValue());
             }
-            else if ( (String)mapEntry.getValue()=="+2"){
+            else if ( mapEntry.getValue() =="+2"){
                 if (Semestre.getInstance().getSemestre()%2==0){
-                    indicateur.setValue(indicateur.getValue() + ((AbstractElement) mapEntry.getKey()).getValue());
+                    indicator.setValue(indicator.getValue() + ((AbstractElement) mapEntry.getKey()).getValue());
                 }
             }
-            else if ( (String)mapEntry.getValue()=="-2"){
+            else if ( mapEntry.getValue() =="-2"){
                 if (Semestre.getInstance().getSemestre()%2==0){
-                    indicateur.setValue(indicateur.getValue() - ((AbstractElement)mapEntry.getKey()).getValue());
+                    indicator.setValue(indicator.getValue() - ((AbstractElement)mapEntry.getKey()).getValue());
                 }
             }
-            else if((String)mapEntry.getValue()=="*"){
-                indicateur.setValue(indicateur.getValue() * ((AbstractElement)mapEntry.getKey()).getValue());
+            else if(mapEntry.getValue() =="*"){
+                indicator.setValue(indicator.getValue() * ((AbstractElement)mapEntry.getKey()).getValue());
             }
         }
     }

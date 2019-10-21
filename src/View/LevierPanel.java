@@ -17,7 +17,7 @@ public class LevierPanel extends JPanel implements ElementObserver {
         _EC = EC;
         _name = name;
         Dimension DimButton = new Dimension(100, 30);
-        _labelValue = new JLabel(String.valueOf(EC.get_Element(name).getValue()));
+        _labelValue = new JLabel(String.valueOf(EC.getElement(name).getValue()));
         _labelValue.setPreferredSize(DimButton);
         _labelValue.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -27,7 +27,7 @@ public class LevierPanel extends JPanel implements ElementObserver {
         JButton JBMoins = new JButton(new AbstractAction("moins") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                EC.get_Element(name).setValue(EC.get_Element(name).getValue() - 10000);
+                EC.getElement(name).setValue(EC.getElement(name).getValue() - 10000);
             }
         });
         JBMoins.setPreferredSize(DimButton);
@@ -38,16 +38,16 @@ public class LevierPanel extends JPanel implements ElementObserver {
         JButton JBPlus = new JButton(new AbstractAction("plus") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                EC.get_Element(name).setValue(EC.get_Element(name).getValue() + 10000);
+                EC.getElement(name).setValue(EC.getElement(name).getValue() + 10000);
             }
         });
         JBPlus.setPreferredSize(DimButton);
         this.add(JBPlus);
-        EC.get_Element(name).add(this);
+        EC.getElement(name).add(this);
     }
 
     @Override
     public void update(long value) {
-        _labelValue.setText(String.valueOf(_EC.get_Element(_name).getValue()));
+        _labelValue.setText(String.valueOf(_EC.getElement(_name).getValue()));
     }
 }
