@@ -14,7 +14,7 @@ public abstract class Observable {
         _observers.add(observer);
     }
 
-    public void notifyObservers(int value) {  //DETERMINER LES PARAMETER
+    public void notifyObservers(long value) {  //DETERMINER LES PARAMETER
         for (ElementObserver observer : _observers)
             observer.update(value);
     }

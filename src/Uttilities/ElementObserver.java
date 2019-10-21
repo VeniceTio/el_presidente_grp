@@ -1,5 +1,5 @@
 package Uttilities;
 
 public interface ElementObserver {
-    public abstract void update(int value);
+    public abstract void update(long value);
 }

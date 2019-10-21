@@ -13,9 +13,9 @@ public class Levier extends AbstractElement{
         _influencer.add(indic);
     }
 
-
+    public String toString(){return this.get_name() + " : "+this.getValue();}
     @Override
-    public void setValue(int value){
+    public void setValue(long value){
         _oldValue = _value;
         _value = value;
         for (Indicateur indic:_influencer) {

@@ -47,7 +47,7 @@ public class LevierPanel extends JPanel implements ElementObserver {
     }
 
     @Override
-    public void update(int value) {
+    public void update(long value) {
         _labelValue.setText(String.valueOf(_EC.get_Element(_name).getValue()));
     }
 }

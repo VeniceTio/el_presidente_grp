@@ -4,25 +4,25 @@ import Uttilities.Observable;
 
 import java.util.Collection;
 
-public class AbstractElement extends Observable {
+public class AbstractElement extends Observable implements Time{
     private String _name;
-    int _value;
-    int _oldValue;
+    long _value;
+    long _oldValue;
     private Collection<AbstractElement> _history;
 
-    public AbstractElement(String name, int value){
+    public AbstractElement(String name, long value){
         _name = name;
         _value = value;
     }
-    public void setValue(int value){
+    public void setValue(long value){
         this._oldValue = _value;
         this._value = value;
         notifyObservers(value);
     }
-    public int getOldValue(){
+    public long getOldValue(){
         return _oldValue;
     }
-    public int getValue(){
+    public long getValue(){
         return this._value;
     }
     public String get_name() {
@@ -31,5 +31,10 @@ public class AbstractElement extends Observable {
 
     public Collection<AbstractElement> get_history() {
         return _history;
+    }
+
+    @Override
+    public void ClockForvard() {
+
     }
 }

@@ -6,8 +6,11 @@ public class Root {
     public Root(){
         ElementControl EC = new ElementControl();
         /** Création Indicateur **/
-        Indicateur argent_disponible = EC.createIndicateur("argent_disponible",0, new Argent());
-        Indicateur nombre_professeur = EC.createIndicateur("nombre_professeur",0, new NombreProfesseur());
+        Indicateur argent_disponible = EC.createIndicateur("argent disponible",0, new Argent(),true);
+        Indicateur nombre_professeur = EC.createIndicateur("nombre de professeur",0, new NombreProfesseur(),false);
+        Indicateur nombre_eleve = EC.createIndicateur("nombre d'élève",50000, new NombreProfesseur(),false);//50 000 étudiants pour commencer comme à strasbourg
+        Indicateur qualite_formation = EC.createIndicateur("qualité de la formation",50, new NombreProfesseur(),false);
+        Indicateur revenue_inscription = EC.createIndicateur("revenue des inscription",1, new Argent(),false);
 
         /** Création famille de levier **/
         FamilleLevier Central = new FamilleLevier("Central");
@@ -16,11 +19,11 @@ public class Root {
         FamilleLevier Recherche = new FamilleLevier("Recherche");
 
         /** Création Levier categorie Central **/
-        Levier cPrimes = EC.createLevier("cPrimes",15000);
-        Levier cComm = EC.createLevier("cComm",72000);
-        Levier cAdmin = EC.createLevier("cAdmin",10000000);
-        Levier cEvenement = EC.createLevier("cEvenement",1000000);
-        Levier cSubAssoc = EC.createLevier("cSubAssoc",1000000);
+        Levier cPrimes = EC.createLevier("Primes",15000);
+        Levier cComm = EC.createLevier("Communication",72000);
+        Levier cAdmin = EC.createLevier("Administration",10000000);
+        Levier cEvenement = EC.createLevier("Evenement",1000000);
+        Levier cSubAssoc = EC.createLevier("Subvention association",1000000);
         Central.addLevier(cPrimes);
         Central.addLevier(cComm);
         Central.addLevier(cEvenement);
@@ -28,21 +31,21 @@ public class Root {
         Central.addLevier(cSubAssoc);
 
         /** Création Levier categorie Immobilier **/
-        Levier iConstruction = EC.createLevier("iConstruction",20000000);
-        Levier iEntretien = EC.createLevier("iEntretien",60000000);
-        Levier iRenovation = EC.createLevier("iRenovation",80000000);
+        Levier iConstruction = EC.createLevier("Construction",20000000);
+        Levier iEntretien = EC.createLevier("Entretien",60000000);
+        Levier iRenovation = EC.createLevier("Renovation",80000000);
         Immobilier.addLevier(iConstruction);
         Immobilier.addLevier(iEntretien);
         Immobilier.addLevier(iRenovation);
 
         /** Création Levier categorie formation **/
-        Levier fContractuel = EC.createLevier("fContractuel", 20000000);
-        Levier fTitulaire = EC.createLevier("fTitulaire", 18000000);
-        Levier fDotRecur = EC.createLevier("fDotRecur", 180000);
-        Levier fDotSpe = EC.createLevier("fDotSpe", 180000);
-        Levier fPrimes = EC.createLevier("fPrimes", 10000);
-        Levier fPartenariats = EC.createLevier("fPartenaria", 200);
-        Levier fFraisInscri = EC.createLevier("fFraisInscri", 1800);
+        Levier fContractuel = EC.createLevier("Contractuel", 20000000);
+        Levier fTitulaire = EC.createLevier("Titulaire", 18000000);
+        Levier fDotRecur = EC.createLevier("Dotation Recurente", 180000);
+        Levier fDotSpe = EC.createLevier("Dotation Specifique", 180000);
+        Levier fPrimes = EC.createLevier("Primes", 10000);
+        Levier fPartenariats = EC.createLevier("Partenariat", 200);
+        Levier fFraisInscri = EC.createLevier("Frais d'inscription", 1800);
         Formation.addLevier(fContractuel);
         Formation.addLevier(fTitulaire);
         Formation.addLevier(fDotRecur);
@@ -52,12 +55,12 @@ public class Root {
         Formation.addLevier(fFraisInscri);
 
         /** Création Levier categorie recherche **/
-        Levier rContractuel = EC.createLevier("rContractuel", 20000000);
-        Levier rTitulaire = EC.createLevier("rTitulaire", 18000000);
-        Levier rDotRecur = EC.createLevier("rDotRecur", 180000);
-        Levier rDotSpe = EC.createLevier("rDotSpe", 18000);
-        Levier rPrimes = EC.createLevier("rPrimes", 20000000);
-        Levier rValorisation = EC.createLevier("rValorisation", 180000);
+        Levier rContractuel = EC.createLevier("Contractuel", 20000000);
+        Levier rTitulaire = EC.createLevier("Titulaire", 18000000);
+        Levier rDotRecur = EC.createLevier("Dotation recurente", 180000);
+        Levier rDotSpe = EC.createLevier("Dotation specifique", 18000);
+        Levier rPrimes = EC.createLevier("Primes", 20000);
+        Levier rValorisation = EC.createLevier("Valorisation", 180000);
         Recherche.addLevier(rContractuel);
         Recherche.addLevier(rTitulaire);
         Recherche.addLevier(rDotRecur);
@@ -65,30 +68,39 @@ public class Root {
         Recherche.addLevier(rPrimes);
         Recherche.addLevier(rValorisation);
 
-        Levier subEtat = EC.createLevier("subEtat",283000000);
+        Levier subEtat = EC.createLevier("subvention de l'état",283000000);
 
         /** Ajout des facteurs de l'argent_disponible **/
-        /** Manque facteur immobillier et frais d'inscription +revenue valorisation **/
-        argent_disponible.addFacteur(fContractuel,"-");
-        argent_disponible.addFacteur(fTitulaire,"-");
-        argent_disponible.addFacteur(fPrimes,"-");
+        /** Manque frais d'inscription +revenue valorisation **/
+        argent_disponible.addFacteur(fContractuel,"-");//20M soit 40M par an
+        argent_disponible.addFacteur(fTitulaire,"-");//18M soit 36M par an
+        argent_disponible.addFacteur(fPrimes,"-2");//10 000
 
-        argent_disponible.addFacteur(rContractuel,"-");
-        argent_disponible.addFacteur(rTitulaire,"-");
-        argent_disponible.addFacteur(rPrimes,"-");
+        argent_disponible.addFacteur(rContractuel,"-");//20M soit 40M par an
+        argent_disponible.addFacteur(rTitulaire,"-");//20M soit 40M par an
+        argent_disponible.addFacteur(rPrimes,"-2");//20 000
 
-        argent_disponible.addFacteur(iConstruction,"-");
-        argent_disponible.addFacteur(iEntretien,"-");
-        argent_disponible.addFacteur(iRenovation,"-");
+        argent_disponible.addFacteur(iConstruction,"-2");//20M
+        argent_disponible.addFacteur(iEntretien,"-2");//60M
+        argent_disponible.addFacteur(iRenovation,"-2");//80M
 
-        argent_disponible.addFacteur(subEtat,"+");
+        //total perte pas année 40M+36M+10 000+40M+40M+20M+60M+80M = 316 030 000 €
 
-        /** Ajout des facteurs de l'argent_disponible **/
+        argent_disponible.addFacteur(subEtat,"+2");//283M
+        argent_disponible.addFacteur(revenue_inscription,"+2");//283M
+
+        /** Ajout des facteurs du nombre de professeur**/
         nombre_professeur.addFacteur(fContractuel,"28800");
         nombre_professeur.addFacteur(fTitulaire,"57600");
 
         nombre_professeur.addFacteur(rContractuel,"30800");
         nombre_professeur.addFacteur(rTitulaire,"60600");
+
+        /** Ajout des facteurs du nombre de d'élève **/
+
+        /** Ajout des facteurs du revenue inscription **/
+        revenue_inscription.addFacteur(fFraisInscri,"*");
+        revenue_inscription.addFacteur(nombre_eleve,"*");
 
         /** Ajout Famille Levier au ElementControl **/
         EC.addGroupe(Central);
@@ -96,7 +108,7 @@ public class Root {
         EC.addGroupe(Formation);
         EC.addGroupe(Recherche);
 
-        /** Ajout du listener argent_disponible**/
+        /** Ajout du listener argent_disponible **/
         fContractuel.addInfluencer(argent_disponible);
         fTitulaire.addInfluencer(argent_disponible);
         fPrimes.addInfluencer(argent_disponible);
@@ -113,9 +125,16 @@ public class Root {
         rContractuel.addInfluencer(nombre_professeur);
         rTitulaire.addInfluencer(nombre_professeur);
 
+        /** Ajout du listener revenue inscription**/
+        fFraisInscri.addInfluencer(revenue_inscription);
+
         /** Calcul valeur indicateur**/
+        revenue_inscription.initValue();
         argent_disponible.initValue();
         nombre_professeur.initValue();
+
+        Semestre.getInstance().ClockForvard();
+        System.out.println("argent disponible : " + argent_disponible.getValue());
 
         /** View **/
         ProvisoryView view = new ProvisoryView(EC);

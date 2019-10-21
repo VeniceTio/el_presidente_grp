@@ -40,12 +40,19 @@ public class ProvisoryView extends PresidentView {
         //On passe ensuite les onglets au content pane
         this.getContentPane().add(onglet);
 
-        IndicPanelDyn panelNbProf = new IndicPanelDyn("nombre_professeur",EC);
-        IndicPanelDyn panelArgent = new IndicPanelDyn("argent_disponible",EC);
+        IndicPanelDyn panelNbProf = new IndicPanelDyn("nombre de professeur",EC);
+        IndicPanelDyn panelArgent = new IndicPanelDyn("argent disponible",EC);
+        JButton ButtonClock = new JButton( new AbstractAction("Next Semestre") {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                EC.ClockForvard();
+            }
+        });
         JPanel indicateurPan = new JPanel();
         indicateurPan.setLayout(new FlowLayout());
         indicateurPan.add(panelNbProf);
         indicateurPan.add(panelArgent);
+        indicateurPan.add(ButtonClock);
         indicateurPan.setVisible(true);
         this.getContentPane().add(indicateurPan, BorderLayout.SOUTH);
 

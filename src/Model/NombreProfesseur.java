@@ -6,8 +6,8 @@ public class NombreProfesseur implements AbstractFormule{
 
     @Override
     public void majOneValue(Indicateur indicateur, Levier levier) {
-        int oldValue = levier.getOldValue();
-        int IndicValue = indicateur.getValue()-(oldValue/(Integer.parseInt(indicateur.getFormule().get(levier))));
+        long oldValue = levier.getOldValue();
+        long IndicValue = indicateur.getValue()-(oldValue/(Integer.parseInt(indicateur.getFormule().get(levier))));
         System.out.println(IndicValue);
         indicateur.setValue(IndicValue + (levier.getValue()/(Integer.parseInt(indicateur.getFormule().get(levier)))));
     }
@@ -20,4 +20,5 @@ public class NombreProfesseur implements AbstractFormule{
             indicateur.setValue(indicateur.getValue()+(((Levier)mapEntry.getKey()).getValue()/(Integer.parseInt((String)mapEntry.getValue()))));
         }
     }
+    public void clockforward(){}
 }

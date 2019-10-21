@@ -21,7 +21,7 @@ public class IndicPanelDyn  extends JPanel implements ElementObserver {
         }
 
         @Override
-        public void update(int value) {
+        public void update(long value) {
             _labelValue1.setText(_EC.get_Element(_name).toString());
         }
     }
