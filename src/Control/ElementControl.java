@@ -9,11 +9,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ElementControl implements Time{
+
     private Collection<FamilleLevier> _groupes = new ArrayList<FamilleLevier>();
     private Map<String, AbstractElement> _MapElement = new HashMap<String, AbstractElement>();
     private ArrayList<Indicateur> _indicateurs = new ArrayList<Indicateur>();
 
-    public ElementControl(){}
+    private static ElementControl Instance = null;
+
+    private ElementControl(){}
+    public static ElementControl getInstance(){
+        if(Instance == null){
+            Instance = new ElementControl();
+        }
+        return Instance;
+    }
     public void addGroupe(FamilleLevier GL){
         this._groupes.add(GL);
     }
@@ -23,6 +32,7 @@ public class ElementControl implements Time{
     public AbstractElement get_Element(String name) {
         return _MapElement.get(name);
     }
+
 
     public Indicateur createIndicateur(String name, int value, AbstractFormule AF,Boolean statique){
         Indicateur indic = new Indicateur(name,value,AF,statique);

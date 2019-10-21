@@ -2,6 +2,7 @@ package View;
 
 import Control.ElementControl;
 import Model.FamilleLevier;
+import Model.Semestre;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,15 +15,15 @@ public class ProvisoryView extends PresidentView {
     private ElementControl _EC;
     private JTabbedPane onglet;
 
-    public ProvisoryView(ElementControl EC) {
+    public ProvisoryView() {
         super();
-        this._EC = EC;
+        this._EC = ElementControl.getInstance();
 
         this.setLocationRelativeTo(null);
 
         //Création de plusieurs Panneau
         Collection<GroupeLevier> tPan = new ArrayList<GroupeLevier>();
-        for(FamilleLevier GL : EC.getGroupes()){
+        for(FamilleLevier GL : _EC.getGroupes()){
             tPan.add(new GroupeLevier(GL,_EC));
         }
 
@@ -39,20 +40,14 @@ public class ProvisoryView extends PresidentView {
         }
         //On passe ensuite les onglets au content pane
         this.getContentPane().add(onglet);
-
-        IndicPanelDyn panelNbProf = new IndicPanelDyn("nombre de professeur",EC);
-        IndicPanelDyn panelArgent = new IndicPanelDyn("argent disponible",EC);
-        JButton ButtonClock = new JButton( new AbstractAction("Next Semestre") {
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                EC.ClockForvard();
-            }
-        });
+        JPanel PanelSemestre = new JPanel();
+        IndicPanelDyn panelNbProf = new IndicPanelDyn("nombre de professeur");
+        IndicPanelDyn panelArgent = new IndicPanelDyn("argent disponible");
         JPanel indicateurPan = new JPanel();
         indicateurPan.setLayout(new FlowLayout());
         indicateurPan.add(panelNbProf);
         indicateurPan.add(panelArgent);
-        indicateurPan.add(ButtonClock);
+        indicateurPan.add(new SemestreView());
         indicateurPan.setVisible(true);
         this.getContentPane().add(indicateurPan, BorderLayout.SOUTH);
 

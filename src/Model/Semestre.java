@@ -1,6 +1,8 @@
 package Model;
 
-public class Semestre implements Time{
+import Uttilities.Observable;
+
+public class Semestre extends Observable implements Time{
     private int _nbrSemestre = 0;
     private static Semestre Instance = null;
     private Semestre(){}
@@ -14,5 +16,7 @@ public class Semestre implements Time{
     @Override
     public void ClockForvard() {
     _nbrSemestre++;
+    notifyObservers(_nbrSemestre);
     }
+    public String toString(){return "Semestre n°"+_nbrSemestre;}
 }

@@ -4,7 +4,7 @@ import View.ProvisoryView;
 
 public class Root {
     public Root(){
-        ElementControl EC = new ElementControl();
+        ElementControl EC = ElementControl.getInstance();
         /** Création Indicateur **/
         Indicateur argent_disponible = EC.createIndicateur("argent disponible",0, new Argent(),true);
         Indicateur nombre_professeur = EC.createIndicateur("nombre de professeur",0, new NombreProfesseur(),false);
@@ -19,11 +19,11 @@ public class Root {
         FamilleLevier Recherche = new FamilleLevier("Recherche");
 
         /** Création Levier categorie Central **/
-        Levier cPrimes = EC.createLevier("Primes",15000);
-        Levier cComm = EC.createLevier("Communication",72000);
-        Levier cAdmin = EC.createLevier("Administration",10000000);
-        Levier cEvenement = EC.createLevier("Evenement",1000000);
-        Levier cSubAssoc = EC.createLevier("Subvention association",1000000);
+        Levier cPrimes = EC.createLevier("Primes pour la central",0);
+        Levier cComm = EC.createLevier("Communication",0);
+        Levier cAdmin = EC.createLevier("Administration",0);
+        Levier cEvenement = EC.createLevier("Evenement",0);
+        Levier cSubAssoc = EC.createLevier("Subvention association",0);
         Central.addLevier(cPrimes);
         Central.addLevier(cComm);
         Central.addLevier(cEvenement);
@@ -41,10 +41,10 @@ public class Root {
         /** Création Levier categorie formation **/
         Levier fContractuel = EC.createLevier("Contractuel", 20000000);
         Levier fTitulaire = EC.createLevier("Titulaire", 18000000);
-        Levier fDotRecur = EC.createLevier("Dotation Recurente", 180000);
-        Levier fDotSpe = EC.createLevier("Dotation Specifique", 180000);
-        Levier fPrimes = EC.createLevier("Primes", 10000);
-        Levier fPartenariats = EC.createLevier("Partenariat", 200);
+        Levier fDotRecur = EC.createLevier("Dotation Recurente", 0);
+        Levier fDotSpe = EC.createLevier("Dotation Specifique", 0);
+        Levier fPrimes = EC.createLevier("Primes de formation", 10000);
+        Levier fPartenariats = EC.createLevier("Partenariat", 0);
         Levier fFraisInscri = EC.createLevier("Frais d'inscription", 1800);
         Formation.addLevier(fContractuel);
         Formation.addLevier(fTitulaire);
@@ -57,10 +57,10 @@ public class Root {
         /** Création Levier categorie recherche **/
         Levier rContractuel = EC.createLevier("Contractuel", 20000000);
         Levier rTitulaire = EC.createLevier("Titulaire", 18000000);
-        Levier rDotRecur = EC.createLevier("Dotation recurente", 180000);
-        Levier rDotSpe = EC.createLevier("Dotation specifique", 18000);
-        Levier rPrimes = EC.createLevier("Primes", 20000);
-        Levier rValorisation = EC.createLevier("Valorisation", 180000);
+        Levier rDotRecur = EC.createLevier("Dotation recurente", 0);
+        Levier rDotSpe = EC.createLevier("Dotation specifique", 0);
+        Levier rPrimes = EC.createLevier("Primes de recherche", 20000);
+        Levier rValorisation = EC.createLevier("Valorisation", 0);
         Recherche.addLevier(rContractuel);
         Recherche.addLevier(rTitulaire);
         Recherche.addLevier(rDotRecur);
@@ -80,9 +80,9 @@ public class Root {
         argent_disponible.addFacteur(rTitulaire,"-");//20M soit 40M par an
         argent_disponible.addFacteur(rPrimes,"-2");//20 000
 
-        argent_disponible.addFacteur(iConstruction,"-2");//20M
-        argent_disponible.addFacteur(iEntretien,"-2");//60M
-        argent_disponible.addFacteur(iRenovation,"-2");//80M
+        argent_disponible.addFacteur(iConstruction,"-");//20M
+        argent_disponible.addFacteur(iEntretien,"-");//60M
+        argent_disponible.addFacteur(iRenovation,"-");//80M
 
         //total perte pas année 40M+36M+10 000+40M+40M+20M+60M+80M = 316 030 000 €
 
@@ -137,7 +137,7 @@ public class Root {
         System.out.println("argent disponible : " + argent_disponible.getValue());
 
         /** View **/
-        ProvisoryView view = new ProvisoryView(EC);
+        ProvisoryView view = new ProvisoryView();
     }
     public static void main(String[] args){
         new Root();
