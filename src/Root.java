@@ -6,69 +6,69 @@ public class Root {
     public Root(){
         ElementControl EC = ElementControl.getInstance();
         /** Création Indicateur **/
-        Indicateur argent_disponible = EC.createIndicateur("argent disponible",0, new Argent(),true);
-        Indicateur nombre_professeur = EC.createIndicateur("nombre de professeur",0, new NombreProfesseur(),false);
-        Indicateur nombre_eleve = EC.createIndicateur("nombre d'élève",50000, new NombreProfesseur(),false);//50 000 étudiants pour commencer comme à strasbourg
-        Indicateur qualite_formation = EC.createIndicateur("qualité de la formation",50, new NombreProfesseur(),false);
-        Indicateur revenue_inscription = EC.createIndicateur("revenue des inscription",1, new Argent(),false);
+        Indicator argent_disponible = EC.createIndicator("argent disponible",0, new Argent(),true);
+        Indicator nombre_professeur = EC.createIndicator("nombre de professeur",0, new NombreProfesseur(),false);
+        Indicator nombre_eleve = EC.createIndicator("nombre d'élève",50000, new NombreProfesseur(),false);//50 000 étudiants pour commencer comme à strasbourg
+        Indicator qualite_formation = EC.createIndicator("qualité de la formation",50, new NombreProfesseur(),false);
+        Indicator revenue_inscription = EC.createIndicator("revenue des inscription",1, new Argent(),false);
 
         /** Création famille de levier **/
-        FamilleLevier Central = new FamilleLevier("Central");
-        FamilleLevier Immobilier = new FamilleLevier("Immobilier");
-        FamilleLevier Formation = new FamilleLevier("Formation");
-        FamilleLevier Recherche = new FamilleLevier("Recherche");
+        LeverFamily Central = new LeverFamily("Central");
+        LeverFamily Immobilier = new LeverFamily("Immobilier");
+        LeverFamily Formation = new LeverFamily("Formation");
+        LeverFamily Recherche = new LeverFamily("Recherche");
 
         /** Création Levier categorie Central **/
-        Levier cPrimes = EC.createLevier("Primes pour la central",0);
-        Levier cComm = EC.createLevier("Communication",0);
-        Levier cAdmin = EC.createLevier("Administration",0);
-        Levier cEvenement = EC.createLevier("Evenement",0);
-        Levier cSubAssoc = EC.createLevier("Subvention association",0);
-        Central.addLevier(cPrimes);
-        Central.addLevier(cComm);
-        Central.addLevier(cEvenement);
-        Central.addLevier(cAdmin);
-        Central.addLevier(cSubAssoc);
+        Lever cPrimes = EC.createLever("Primes pour la central",0);
+        Lever cComm = EC.createLever("Communication",0);
+        Lever cAdmin = EC.createLever("Administration",0);
+        Lever cEvenement = EC.createLever("Evenement",0);
+        Lever cSubAssoc = EC.createLever("Subvention association",0);
+        Central.addLever(cPrimes);
+        Central.addLever(cComm);
+        Central.addLever(cEvenement);
+        Central.addLever(cAdmin);
+        Central.addLever(cSubAssoc);
 
         /** Création Levier categorie Immobilier **/
-        Levier iConstruction = EC.createLevier("Construction",20000000);
-        Levier iEntretien = EC.createLevier("Entretien",60000000);
-        Levier iRenovation = EC.createLevier("Renovation",80000000);
-        Immobilier.addLevier(iConstruction);
-        Immobilier.addLevier(iEntretien);
-        Immobilier.addLevier(iRenovation);
+        Lever iConstruction = EC.createLever("Construction",20000000);
+        Lever iEntretien = EC.createLever("Entretien",60000000);
+        Lever iRenovation = EC.createLever("Renovation",80000000);
+        Immobilier.addLever(iConstruction);
+        Immobilier.addLever(iEntretien);
+        Immobilier.addLever(iRenovation);
 
         /** Création Levier categorie formation **/
-        Levier fContractuel = EC.createLevier("Contractuel", 20000000);
-        Levier fTitulaire = EC.createLevier("Titulaire", 18000000);
-        Levier fDotRecur = EC.createLevier("Dotation Recurente", 0);
-        Levier fDotSpe = EC.createLevier("Dotation Specifique", 0);
-        Levier fPrimes = EC.createLevier("Primes de formation", 10000);
-        Levier fPartenariats = EC.createLevier("Partenariat", 0);
-        Levier fFraisInscri = EC.createLevier("Frais d'inscription", 1800);
-        Formation.addLevier(fContractuel);
-        Formation.addLevier(fTitulaire);
-        Formation.addLevier(fDotRecur);
-        Formation.addLevier(fDotSpe);
-        Formation.addLevier(fPrimes);
-        Formation.addLevier(fPartenariats);
-        Formation.addLevier(fFraisInscri);
+        Lever fContractuel = EC.createLever("Contractuel", 20000000);
+        Lever fTitulaire = EC.createLever("Titulaire", 18000000);
+        Lever fDotRecur = EC.createLever("Dotation Recurente", 0);
+        Lever fDotSpe = EC.createLever("Dotation Specifique", 0);
+        Lever fPrimes = EC.createLever("Primes de formation", 10000);
+        Lever fPartenariats = EC.createLever("Partenariat", 0);
+        Lever fFraisInscri = EC.createLever("Frais d'inscription", 1800);
+        Formation.addLever(fContractuel);
+        Formation.addLever(fTitulaire);
+        Formation.addLever(fDotRecur);
+        Formation.addLever(fDotSpe);
+        Formation.addLever(fPrimes);
+        Formation.addLever(fPartenariats);
+        Formation.addLever(fFraisInscri);
 
         /** Création Levier categorie recherche **/
-        Levier rContractuel = EC.createLevier("Contractuel", 20000000);
-        Levier rTitulaire = EC.createLevier("Titulaire", 18000000);
-        Levier rDotRecur = EC.createLevier("Dotation recurente", 0);
-        Levier rDotSpe = EC.createLevier("Dotation specifique", 0);
-        Levier rPrimes = EC.createLevier("Primes de recherche", 20000);
-        Levier rValorisation = EC.createLevier("Valorisation", 0);
-        Recherche.addLevier(rContractuel);
-        Recherche.addLevier(rTitulaire);
-        Recherche.addLevier(rDotRecur);
-        Recherche.addLevier(rDotSpe);
-        Recherche.addLevier(rPrimes);
-        Recherche.addLevier(rValorisation);
+        Lever rContractuel = EC.createLever("Contractuel", 20000000);
+        Lever rTitulaire = EC.createLever("Titulaire", 18000000);
+        Lever rDotRecur = EC.createLever("Dotation recurente", 0);
+        Lever rDotSpe = EC.createLever("Dotation specifique", 0);
+        Lever rPrimes = EC.createLever("Primes de recherche", 20000);
+        Lever rValorisation = EC.createLever("Valorisation", 0);
+        Recherche.addLever(rContractuel);
+        Recherche.addLever(rTitulaire);
+        Recherche.addLever(rDotRecur);
+        Recherche.addLever(rDotSpe);
+        Recherche.addLever(rPrimes);
+        Recherche.addLever(rValorisation);
 
-        Levier subEtat = EC.createLevier("subvention de l'état",283000000);
+        Lever subEtat = EC.createLever("subvention de l'état",283000000);
 
         /** Ajout des facteurs de l'argent_disponible **/
         /** Manque frais d'inscription +revenue valorisation **/
@@ -103,10 +103,10 @@ public class Root {
         revenue_inscription.addFacteur(nombre_eleve,"*");
 
         /** Ajout Famille Levier au ElementControl **/
-        EC.addGroupe(Central);
-        EC.addGroupe(Immobilier);
-        EC.addGroupe(Formation);
-        EC.addGroupe(Recherche);
+        EC.addFamilyLever(Central);
+        EC.addFamilyLever(Immobilier);
+        EC.addFamilyLever(Formation);
+        EC.addFamilyLever(Recherche);
 
         /** Ajout du listener argent_disponible **/
         fContractuel.addInfluencer(argent_disponible);

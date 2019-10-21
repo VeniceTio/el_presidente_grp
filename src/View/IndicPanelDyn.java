@@ -14,14 +14,14 @@ public class IndicPanelDyn  extends JPanel implements ElementObserver {
             super();
             _EC = ElementControl.getInstance();
             _name = name;
-            _labelValue1 = new JLabel(_EC.get_Element(_name).toString());
-            System.out.println(_EC.get_Element(_name).toString());
+            _labelValue1 = new JLabel(_EC.getElement(_name).toString());
+            System.out.println(_EC.getElement(_name).toString());
             this.add(_labelValue1);
-            _EC.get_Element(name).add(this);
+            _EC.getElement(name).add(this);
         }
 
         @Override
         public void update(long value) {
-            _labelValue1.setText(_EC.get_Element(_name).toString());
+            _labelValue1.setText(_EC.getElement(_name).toString());
         }
     }
