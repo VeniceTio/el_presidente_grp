@@ -38,7 +38,7 @@ public class Semestre extends Observable implements Time{
     @Override
     public void ClockForvard() {
     _nbrSemestre++;
-    notifyObservers(_nbrSemestre);
+    notifyObservers();
     }
 
     /**

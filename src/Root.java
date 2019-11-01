@@ -8,9 +8,11 @@ public class Root {
         /** Création Indicateur **/
         Indicator argent_disponible = EC.createIndicator("argent disponible",0, new Argent(),true);
         Indicator nombre_professeur = EC.createIndicator("nombre de professeur",0, new NombreProfesseur(),false);
-        Indicator nombre_eleve = EC.createIndicator("nombre d'élève",50000, new NombreProfesseur(),false);//50 000 étudiants pour commencer comme à strasbourg
-        Indicator qualite_formation = EC.createIndicator("qualité de la formation",50, new NombreProfesseur(),false);
+        Indicator nombre_eleve = EC.createIndicator("nombre d'étudiant",50000, new NombreEleve(),false);//50 000 étudiants pour commencer comme à strasbourg
         Indicator revenue_inscription = EC.createIndicator("revenue des inscription",1, new Argent(),false);
+
+        Indicator qualite_formation = EC.createIndicator("qualité de la formation",75, new NombreProfesseur(),true);
+        Indicator satisfation_etudiante = EC.createIndicator("satisfaction étudiante",75,new pourcentSatisfaction(),false);
 
         /** Création famille de levier **/
         LeverFamily Central = new LeverFamily("Central");
@@ -31,7 +33,7 @@ public class Root {
         Central.addLever(cSubAssoc);
 
         /** Création Levier categorie Immobilier **/
-        Lever iConstruction = EC.createLever("Construction",20000000);
+        Lever iConstruction = EC.createLever("Construction",0);
         Lever iEntretien = EC.createLever("Entretien",60000000);
         Lever iRenovation = EC.createLever("Renovation",80000000);
         Immobilier.addLever(iConstruction);
@@ -68,17 +70,17 @@ public class Root {
         Recherche.addLever(rPrimes);
         Recherche.addLever(rValorisation);
 
-        Lever subEtat = EC.createLever("subvention de l'état",283000000);
+        Lever subEtat = EC.createLever("subvention de l'état",150000000);
 
         /** Ajout des facteurs de l'argent_disponible **/
         /** Manque frais d'inscription +revenue valorisation **/
         argent_disponible.addFacteur(fContractuel,"-");//20M soit 40M par an
         argent_disponible.addFacteur(fTitulaire,"-");//18M soit 36M par an
-        argent_disponible.addFacteur(fPrimes,"-2");//10 000
+        argent_disponible.addFacteur(fPrimes,"-");//10 000
 
         argent_disponible.addFacteur(rContractuel,"-");//20M soit 40M par an
         argent_disponible.addFacteur(rTitulaire,"-");//20M soit 40M par an
-        argent_disponible.addFacteur(rPrimes,"-2");//20 000
+        argent_disponible.addFacteur(rPrimes,"-");//20 000
 
         argent_disponible.addFacteur(iConstruction,"-");//20M
         argent_disponible.addFacteur(iEntretien,"-");//60M
@@ -86,8 +88,8 @@ public class Root {
 
         //total perte pas année 40M+36M+10 000+40M+40M+20M+60M+80M = 316 030 000 €
 
-        argent_disponible.addFacteur(subEtat,"+2");//283M
-        argent_disponible.addFacteur(revenue_inscription,"+2");//283M
+        argent_disponible.addFacteur(subEtat,"+");//150M
+        argent_disponible.addFacteur(revenue_inscription,"+");//283M
 
         /** Ajout des facteurs du nombre de professeur**/
         nombre_professeur.addFacteur(fContractuel,"28800");
@@ -101,6 +103,15 @@ public class Root {
         /** Ajout des facteurs du revenue inscription **/
         revenue_inscription.addFacteur(fFraisInscri,"*");
         revenue_inscription.addFacteur(nombre_eleve,"*");
+
+        /** Ajout des facteurs de la satisfaction des étudiants **/
+        satisfation_etudiante.addFacteur(iConstruction,"s");//bonus Spontané
+        satisfation_etudiante.addFacteur(iEntretien,"r");//regulier
+        satisfation_etudiante.addFacteur(iRenovation,"r");
+        satisfation_etudiante.addFacteur(qualite_formation,"3");
+
+        /** Ajout des facteurs de la qualité de formation **/
+
 
         /** Ajout Famille Levier au ElementControl **/
         EC.addFamilyLever(Central);
@@ -128,10 +139,16 @@ public class Root {
         /** Ajout du listener revenue inscription**/
         fFraisInscri.addInfluencer(revenue_inscription);
 
+        /** Ajout du listener satisfaction étudiante**/
+        iConstruction.addInfluencer(satisfation_etudiante);
+        iEntretien.addInfluencer(satisfation_etudiante);
+        iRenovation.addInfluencer(satisfation_etudiante);
+
         /** Calcul valeur indicateur**/
         revenue_inscription.initValue();
         argent_disponible.initValue();
         nombre_professeur.initValue();
+        satisfation_etudiante.initValue();
 
         Semestre.getInstance().ClockForvard();
         System.out.println("argent disponible : " + argent_disponible.getValue());

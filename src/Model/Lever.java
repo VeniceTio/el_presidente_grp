@@ -43,6 +43,6 @@ public class Lever extends AbstractElement{
         for (Indicator indic: _influencers) {
             indic.MajOneValue(this);
         }
-        notifyObservers(value);
+        notifyObservers();
     }
 }

@@ -43,16 +43,6 @@ public class Argent implements AbstractFormula {
             else if (mapEntry.getValue()=="-"){
                 indicator.setValue(indicator.getValue() - ((AbstractElement)mapEntry.getKey()).getValue());
             }
-            else if ( mapEntry.getValue() =="+2"){
-                if (Semestre.getInstance().getSemestre()%2==0){
-                    indicator.setValue(indicator.getValue() + ((AbstractElement) mapEntry.getKey()).getValue());
-                }
-            }
-            else if ( mapEntry.getValue() =="-2"){
-                if (Semestre.getInstance().getSemestre()%2==0){
-                    indicator.setValue(indicator.getValue() - ((AbstractElement)mapEntry.getKey()).getValue());
-                }
-            }
             else if(mapEntry.getValue() =="*"){
                 indicator.setValue(indicator.getValue() * ((AbstractElement)mapEntry.getKey()).getValue());
             }

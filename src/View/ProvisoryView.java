@@ -11,13 +11,20 @@ import java.util.Collection;
 public class ProvisoryView extends PresidentView {
 
     private ElementControl _EC;
-    private JTabbedPane onglet;
+    private JPanel onglet;
 
     public ProvisoryView() {
         super();
         this._EC = ElementControl.getInstance();
 
         this.setLocationRelativeTo(null);
+        this.setLayout(new GridLayout(1,2,10,10));
+
+        JPanel levers = new JPanel();
+        JPanel infos = new JPanel();
+
+
+        levers.setBorder(BorderFactory.createMatteBorder(1,1,1,1,Color.RED));
 
         //Création de plusieurs Panneau
         Collection<GroupeLevier> tPan = new ArrayList<GroupeLevier>();
@@ -27,7 +34,9 @@ public class ProvisoryView extends PresidentView {
 
 
         //Création de notre conteneur d'onglets
-        onglet = new JTabbedPane();
+        onglet = new JPanel();
+        onglet.setLayout(new BoxLayout(onglet, BoxLayout.Y_AXIS));
+        onglet.setBorder(BorderFactory.createMatteBorder(1,1,1,1,Color.BLACK));
         int i = 0;
         for(GroupeLevier pan : tPan){
             //Méthode d'ajout d'onglet
@@ -37,17 +46,32 @@ public class ProvisoryView extends PresidentView {
 
         }
         //On passe ensuite les onglets au content pane
-        this.getContentPane().add(onglet);
-        JPanel PanelSemestre = new JPanel();
+        levers.add(onglet);
+        this.getContentPane().add(levers);
+
+        //ajout partie droite
+        JPanel RightPan = new JPanel();
+        RightPan.setLayout(new GridLayout(2,1,10,10));
+        this.getContentPane().add(RightPan);
+
         IndicPanelDyn panelNbProf = new IndicPanelDyn("nombre de professeur");
+        IndicPanelDyn panelNbEtudiant = new IndicPanelDyn("nombre d'étudiant");
+        IndicPanelDyn panelSatisfactionEtudiant = new IndicPanelDyn("satisfaction étudiante");
         IndicPanelDyn panelArgent = new IndicPanelDyn("argent disponible");
+
+
         JPanel indicateurPan = new JPanel();
-        indicateurPan.setLayout(new FlowLayout());
+        indicateurPan.setLayout(new BoxLayout(indicateurPan, BoxLayout.Y_AXIS));
+
         indicateurPan.add(panelNbProf);
+        indicateurPan.add(panelNbEtudiant);
+        indicateurPan.add(panelSatisfactionEtudiant);
         indicateurPan.add(panelArgent);
+
         indicateurPan.add(new SemestreView());
+        RightPan.add(indicateurPan);
         indicateurPan.setVisible(true);
-        this.getContentPane().add(indicateurPan, BorderLayout.SOUTH);
+
 
         this.setVisible(true);
         /**

@@ -73,6 +73,6 @@ public class Indicator extends AbstractElement{
         if (_statique){
             initValue();
         }
-
+        notifyObservers();
     }
 }
