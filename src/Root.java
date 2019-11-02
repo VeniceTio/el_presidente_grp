@@ -71,7 +71,7 @@ public class Root {
         Recherche.addLever(rPrimes);
         Recherche.addLever(rValorisation);
 
-        Lever subEtat = EC.createLever("rsubvention de l'état",150000000);
+        Lever subEtat = EC.createLever("rsubvention de l'état",120000000);
 
         /** Ajout des facteurs de l'argent_disponible **/
         /** Manque frais d'inscription +revenue valorisation **/

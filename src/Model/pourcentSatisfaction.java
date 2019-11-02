@@ -1,5 +1,7 @@
 package Model;
 
+import View.IndicPanelDyn;
+
 import java.util.Map;
 
 public class pourcentSatisfaction implements AbstractFormula {
@@ -59,13 +61,27 @@ public class pourcentSatisfaction implements AbstractFormula {
     }
     @Override
     public void updateByOneLever(Indicator indicator, Lever lever) {
+        long dif;
         if(indicator.getFormula().get(lever) =="3"){
-            indicator.setValue(indicator.getValue() + ((lever.getOldValue()/3)-(lever.getValue()/3)));
+            if (lever.getOldValue() < lever.getValue()) {
+                dif = ((lever.getValue() / 3) - (lever.getOldValue() / 3));
+                indicator.setValue(indicator.getValue() + dif);
+            }
+            else {
+                dif = (lever.getOldValue() / 3) - (lever.getValue() / 3);
+                indicator.setValue(indicator.getValue() - dif);
+            }
         }
         else{
+
             long oldValue = getPoint(lever.getOldValue(),indicator.getFormula().get(lever));
-            long IndicValue = getPoint(lever.getValue(),indicator.getFormula().get(lever));;
-            indicator.setValue(indicator.getValue()+(oldValue-IndicValue));
+            long IndicValue = getPoint(lever.getValue(),indicator.getFormula().get(lever));
+            if (oldValue < IndicValue) {
+                indicator.setValue(indicator.getValue()+(IndicValue-oldValue));
+            }
+            else{
+                indicator.setValue(indicator.getValue()-(oldValue-IndicValue));
+            }
         }
         //System.out.println(oldValue);
         if (indicator.getValue()>100){
@@ -75,6 +91,7 @@ public class pourcentSatisfaction implements AbstractFormula {
 
     @Override
     public void updateByLevers(Indicator indicator) {
+        indicator.setValue(0);
         for (Map.Entry mapEntry : indicator.getFormula().entrySet()) {
             //System.out.println(mapEntry);
             if ( mapEntry.getValue() =="s") {
