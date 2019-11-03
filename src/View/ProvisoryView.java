@@ -64,6 +64,7 @@ public class ProvisoryView extends PresidentView {
         IndicPanelDyn panelValBien = new IndicPanelDyn("valorisation bien");
         IndicPanelDyn panelValImmob = new IndicPanelDyn("valorisation batiment");
         IndicPanelDyn panelEtatBat = new IndicPanelDyn("état des batiments");
+        IndicPanelDyn panelChargeTravail = new IndicPanelDyn("charge de travail");
 
         JPanel indicateurPan = new JPanel();
         indicateurPan.setLayout(new BoxLayout(indicateurPan, BoxLayout.Y_AXIS));
@@ -72,6 +73,7 @@ public class ProvisoryView extends PresidentView {
         indicateurPan.add(panelNbEtudiant);
         indicateurPan.add(panelSatisfactionEtudiant);
         indicateurPan.add(panelSatisfactionProf);
+        indicateurPan.add(panelChargeTravail);
         indicateurPan.add(panelQualiteFormation);
         indicateurPan.add(panelEtatBat);
         indicateurPan.add(panelValBien);

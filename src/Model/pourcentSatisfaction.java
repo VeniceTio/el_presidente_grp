@@ -96,10 +96,32 @@ public class pourcentSatisfaction implements AbstractFormula {
             }
             else if(mapEntry.getValue() =="3"){
                 indicator.setValue(indicator.getValue() + (((AbstractElement)mapEntry.getKey()).getValue()/3));
+
+            }
+            else if (mapEntry.getValue() =="25"){
+                long rapport = ((AbstractElement) mapEntry.getKey()).getValue();
+                System.out.println("##########");
+                System.out.println("#   "+rapport+"   #");
+                System.out.println("##########");
+                if (rapport<11){
+                    indicator.setValue(indicator.getValue() + (100/3));
+                }
+                else if (rapport<21){
+                    indicator.setValue(indicator.getValue() + ((-rapport+110)/3));
+                }
+                else if (rapport<31){
+                    indicator.setValue(indicator.getValue() + ((-4*rapport+170)/3));
+                }
+                else{
+                    indicator.setValue(indicator.getValue() + ((-5*rapport+200)/3));
+                }
             }
         }
         if (indicator.getValue()>100){
             indicator.setValue(100);
+        }
+        if (indicator.getValue()<0){
+            indicator.setValue(0);
         }
     }
 }

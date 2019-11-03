@@ -11,9 +11,9 @@ public class Root {
         Indicator nombre_eleve = EC.createIndicator("nombre d'étudiant",50000, new NombreEleve(),false);//50 000 étudiants pour commencer comme à strasbourg
         Indicator revenue_inscription = EC.createIndicator("revenue des inscription",1, new Argent(),false);
 
-        Indicator qualite_formation = EC.createIndicator("qualité de la formation",75, new qualiteFormation(),true); //revoir avec état de l'immobilier
-        Indicator satisfation_etudiante = EC.createIndicator("satisfaction étudiante",75,new pourcentSatisfaction(),false);
-        Indicator satisfation_professeur = EC.createIndicator("satisfaction professeur",75,new pourcentSatisfaction(),false);
+        Indicator qualite_formation = EC.createIndicator("qualité de la formation",75, new qualiteFormation(),true);
+        Indicator satisfation_etudiante = EC.createIndicator("satisfaction étudiante",75,new pourcentSatisfaction(),true);
+        Indicator satisfation_professeur = EC.createIndicator("satisfaction professeur",75,new pourcentSatisfaction(),true);
         Indicator charge_de_travail = EC.createIndicator("charge de travail",0,new rapport(),true);
 
         Indicator val_batiment = EC.createIndicator("valorisation batiment",1000000000,new degradation(),true);
@@ -40,7 +40,7 @@ public class Root {
 
         /** Création Levier categorie Immobilier **/
         Lever iConstruction = EC.createLever("iConstruction",0);
-        Lever iEntretien = EC.createLever("iEntretien",20000000);
+        Lever iEntretien = EC.createLever("iEntretien",200000);
         Lever iRenovation = EC.createLever("iRenovation",0);
         Immobilier.addLever(iConstruction);
         Immobilier.addLever(iEntretien);
@@ -116,7 +116,8 @@ public class Root {
         satisfation_etudiante.addFacteur(qualite_formation,"3");
 
         /** Ajout des facteurs de la satisfaction professeur **/
-        satisfation_etudiante.addFacteur(etat_batiment,"3");
+        satisfation_professeur.addFacteur(etat_batiment,"3");
+        satisfation_professeur.addFacteur(charge_de_travail,"25");
 
         /** Ajout des facteurs de la charge de travail **/
         charge_de_travail.addFacteur(nombre_eleve,"sur");
@@ -170,9 +171,11 @@ public class Root {
         revenue_inscription.initValue();
         argent_disponible.initValue();
         nombre_professeur.initValue();
-        satisfation_etudiante.initValue();
         qualite_formation.initValue();
         charge_de_travail.initValue();
+        satisfation_etudiante.initValue();
+        satisfation_professeur.initValue();
+
 
         Semestre.getInstance().ClockForvard();
         System.out.println("argent disponible : " + argent_disponible.getValue());

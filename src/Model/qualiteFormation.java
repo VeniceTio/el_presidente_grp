@@ -12,7 +12,7 @@ public class qualiteFormation implements AbstractFormula {
     public void updateByLevers(Indicator indicator) {
         System.out.println("######################################################\n");
         float nbEleveProf = ElementControl.getInstance().getElement("nombre d'étudiant").getValue()/ElementControl.getInstance().getElement("nombre de professeur").getValue();
-        float coef = 4+(1-(ElementControl.getInstance().getElement("satisfaction professeur").getValue()/100));
+        float coef = 4+(1-((float)(ElementControl.getInstance().getElement("satisfaction professeur").getValue()/100.0)));
         float soust = (nbEleveProf*coef)-100;
         if (soust<0){
             soust=0;
