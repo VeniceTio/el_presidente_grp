@@ -11,9 +11,14 @@ public class Root {
         Indicator nombre_eleve = EC.createIndicator("nombre d'étudiant",50000, new NombreEleve(),false);//50 000 étudiants pour commencer comme à strasbourg
         Indicator revenue_inscription = EC.createIndicator("revenue des inscription",1, new Argent(),false);
 
-        Indicator qualite_formation = EC.createIndicator("qualité de la formation",75, new qualiteFormation(),true);
+        Indicator qualite_formation = EC.createIndicator("qualité de la formation",75, new qualiteFormation(),true); //revoir avec état de l'immobilier
         Indicator satisfation_etudiante = EC.createIndicator("satisfaction étudiante",75,new pourcentSatisfaction(),false);
         Indicator satisfation_professeur = EC.createIndicator("satisfaction professeur",75,new pourcentSatisfaction(),false);
+        Indicator charge_de_travail = EC.createIndicator("charge de travail",0,new rapport(),true);
+
+        Indicator val_batiment = EC.createIndicator("valorisation batiment",1000000000,new degradation(),true);
+        Indicator val_bien = EC.createIndicator("valorisation bien",1000000000,new neutre(),false);
+        Indicator etat_batiment = EC.createIndicator("état des batiments",100,new neutre(),true);
 
         /** Création famille de levier **/
         LeverFamily Central = new LeverFamily("Central");
@@ -35,7 +40,7 @@ public class Root {
 
         /** Création Levier categorie Immobilier **/
         Lever iConstruction = EC.createLever("iConstruction",0);
-        Lever iEntretien = EC.createLever("iEntretien",60000000);
+        Lever iEntretien = EC.createLever("iEntretien",20000000);
         Lever iRenovation = EC.createLever("iRenovation",0);
         Immobilier.addLever(iConstruction);
         Immobilier.addLever(iEntretien);
@@ -48,7 +53,7 @@ public class Root {
         Lever fDotSpe = EC.createLever("fDotation Specifique", 0);
         Lever fPrimes = EC.createLever("fPrimes de formation", 10000);
         Lever fPartenariats = EC.createLever("fPartenariat", 0);
-        Lever fFraisInscri = EC.createLever("fFrais d'inscription", 1800);
+        Lever fFraisInscri = EC.createLever("fFrais d'inscription", 3000);
         Formation.addLever(fContractuel);
         Formation.addLever(fTitulaire);
         Formation.addLever(fDotRecur);
@@ -71,7 +76,7 @@ public class Root {
         Recherche.addLever(rPrimes);
         Recherche.addLever(rValorisation);
 
-        Lever subEtat = EC.createLever("rsubvention de l'état",120000000);
+        Lever subEtat = EC.createLever("rsubvention de l'état",200000000);
 
         /** Ajout des facteurs de l'argent_disponible **/
         /** Manque frais d'inscription +revenue valorisation **/
@@ -106,14 +111,23 @@ public class Root {
         revenue_inscription.addFacteur(nombre_eleve,"*");
 
         /** Ajout des facteurs de la satisfaction des étudiants **/
-        satisfation_etudiante.addFacteur(iConstruction,"s");//bonus Spontané
-        satisfation_etudiante.addFacteur(iEntretien,"r");//regulier
-        satisfation_etudiante.addFacteur(iRenovation,"s");
+        satisfation_etudiante.addFacteur(etat_batiment,"3");
         satisfation_etudiante.addFacteur(cSubAssoc,"r");
         satisfation_etudiante.addFacteur(qualite_formation,"3");
 
+        /** Ajout des facteurs de la satisfaction professeur **/
+        satisfation_etudiante.addFacteur(etat_batiment,"3");
+
+        /** Ajout des facteurs de la charge de travail **/
+        charge_de_travail.addFacteur(nombre_eleve,"sur");
+        charge_de_travail.addFacteur(nombre_professeur,"/");
+
         /** Ajout des facteurs de la qualité de formation **/
 
+        /** Ajout des facteurs de la valorisation des batiments **/
+        val_batiment.addFacteur(iConstruction,"+");
+        val_batiment.addFacteur(iRenovation,"+");
+        val_batiment.addFacteur(iEntretien,"/");
 
         /** Ajout Famille Levier au ElementControl **/
         EC.addFamilyLever(Central);
@@ -149,6 +163,8 @@ public class Root {
 
         /** Ajout du listener qualite formation**/
 
+        /** Ajout listener etat batiment**/
+
 
         /** Calcul valeur indicateur**/
         revenue_inscription.initValue();
@@ -156,6 +172,7 @@ public class Root {
         nombre_professeur.initValue();
         satisfation_etudiante.initValue();
         qualite_formation.initValue();
+        charge_de_travail.initValue();
 
         Semestre.getInstance().ClockForvard();
         System.out.println("argent disponible : " + argent_disponible.getValue());
