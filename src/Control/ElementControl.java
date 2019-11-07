@@ -20,19 +20,17 @@ public class ElementControl implements Time{
      * Liste contenant les indicateurs de l'application
      */
     private ArrayList<AbstractElement> _elements = new ArrayList<AbstractElement>();
-
     /**
      * Attribut contenant l'instance de la classe
      */
     private static ElementControl _instance = null;
-
     /**
      * Constructeur de la classe ElementControl
      */
     private ElementControl(){}
 
     /**
-     * Méthode permet de créer l'instance de la classe
+     * Méthode permettant de créer l'instance de la classe
      * @return l'instance de la classe
      */
     public static ElementControl getInstance(){
@@ -43,7 +41,7 @@ public class ElementControl implements Time{
     }
 
     /**
-     * Méthode permet d'ajouter une famille de levier à la liste des familles de levier
+     * Méthode permettant d'ajouter une famille de levier à la liste des familles de levier
      * @param fl la famille de levier qu'on doit ajouter
      */
     public void addFamilyLever(LeverFamily fl){
@@ -51,7 +49,7 @@ public class ElementControl implements Time{
     }
 
     /**
-     * Méthode renvoie toutes les familles de leviers
+     * Méthode permettant de renvoyer toutes les familles de leviers
      * @return les familles de leviers
      */
     public Collection<LeverFamily> getFamilyLevers() {
@@ -59,7 +57,7 @@ public class ElementControl implements Time{
     }
 
     /**
-     * Méthode permet de renvoyer un indicateur ou un levier en fonction de son nom
+     * Méthode permettant de renvoyer un indicateur ou un levier en fonction de son nom
      * @param name la nom de l'indicateur/levier qu'on doit retourner
      * @return l'indicateur/levier correspondant au nom du paramètre
      */
@@ -68,11 +66,11 @@ public class ElementControl implements Time{
     }
 
     /**
-     * Méthode permet de créer un nouvelle indicateur
+     * Méthode permettant de créer un nouvelle indicateur
      * @param name le nom de l'indicateur
      * @param value la valeur de l'indicateur
      * @param af la formule utilisé pour l'indicateur qui vient d'être créer
-     * @param boolStatic: paramètre permettant de savoir si c'est statique ou pas
+     * @param boolStatic: paramètre permettant de savoir si l'indicateur statique ou pas (lors du clockForward: passage au semestre suivant, ce booléen permettra de savoir on met à jour l'indicateur ou pas)
      * @return l'indicateur qu'on vient de créer
      */
     public Indicator createIndicator(String name, int value, AbstractFormula af, Boolean boolStatic){
@@ -83,7 +81,7 @@ public class ElementControl implements Time{
     }
 
     /**
-     * Méthode permet de créer un nouveau levier
+     * Méthode permettant de créer un nouveau levier
      * @param name le nom du levier
      * @param value la valeur du levier
      * @return le levier qu'on vient de créer

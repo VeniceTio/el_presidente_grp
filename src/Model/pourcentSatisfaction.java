@@ -5,6 +5,12 @@ import View.IndicPanelDyn;
 import java.util.Map;
 
 public class pourcentSatisfaction implements AbstractFormula {
+    /**
+     * Méthode permettant de renvoyer le nombre de point en fonction de la grandeur de la valeurç
+     * @param value la valeur qu'on doit traiter
+     * @param chaine l'option de traitement
+     * @return
+     */
     public long getPoint(long value, String chaine){
         long nbPoint = 0;
         if (chaine=="r"){
@@ -34,6 +40,12 @@ public class pourcentSatisfaction implements AbstractFormula {
         }
         return nbPoint;
     }
+
+    /**
+     * Méthode permettant de mettre à jour une valeur de l'indicateur à partir d'un levier
+     * @param indicator l'indicateur sur lequelle agit le levier
+     * @param lever le levier qui agit sur l'indicateur
+     */
     @Override
     public void updateByOneLever(Indicator indicator, Lever lever) {
         long dif;
@@ -64,6 +76,10 @@ public class pourcentSatisfaction implements AbstractFormula {
         }
     }
 
+    /**
+     * Méthode permettant de mettre à jour la valeur de l'indicateur à partir de ses leviers
+     * @param indicator l'indicateur sur lequelles les leviers agit
+     */
     @Override
     public void updateByLevers(Indicator indicator) {
         indicator.setValue(0);
