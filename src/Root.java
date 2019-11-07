@@ -20,6 +20,10 @@ public class Root {
         Indicator val_bien = EC.createIndicator("valorisation bien",1000000000,new neutre(),false);
         Indicator etat_batiment = EC.createIndicator("état des batiments",100,new neutre(),true);
 
+        Indicator taux_réussite = EC.createIndicator("taux de réussite",0,new taux(),true);
+        Indicator reputation_formation = EC.createIndicator("réputation de formation",0,new taux(),true);
+        Indicator taux_insertion_pro = EC.createIndicator("taux d'insertion profesionnel'",0,new taux(),true);
+
         /** Création famille de levier **/
         LeverFamily Central = new LeverFamily("Central");
         LeverFamily Immobilier = new LeverFamily("Immobilier");
