@@ -26,10 +26,9 @@ public abstract class Observable {
 
     /**
      * Méthode permettant de notifier tous les observers
-     * @param value
      */
-    public void notifyObservers(long value) {  //DETERMINER LES PARAMETER
+    public void notifyObservers() {  //DETERMINER LES PARAMETER
         for (ElementObserver observer : _observers)
-            observer.update(value);
+            observer.update();
     }
 }

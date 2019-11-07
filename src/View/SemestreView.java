@@ -25,7 +25,7 @@ public class SemestreView extends JPanel implements ElementObserver {
     }
 
     @Override
-    public void update(long value) {
+    public void update() {
         _labelValue1.setText(Semestre.getInstance().toString());
     }
 }

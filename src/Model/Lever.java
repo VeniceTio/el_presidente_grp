@@ -30,7 +30,7 @@ public class Lever extends AbstractElement{
      * Méthode renvoyant le nom et la valeur du levier
      * @return la chaîne affichant le nom et la valeur
      */
-    public String toString(){return get_name() + " : "+ getValue();}
+    public String toString(){return get_name().substring(1) + " : "+ getValue();}
 
     /**
      * Méthode permettant de mettre à jour la valeur du levier
@@ -43,6 +43,6 @@ public class Lever extends AbstractElement{
         for (Indicator indic: _influencers) {
             indic.MajOneValue(this);
         }
-        notifyObservers(value);
+        notifyObservers();
     }
 }

@@ -17,9 +17,9 @@ public class ElementControl implements Time{
      */
     private Map<String, AbstractElement> _mapElement = new HashMap<String, AbstractElement>();
     /**
-     * Liste contenant les les indicateurs de l'application
+     * Liste contenant les indicateurs de l'application
      */
-    private ArrayList<Indicator> _indicators = new ArrayList<Indicator>();
+    private ArrayList<AbstractElement> _elements = new ArrayList<AbstractElement>();
 
     /**
      * Attribut contenant l'instance de la classe
@@ -78,7 +78,7 @@ public class ElementControl implements Time{
     public Indicator createIndicator(String name, int value, AbstractFormula af, Boolean boolStatic){
         Indicator indicator = new Indicator(name, value, af, boolStatic);
         _mapElement.put(name, indicator);
-        _indicators.add(indicator);
+        _elements.add(indicator);
         return indicator;
     }
 
@@ -91,6 +91,7 @@ public class ElementControl implements Time{
     public Lever createLever(String name, int value){
         Lever lever = new Lever(name, value);
         _mapElement.put(name,lever);
+        _elements.add(lever);
         return lever;
     }
 
@@ -99,9 +100,10 @@ public class ElementControl implements Time{
      */
     @Override
     public void ClockForvard() {
-        for(Indicator indic : _indicators){
-            indic.ClockForvard();
-        }
         Semestre.getInstance().ClockForvard();
+        for(AbstractElement element : _elements){
+            element.ClockForvard();
+        }
+
     }
 }

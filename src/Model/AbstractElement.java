@@ -2,6 +2,7 @@ package Model;
 
 import Uttilities.Observable;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class AbstractElement extends Observable implements Time{
@@ -20,7 +21,7 @@ public class AbstractElement extends Observable implements Time{
     /**
      * collection contenant les anciennes valeurs des AbstractElement
      */
-    private Collection<AbstractElement> _history;
+    private ArrayList<Long> _history = new ArrayList<Long>();
 
     /**
      * Cette méthode permet de créer une instance de la classe AbstractElement
@@ -30,6 +31,7 @@ public class AbstractElement extends Observable implements Time{
     public AbstractElement(String name, long value){
         _name = name;
         _value = value;
+        _history.add(value);
     }
 
     /**
@@ -39,7 +41,7 @@ public class AbstractElement extends Observable implements Time{
     public void setValue(long value){
         _oldValue = _value;
         _value = value;
-        notifyObservers(value);
+        notifyObservers();
     }
 
     /**
@@ -58,6 +60,10 @@ public class AbstractElement extends Observable implements Time{
         return _value;
     }
 
+    public long getLastValue(){
+        return _history.get(Semestre.getInstance().getSemestre()-1);
+    }
+
     /**
      * Méthode permettant de renvoyer le nom de l'AbstractElement
      * @return le nom de l'indicateur ou du levier
@@ -70,7 +76,7 @@ public class AbstractElement extends Observable implements Time{
      * Méthode renvoyant la collection contenant l'historique des valeurs de l'AbstractElement
      * @return collection des valeurs de l'AbstractElement
      */
-    public Collection<AbstractElement> get_history() {
+    public Collection<Long> get_history() {
         return _history;
     }
 
@@ -79,6 +85,7 @@ public class AbstractElement extends Observable implements Time{
      */
     @Override
     public void ClockForvard() {
-
+        _history.add(this.getValue());
+        notifyObservers();
     }
 }
