@@ -25,7 +25,7 @@ public class taux implements AbstractFormula {
             }
             else if (mapEntry.getValue() == "40c2") {
                 indicator.setValue(indicator.getValue() + courbe2(valMap,0.4));
-                //System.out.println(((AbstractElement) mapEntry.getKey()).get_name() + " coeff 0.4 courbe 2 val : "+ valMap + "\n val courbe : "+courbe2(valMap,0.4));
+                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() + " coeff 0.4 courbe 2 val : "+ valMap + "\n val courbe : "+courbe2(valMap,0.4));
             }
             else if (mapEntry.getValue() == "40/100") {
                     indicator.setValue(indicator.getValue() + (long) (valMap * 0.4));
@@ -60,6 +60,7 @@ public class taux implements AbstractFormula {
         }
         else if (value <=200000){
             valCourbe = (long)(((250/1000000)*value)*coef);
+            valCourbe = new BigDecimal(250).divide(new BigDecimal(1000000)).multiply(new BigDecimal(value)).multiply(new BigDecimal(coef)).longValue();
         }
         else if (value <=300000){
             valCourbe = (long)((((475/1000000)*value)+45)*coef);
