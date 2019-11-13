@@ -12,7 +12,7 @@ public class Semestre extends Observable implements Time{
      */
     private static Semestre Instance = null;
     /**
-     * Méthode qui est le constructeur de la classe
+     * Méthode permettant de créer une instance de class Semestre
      */
     private Semestre(){}
     /**
@@ -42,7 +42,7 @@ public class Semestre extends Observable implements Time{
     }
 
     /**
-     * Méthode renvoyant le nom et la valeur du levier
+     * Méthode permettant d'afficher le nombre de semestre en cours
      * @return la chaîne affichant le nom et la valeur
      */
     public String toString(){return "Semestre n°"+_nbrSemestre;}
