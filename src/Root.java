@@ -23,8 +23,7 @@ public class Root {
         /*
         Indicator taux_réussite = EC.createIndicator("taux de réussite",0,new taux(),true);
         Indicator reputation_formation = EC.createIndicator("réputation de formation",0,new taux(),true);
-        Indicator taux_insertion_pro = EC.createIndicator("taux d'insertion profesionnel'",0,new taux(),true);
-        */
+        Indicator taux_insertion_pro = EC.createIndicator("taux d'insertion profesionnel",0,new taux(),true);
 
         /** Création famille de levier **/
         LeverFamily Central = new LeverFamily("Central");
@@ -136,6 +135,21 @@ public class Root {
         val_batiment.addFacteur(iRenovation,"+");
         val_batiment.addFacteur(iEntretien,"/");
 
+        /** Ajout des facteurs du taux de réussite **/
+        taux_réussite.addFacteur(satisfation_professeur,"40/100");
+        taux_réussite.addFacteur(fDotRecur,"40c2");
+        taux_réussite.addFacteur(fDotSpe,"20c1");
+
+        /** Ajout des facteurs de la réputation de formation **/
+        reputation_formation.addFacteur(taux_réussite,"40/100");
+        reputation_formation.addFacteur(cComm,"40c2");
+        reputation_formation.addFacteur(fDotSpe,"20c1");
+
+        /** Ajout des facteurs du taux d'insertion profesionnel **/
+        taux_insertion_pro.addFacteur(reputation_formation,"30/100");
+        taux_insertion_pro.addFacteur(cComm,"35c2");
+        taux_insertion_pro.addFacteur(cEvenement,"35c3");
+
         /** Ajout Famille Levier au ElementControl **/
         EC.addFamilyLever(Central);
         EC.addFamilyLever(Immobilier);
@@ -168,10 +182,6 @@ public class Root {
         iRenovation.addInfluencer(satisfation_etudiante);
         cSubAssoc.addInfluencer(satisfation_etudiante);
 
-        /** Ajout du listener qualite formation**/
-
-        /** Ajout listener etat batiment**/
-
 
         /** Calcul valeur indicateur**/
         revenue_inscription.initValue();
@@ -181,6 +191,10 @@ public class Root {
         charge_de_travail.initValue();
         satisfation_etudiante.initValue();
         satisfation_professeur.initValue();
+
+        taux_réussite.initValue();
+        reputation_formation.initValue();
+        taux_insertion_pro.initValue();
 
 
         Semestre.getInstance().ClockForvard();

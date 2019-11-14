@@ -41,7 +41,7 @@ public class LevierPanel extends JPanel implements ElementObserver {
         JButton JBMoins = new JButton(new AbstractAction("moins") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                EC.getElement(name).setValue(EC.getElement(name).getValue() - 10000);
+                EC.getElement(name).setValue(EC.getElement(name).getValue() - 50000);
             }
         });
         JBMoins.setPreferredSize(DimButton);
@@ -52,7 +52,7 @@ public class LevierPanel extends JPanel implements ElementObserver {
         JButton JBPlus = new JButton(new AbstractAction("plus") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                EC.getElement(name).setValue(EC.getElement(name).getValue() + 10000);
+                EC.getElement(name).setValue(EC.getElement(name).getValue() + 50000);
             }
         });
         JBPlus.setPreferredSize(DimButton);
