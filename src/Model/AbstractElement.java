@@ -24,7 +24,7 @@ public class AbstractElement extends Observable implements Time{
     private ArrayList<Long> _history = new ArrayList<Long>();
 
     /**
-     * Cette méthode permet de créer une instance de la classe AbstractElement
+     * Méthode permettant de créer une instance de la classe AbstractElement
      * @param name le nom de l'AbstractElement
      * @param value la valeur de l'AbstractElement
      */
@@ -36,7 +36,7 @@ public class AbstractElement extends Observable implements Time{
 
     /**
      * Méthode permettant de changer la valeur de l'AbstractElement avec une nouvelle valeur
-     * @param value la nouvelle valeur de l'indicateur/levier
+     * @param value la nouvelle valeur de l'AbstractElement
      */
     public void setValue(long value){
         _oldValue = _value;
@@ -46,7 +46,7 @@ public class AbstractElement extends Observable implements Time{
 
     /**
      * Méthode permettant de renvoyer l'ancienne valeur de l'AbstractElement
-     * @return l'ancienne valeur de l'indicateur/levier
+     * @return l'ancienne valeur de l'AbstractElement
      */
     public long getOldValue(){
         return _oldValue;
@@ -60,6 +60,10 @@ public class AbstractElement extends Observable implements Time{
         return _value;
     }
 
+    /**
+     * Méthode permettant de renvoyer la valeur de l'AbstractElement du semestre précédent
+     * @return la valeur de l'AbstractElement du semestre précédent
+     */
     public long getLastValue(){
         return _history.get(Semestre.getInstance().getSemestre()-1);
     }
@@ -73,7 +77,7 @@ public class AbstractElement extends Observable implements Time{
     }
 
     /**
-     * Méthode renvoyant la collection contenant l'historique des valeurs de l'AbstractElement
+     * Méthode permettant de renvoyer la collection contenant l'historique des valeurs de l'AbstractElement
      * @return collection des valeurs de l'AbstractElement
      */
     public Collection<Long> get_history() {

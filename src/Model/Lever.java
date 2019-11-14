@@ -27,14 +27,14 @@ public class Lever extends AbstractElement{
     }
 
     /**
-     * Méthode renvoyant le nom et la valeur du levier
+     * Méthode permettant d'afficher le nom et la valeur du levier
      * @return la chaîne affichant le nom et la valeur
      */
     public String toString(){return get_name().substring(1) + " : "+ getValue();}
 
     /**
      * Méthode permettant de mettre à jour la valeur du levier
-     * @param value la nouvelle valeur de l'indicateur/levier
+     * @param value la nouvelle valeur du levier
      */
     @Override
     public void setValue(long value){

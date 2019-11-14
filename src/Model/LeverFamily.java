@@ -14,7 +14,7 @@ public class LeverFamily {
     private Collection<Lever> _levers = new ArrayList<Lever>();
 
     /**
-     * Méthode permettant de renvoyer le nom de la famille de levier
+     * Méthode permettant de créer une instance de la classe LeverFamily
      * @param name le nom de la famille de levier
      */
     public LeverFamily(String name){_name = name;}
@@ -34,6 +34,11 @@ public class LeverFamily {
     public Collection<Lever> getLevers(){
         return _levers;
     }
+
+    /**
+     * Méthode permettant de renvoyer le nom de la famille de levier
+     * @return le nom de la famille de levier
+     */
     public String getName(){
         return _name;
     }

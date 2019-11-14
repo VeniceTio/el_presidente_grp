@@ -13,7 +13,7 @@ public class Indicator extends AbstractElement{
      */
     private AbstractFormula _maj;
     /**
-     * Attribut permettant de savoir si l'indicateur est statique ou pas
+     * Attribut permettant de savoir si l'indicateur statique ou pas (lors du clockForward: passage au semestre suivant, ce booléen permettra de savoir on met à jour l'indicateur ou pas)
      */
     private Boolean _statique;
 
@@ -22,7 +22,7 @@ public class Indicator extends AbstractElement{
      * @param name le nom de l'indicateur
      * @param value la valeur de l'indicateur
      * @param maj la formule de l'indicateur
-     * @param status paramètre permettant de si l'indicateur est statique ou pas
+     * @param status paramètre permettant de savoir si l'indicateur statique ou pas (lors du clockForward: passage au semestre suivant, ce booléen permettra de savoir on met à jour l'indicateur ou pas)
      */
     public Indicator(String name, int value, AbstractFormula maj, Boolean status){
         super(name,value);
@@ -46,7 +46,7 @@ public class Indicator extends AbstractElement{
     public Map<AbstractElement, String> getFormula(){return _formula;}
 
     /**
-     * Méthode permettant de mettre à jour une valeur de l'indicateur à partir d'un levier
+     * Méthode permettant de mettre à jour la valeur de l'indicateur à partir d'un levier
      * @param lever le levier qui agit sur l'indicateur
      */
     public void MajOneValue(Lever lever){
@@ -61,7 +61,7 @@ public class Indicator extends AbstractElement{
     }
 
     /**
-     * Méthode renvoyant le nom et la valeur du levier
+     * Méthode permettant d'afficher le nom et la valeur de l'indicateur
      * @return la chaîne affichant le nom et la valeur
      */
     public String toString(){return this.get_name() + " : "+ this.getValue();}
