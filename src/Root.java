@@ -21,12 +21,12 @@ public class Root {
         Indicator etat_batiment = EC.createIndicator("état des batiments",100,new neutre(),true);
 
 
-        Indicator taux_réussite = EC.createIndicator("taux de réussite",0,new taux(),true);
-        Indicator reputation_formation = EC.createIndicator("réputation de formation",0,new taux(),true);
-        Indicator taux_insertion_pro = EC.createIndicator("taux d'insertion profesionnel",0,new taux(),true);
+        Indicator taux_réussite = EC.createIndicator("taux de réussite",0,new Taux(),true);
+        Indicator reputation_formation = EC.createIndicator("réputation de formation",0,new Taux(),true);
+        Indicator taux_insertion_pro = EC.createIndicator("taux d'insertion profesionnel",0,new Taux(),true);
 
-        Indicator taux_recherche_applique = EC.createIndicator("recherche appliqué",0,new taux(),true);
-        Indicator taux_recherche_fondamental = EC.createIndicator("recherche fondamental",0,new taux(),true);
+        Indicator taux_recherche_applique = EC.createIndicator("recherche appliqué",0,new Taux(),true);
+        Indicator taux_recherche_fondamental = EC.createIndicator("recherche fondamental",0,new Taux(),true);
 
         /**
         Indicator nombre_article_pub = EC.createIndicator("recherche appliqué",0,new nombre(),true);
@@ -161,16 +161,16 @@ public class Root {
         taux_insertion_pro.addFacteur(cEvenement,"35c3");
 
         /** Ajout des facteurs de la recherche fondamental **/
-        taux_insertion_pro.addFacteur(satisfation_professeur,"30/100");
-        taux_insertion_pro.addFacteur(etat_batiment,"25/100");//             <- à faire
-        taux_insertion_pro.addFacteur(rDotRecur,"18c4");//             <- à faire
-        taux_insertion_pro.addFacteur(rDotSpe,"27c4");//             <- à faire
+        taux_recherche_fondamental.addFacteur(satisfation_professeur,"30/100");
+        taux_recherche_fondamental.addFacteur(etat_batiment,"25/100");//             <- à faire
+        taux_recherche_fondamental.addFacteur(rDotRecur,"18c4");//             <- à faire
+        taux_recherche_fondamental.addFacteur(rDotSpe,"27c4");//             <- à faire
 
 
         /** Ajout des facteurs de la recherche appliqué **///                      <- verifier les coefficients
-        taux_insertion_pro.addFacteur(satisfation_professeur,"30/100");
-        taux_insertion_pro.addFacteur(etat_batiment,"25/100");//             <- à faire
-        taux_insertion_pro.addFacteur(rDotRecur,"30c4");//             <- à faire
+        taux_recherche_applique.addFacteur(satisfation_professeur,"30/100");
+        taux_recherche_applique.addFacteur(etat_batiment,"25/100");//             <- à faire
+        taux_recherche_applique.addFacteur(rDotRecur,"30c4");//             <- à faire
 
         /** Ajout Famille Levier au ElementControl **/
         EC.addFamilyLever(Central);
@@ -217,6 +217,9 @@ public class Root {
         taux_réussite.initValue();
         reputation_formation.initValue();
         taux_insertion_pro.initValue();
+
+        taux_recherche_applique.initValue();
+        taux_recherche_fondamental.initValue();
 
 
         Semestre.getInstance().ClockForvard();
