@@ -1,5 +1,7 @@
 package Model;
 
+import Control.ElementControl;
+
 import java.math.BigDecimal;
 import java.util.Map;
 
@@ -27,14 +29,6 @@ public class taux implements AbstractFormula {
                 indicator.setValue(indicator.getValue() + courbe2(valMap,0.4));
                 System.out.println(((AbstractElement) mapEntry.getKey()).get_name() + " coeff 0.4 courbe 2 val : "+ valMap + "\n val courbe : "+courbe2(valMap,0.4));
             }
-            else if (mapEntry.getValue() == "40/100") {
-                    indicator.setValue(indicator.getValue() + (long) (valMap * 0.4));
-                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 40/100 val : "+ (valMap * 0.4)+" "+valMap);
-                }
-            else if (mapEntry.getValue() == "30/100") {
-                indicator.setValue(indicator.getValue() + (long) (valMap * 0.3));
-                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 30/100 val : "+ (valMap * 0.3)+" "+valMap);
-                }
             else if (mapEntry.getValue() == "35c2") {
                 indicator.setValue(indicator.getValue() + courbe2(valMap,0.35));
                 System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.35 courbe 2 val : "+ valMap + "\n val courbe : "+courbe2(valMap,0.35));
@@ -43,6 +37,30 @@ public class taux implements AbstractFormula {
                 indicator.setValue(indicator.getValue() + courbe3(valMap,0.35));
                 System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.35 courbe 3 val : "+ valMap + "\n val courbe : "+courbe3(valMap,0.35));
                 }
+            else if (mapEntry.getValue() == "18c4") {
+                indicator.setValue(indicator.getValue() + courbe4(valMap,0.18));
+                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.18 courbe 4 val : "+ valMap + "\n val courbe : "+courbe4(valMap,0.18));
+            }
+            else if (mapEntry.getValue() == "27c4") {
+                indicator.setValue(indicator.getValue() + courbe4(valMap,0.27));
+                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.27 courbe 4 val : "+ valMap + "\n val courbe : "+courbe4(valMap,0.27));
+            }
+            else if (mapEntry.getValue() == "30c4") {
+                indicator.setValue(indicator.getValue() + courbe4(valMap,0.3));
+                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.18 courbe 3 val : "+ valMap + "\n val courbe : "+courbe4(valMap,0.3));
+            }
+            else if (mapEntry.getValue() == "40/100") {
+                indicator.setValue(indicator.getValue() + (long) (valMap * 0.4));
+                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 40/100 val : "+ (valMap * 0.4)+" "+valMap);
+            }
+            else if (mapEntry.getValue() == "30/100") {
+                indicator.setValue(indicator.getValue() + (long) (valMap * 0.3));
+                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 30/100 val : "+ (valMap * 0.3)+" "+valMap);
+            }
+            else if (mapEntry.getValue() == "25/100") {
+                indicator.setValue(indicator.getValue() + (long) (valMap * 0.25));
+                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 25/100 val : "+ (valMap * 0.25)+" "+valMap);
+            }
             }
 
             if (indicator.getValue() < 0) {
@@ -110,6 +128,33 @@ public class taux implements AbstractFormula {
         }
         else if (value <= 700000){
             valCourbe = (long)((((8.3333/1000000)*value)+94.16666)*coef);
+        }
+        else {
+            valCourbe = (long)(coef * 100);
+        }
+        return valCourbe;
+    }
+    public static long courbe4(long value,double coef){
+        long nb_prof_rec = ElementControl.getInstance().getElement("rContractuel").getValue()/27000+ElementControl.getInstance().getElement("rTitulaire").getValue()/34000;
+        value = value/nb_prof_rec;
+        long valCourbe;
+        if (value <0){
+            valCourbe = 0;
+        }
+        if (value <=4000){
+            valCourbe = (long)(((0.625/1000)*value)*coef);
+        }
+        else if (value <=6000){
+            valCourbe = (long)((((18.75/1000)*value)-72.5)*coef);
+        }
+        else if (value <=10000){
+            valCourbe = (long)((((7.5/1000)*value)-5)*coef);
+        }
+        else if (value <= 12000){
+            valCourbe = (long)((((1/100)*value)-30)*coef);
+        }
+        else if (value <= 22000){
+            valCourbe = (long)((((1/1000)*value)+78)*coef);
         }
         else {
             valCourbe = (long)(coef * 100);

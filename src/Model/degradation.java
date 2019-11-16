@@ -23,7 +23,7 @@ public class degradation implements AbstractFormula {
         long ent = ElementControl.getInstance().getElement("iEntretien").getValue();
         long ajout = 0;
         long ajoutR = 0;
-        float pourcent = (float)(ent)/(float)(val);
+        float pourcent = ((float)(ent)/(float)(val))*2;
         if (pourcent<0.1){
             indicator.setValue((long)(indicator.getValue()-(-5000000*pourcent+1000000)));
         }
