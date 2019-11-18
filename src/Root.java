@@ -25,13 +25,13 @@ public class Root {
         Indicator reputation_formation = EC.createIndicator("réputation de formation",0,new Taux(),true);
         Indicator taux_insertion_pro = EC.createIndicator("taux d'insertion profesionnel",0,new Taux(),true);
 
-        Indicator taux_recherche_applique = EC.createIndicator("recherche appliqué",0,new Taux(),true);
-        Indicator taux_recherche_fondamental = EC.createIndicator("recherche fondamental",0,new Taux(),true);
+        Indicator taux_recherche_appliquee = EC.createIndicator("recherche appliquée",0,new Taux(),true);
+        Indicator taux_recherche_fondamentale = EC.createIndicator("recherche fondamentale",0,new Taux(),true);
 
-        /**
-        Indicator nombre_article_pub = EC.createIndicator("recherche appliqué",0,new nombre(),true);
-        Indicator nombre_prix_nobel = EC.createIndicator("recherche fondamental",0,new nombre(),true);
 
+        Indicator nombre_article_pub = EC.createIndicator("nombre d'article publié",0,new Nombre(),true);
+        Indicator nombre_prix_nobel = EC.createIndicator("nombre de prix nobel",0,new Nombre(),true);
+/**
         Indicator revenue_valorisation = EC.createIndicator("revenue de valorisation",0,new revenue(),true);
         **/
 
@@ -64,7 +64,7 @@ public class Root {
         /** Création Levier categorie formation **/
         Lever fContractuel = EC.createLever("fContractuel", 20000000);     //20M
         Lever fTitulaire = EC.createLever("fTitulaire", 18000000);         //18M ================
-        Lever fDotRecur = EC.createLever("fDotation Recurente", 1000000);        //1M
+        Lever fDotRecur = EC.createLever("fDotation Recurrente", 1000000);        //1M
         Lever fDotSpe = EC.createLever("fDotation Specifique", 500000);         //0.5M
         Lever fPrimes = EC.createLever("fPrimes de formation", 10000);     //~
         Lever fPartenariats = EC.createLever("fPartenariat", 500000);           //0.5M
@@ -80,7 +80,7 @@ public class Root {
         /** Création Levier categorie recherche **/
         Lever rContractuel = EC.createLever("rContractuel", 33000000);     //30M   --> 1222   -->tot:1898
         Lever rTitulaire = EC.createLever("rTitulaire", 23000000);         //23M   --> 676           tot : 94M
-        Lever rDotRecur = EC.createLever("rDotation recurente", 20000000);        //20M
+        Lever rDotRecur = EC.createLever("rDotation recurrente", 20000000);        //20M
         Lever rDotSpe = EC.createLever("rDotation specifique", 20000000);         //20M
         Lever rPrimes = EC.createLever("rPrimes de recherche", 20000);     //~
         Lever rValorisation = EC.createLever("rValorisation", 0);          //~
@@ -91,7 +91,7 @@ public class Root {
         Recherche.addLever(rPrimes);
         Recherche.addLever(rValorisation);
 
-        Lever subEtat = EC.createLever("rsubvention de l'état",199000000);
+        Lever subEtat = EC.createLever("rsubvention de l'état",185000000);
 
         /** Ajout des facteurs de l'argent_disponible **/
         /** Manque frais d'inscription +revenue valorisation **/
@@ -161,16 +161,16 @@ public class Root {
         taux_insertion_pro.addFacteur(cEvenement,"35c3");
 
         /** Ajout des facteurs de la recherche fondamental **/
-        taux_recherche_fondamental.addFacteur(satisfation_professeur,"30/100");
-        taux_recherche_fondamental.addFacteur(etat_batiment,"25/100");//             <- à faire
-        taux_recherche_fondamental.addFacteur(rDotRecur,"18c4");//             <- à faire
-        taux_recherche_fondamental.addFacteur(rDotSpe,"27c4");//             <- à faire
+        taux_recherche_fondamentale.addFacteur(satisfation_professeur,"30/100");
+        taux_recherche_fondamentale.addFacteur(etat_batiment,"25/100");//             <- à faire
+        taux_recherche_fondamentale.addFacteur(rDotRecur,"18c4");//             <- à faire
+        taux_recherche_fondamentale.addFacteur(rDotSpe,"27c4");//             <- à faire
 
 
         /** Ajout des facteurs de la recherche appliqué **///                      <- verifier les coefficients
-        taux_recherche_applique.addFacteur(satisfation_professeur,"30/100");
-        taux_recherche_applique.addFacteur(etat_batiment,"25/100");//             <- à faire
-        taux_recherche_applique.addFacteur(rDotRecur,"30c4");//             <- à faire
+        taux_recherche_appliquee.addFacteur(satisfation_professeur,"30/100");
+        taux_recherche_appliquee.addFacteur(etat_batiment,"25/100");//             <- à faire
+        taux_recherche_appliquee.addFacteur(rDotRecur,"30c4");//             <- à faire
 
         /** Ajout Famille Levier au ElementControl **/
         EC.addFamilyLever(Central);
@@ -218,8 +218,8 @@ public class Root {
         reputation_formation.initValue();
         taux_insertion_pro.initValue();
 
-        taux_recherche_applique.initValue();
-        taux_recherche_fondamental.initValue();
+        taux_recherche_appliquee.initValue();
+        taux_recherche_fondamentale.initValue();
 
 
         Semestre.getInstance().ClockForvard();

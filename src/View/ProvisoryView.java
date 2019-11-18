@@ -70,8 +70,8 @@ public class ProvisoryView extends PresidentView {
         IndicPanelDyn panelReputation = new IndicPanelDyn("réputation de formation");
         IndicPanelDyn panelTauxInsertion = new IndicPanelDyn("taux d'insertion profesionnel");
 
-        IndicPanelDyn panelTauxRechercheApplique = new IndicPanelDyn("recherche appliqué");
-        IndicPanelDyn panelTauxRechercheFondamental = new IndicPanelDyn("recherche fondamental");
+        IndicPanelDyn panelTauxRechercheAppliquee = new IndicPanelDyn("recherche appliquée");
+        IndicPanelDyn panelTauxRechercheFondamentale = new IndicPanelDyn("recherche fondamentale");
 
         JPanel indicateurPan = new JPanel();
         indicateurPan.setLayout(new BoxLayout(indicateurPan, BoxLayout.Y_AXIS));
@@ -90,8 +90,8 @@ public class ProvisoryView extends PresidentView {
         indicateurPan.add(panelReputation);
         indicateurPan.add(panelTauxInsertion);
 
-        indicateurPan.add(panelTauxRechercheApplique);
-        indicateurPan.add(panelTauxRechercheFondamental);
+        indicateurPan.add(panelTauxRechercheAppliquee);
+        indicateurPan.add(panelTauxRechercheFondamentale);
 
         indicateurPan.add(panelArgent);
 
