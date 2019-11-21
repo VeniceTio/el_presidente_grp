@@ -172,6 +172,13 @@ public class Root {
         taux_recherche_appliquee.addFacteur(etat_batiment,"25/100");//             <- à faire
         taux_recherche_appliquee.addFacteur(rDotRecur,"30c4");//             <- à faire
 
+        /** Ajout des facteurs du nombre d'article publié **/
+        nombre_article_pub.addFacteur(taux_recherche_appliquee,"cI106");
+        nombre_article_pub.addFacteur(taux_recherche_fondamentale,"cI104");
+
+        /** Ajout des facteurs du nombre de prix nobel **/
+
+
         /** Ajout Famille Levier au ElementControl **/
         EC.addFamilyLever(Central);
         EC.addFamilyLever(Immobilier);
@@ -220,6 +227,9 @@ public class Root {
 
         taux_recherche_appliquee.initValue();
         taux_recherche_fondamentale.initValue();
+
+        nombre_article_pub.initValue();
+        //nombre_prix_nobel.initValue();
 
 
         Semestre.getInstance().ClockForvard();

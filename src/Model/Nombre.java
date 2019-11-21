@@ -11,9 +11,18 @@ public class Nombre implements AbstractFormula {
 
     @Override
     public void updateByLevers(Indicator indicator) {
+        indicator.setValue(0);
+        int value = 0;
+        int nbValue = 0;
         for (Map.Entry mapEntry : indicator.getFormula().entrySet()) {
-
+            if (mapEntry.getValue() == "cI106") {
+                value += ((AbstractElement) mapEntry.getKey()).getValue()*60;
+            }
+            else if (mapEntry.getValue() == "cI104"){
+                value += ((AbstractElement) mapEntry.getKey()).getValue()*40;
+            }
         }
+        indicator.setValue(courbeInter1(value/100));
     }
 
     public static long courbeInter1(long value){
@@ -42,4 +51,7 @@ public class Nombre implements AbstractFormula {
         }
         return valCourbe;
     }
+    /**public static long courbeInter2(long value){
+        return ;
+    }**/
 }
