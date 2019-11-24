@@ -1,33 +1,23 @@
 {
-  "indicator": [
+  "indicators": [
     {
       "name": "satisfaction étudiante",
       "description": "Indicateur représentant la satisfaction générale des étudiant(e)s",
       "levers": [
         {
-          "name": "iConstruction",
-          "description": "Levier représentant l'investissement en argent pour la construction des batîments",
-          "type": 0
+          "name": "iConstruction"
         },
         {
-          "name": "iEntretien",
-          "description": "Levier représentant l'investissement en argent pour l'entretien des batîments",
-          "type": 0
+          "name": "iEntretien"
         },
         {
-          "name": "iRenovation",
-          "description": "Levier représentant l'investissement en argent pour la rénovation des batîments",
-          "type": 0
+          "name": "iRenovation"
         },
         {
-          "name": "cSubvention association",
-          "description": "Levier représentant l'investissement en argent pour les subventions des associations étudiantes",
-          "type": 0
+          "name": "cSubvention association"
         },
         {
-          "name": "qualité de la formation",
-          "description": "Levier (indicateur) représentant la qualité de la formation",
-          "type": 0
+          "name": "qualité de la formation"
         }
       ]
     },
@@ -36,39 +26,25 @@
       "description": "Indicateur représentant la satisfaction générale des professeurs",
       "levers": [
         {
-          "name": "iConstruction",
-          "description": "Levier représentant l'investissement en argent pour la construction des batîments",
-          "type": 0
+          "name": "cPrimes pour la central"
         },
         {
-          "name": "iEntretien",
-          "description": "Levier représentant l'investissement en argent pour l'entretien des batîments",
-          "type": 0
+          "name": "iConstruction"
         },
         {
-          "name": "iRenovation",
-          "description": "Levier représentant l'investissement en argent pour la rénovation des batîments",
-          "type": 0
+          "name": "iEntretien"
         },
         {
-          "name": "cPrimes pour la central",
-          "description": "Levier représentant l'investissement en argent pour les primes attribuées à la centrale",
-          "type": 0
+          "name": "iRenovation"
         },
         {
-          "name": "fDotationRecurrente",
-          "description": "Levier représentant l'investissement en argent pour les dotations récurrentes pour la formation",
-          "type": 0
+          "name": "fDotationRecurrente"
         },
         {
-          "name": "rDotationRecurrente",
-          "description": "Levier représentant l'investissement en argent pour les dotations récurrente pour la recherche",
-          "type": 0
+          "name": "rDotationRecurrente"
         },
         {
-          "name": "charge de travail",
-          "description": "Levier représentant le nombre d'étudiant à charge d'un professeur",
-          "type": 0
+          "name": "charge de travail"
         }
       ]
     },
@@ -77,14 +53,10 @@
       "description": "Indicateur représentant le nombre d'articles publiés",
       "levers": [
         {
-         "name": "recherche appliquée",
-          "description": "Levier représentant le taux de recherche appliqué (un taux élevé représente une recherche dynamique",
-          "type": 0
+         "name": "recherche appliquée"
         },
         {
-          "name": "recherche fondamentale",
-          "description": "Levier représentant le taux de recherche fondamentale (un taux élevé représente une recherche dynamique",
-          "type": 0
+          "name": "recherche fondamentale"
         }
       ]
     },
@@ -93,9 +65,7 @@
       "description": "Indicateur représentant le nombre de prix nobel",
       "levers": [
         {
-          "name": "recherche fondamentale",
-          "description": "Levier représentant le taux de recherche fondamentale (un taux élevé représente une recherche dynamique",
-          "type": 0
+          "name": "recherche fondamentale"
         }
       ]
     },
@@ -104,49 +74,31 @@
       "description": "Indicateur représentant le taux de recherche appliqué (un taux élevé représente une recherche dynamique",
       "levers": [
         {
-          "name": "satisfaction professeur",
-          "description": "Levier représentant la satisfaction générale des professeurs",
-          "type": 0
+          "name": "satisfaction professeur"
         },
         {
-          "name": "iConstruction",
-          "description": "Levier représentant l'investissement en argent pour la construction des batîments",
-          "type": 0
+          "name": "iConstruction"
         },
         {
-          "name": "iEntretien",
-          "description": "Levier représentant l'investissement en argent pour l'entretien des batîments",
-          "type": 0
+          "name": "iEntretien"
         },
         {
-          "name": "iRenovation",
-          "description": "Levier représentant l'investissement en argent pour la rénovation des batîments",
-          "type": 0
+          "name": "iRenovation"
         },
         {
-          "name": "rTitulaire",
-          "description": "Levier représentant l'investissement en argent pour les titulaires de la recherche",
-          "type": 0
+          "name": "rTitulaire"
         },
         {
-          "name": "rContractuel",
-          "description": "Levier représentant l'investissement en argent pour les contractuels de la recherche",
-          "type": 0
+          "name": "rContractuel"
         },
         {
-          "name": "rDotation recurrente",
-          "description": "Levier représentant l'investissement en argent pour les dotations récurrentes pour la recherche",
-          "type": 0
+          "name": "rDotation recurrente"
         },
         {
-          "name": "rDotation specifique",
-          "description": "Levier représentant l'investissement en argent pour les dotations récurrente pour la recherche",
-          "type": 0
+          "name": "rDotation specifique"
         },
         {
-          "name": "rPrimes de recherche",
-          "descrpition": "Levier représentant l'investissement en argent pour les primes attribuées à la recherche",
-          "type": 0
+          "name": "rPrimes de recherche"
         }
       ]
     },
@@ -155,44 +107,28 @@
       "description": "Indicateur représentant le taux de recherche fondamentale (un taux élevé représente une recherche dynamique)",
       "levers": [
         {
-          "name": "satisfaction professeur",
-          "description": "Levier représentant la satisfaction générale des professeurs",
-          "type": 0
+          "name": "satisfaction professeur"
         },
         {
-          "name": "iConstruction",
-          "description": "Levier représentant l'investissement en argent pour la construction des batîments",
-          "type": 0
+          "name": "iConstruction"
         },
         {
-          "name": "iEntretien",
-          "description": "Levier représentant l'investissement en argent pour l'entretien des batîments",
-          "type": 0
+          "name": "iEntretien"
         },
         {
-          "name": "iRenovation",
-          "description": "Levier représentant l'investissement en argent pour la rénovation des batîments",
-          "type": 0
+          "name": "iRenovation"
         },
         {
-          "name": "rTitulaire",
-          "description": "Levier représentant l'investissement en argent pour les titulaires pour la recherche",
-          "type": 0
+          "name": "rTitulaire"
         },
         {
-          "name": "rContractuel",
-          "description": "Levier représentant l'investissement en argent pour les contractuels pour la recherche",
-          "type": 0
+          "name": "rContractuel"
         },
         {
-          "name": "rDotationRecurrente",
-          "description": "Levier représentant l'investissement en argent pour les dotations récurrentes pour la formation",
-          "type": 0
+          "name": "rDotationRecurrente"
         },
         {
-          "name": "rPrimes de recherche",
-          "descrpition": "Levier représentant l'investissement en argent pour les primes attribuées à la recherche",
-          "type": 0
+          "name": "rPrimes de recherche"
         }
       ]
     },
@@ -201,19 +137,13 @@
       "description": "Indicateur représentant le taux de réussite des étudiant(e)s",
       "levers": [
         {
-          "name": "satisfaction professeur",
-          "description": "Levier représentant la satisfaction générale des professeurs",
-          "type": 0
+          "name": "satisfaction professeur"
         },
         {
-          "name": "fDotationRecurrente",
-          "description": "Levier représentant l'investissement en argent pour les dotations récurrentes pour la formation",
-          "type": 0
+          "name": "fDotationRecurrente"
         },
         {
-          "name": "fDotation specifique",
-          "description": "Levier représentant l'investissement en argent pour les dotations récurrentes pour la formation",
-          "type": 0
+          "name": "fDotation specifique"
         }
       ]
     },
@@ -222,40 +152,28 @@
       "description": "Indicateur représentant la réputation de la formation",
       "levers": [
         {
-          "name": "taux de réussite",
-          "description": "Levier représentant le taux de réussite des étudiant(e)s",
-          "type": 0
+          "name": "taux de réussite"
         },
         {
-          "name": "cCommunication",
-          "description": "Levier représentant l'investissement en argent pour la communication générale",
-          "type": 0
+          "name": "cCommunication"
         },
         {
-          "name": "fDotation specifique",
-          "description": "Levier représentant l'investissement en argent pour les dotations récurrentes pour la formation",
-          "type": 0
+          "name": "fDotation specifique"
         }
       ]
     },
     {
       "name": "réputation de recherche",
-      "description": "Levier représentant la réputation de la recherche",
+      "description": "Indicateur représentant la réputation de la recherche",
       "levers": [
         {
-          "name": "nombre de prix nobel",
-          "description": "Levier (indicateur) représentant le nombre de prix nobel",
-          "type": 0
+          "name": "nombre de prix nobel"
         },
         {
-          "name": "nombre d'article publié",
-          "description": "Levier (indicateur) représentant le nombre d'articles publiés",
-          "type": 0
+          "name": "nombre d'article publié"
         },
         {
-          "name": "cCommunication",
-          "description": "Levier représentant l'investissement en argent pour la communication générale",
-          "type": 0
+          "name": "cCommunication"
         }
       ]
     },
@@ -264,90 +182,57 @@
       "description": "Indicateur représentant le taux d'insertion profesionnel",
       "levers": [
         {
-          "name": "réputation de formation",
-          "description": "Levier (indicateur) représentant la réputation de la formation",
-          "type": 0
+          "name": "réputation de formation"
         },
         {
-          "name": "cCommunication",
-          "description": "Levier représentant l'investissement en argent pour  communication générale",
-          "type": 0
+          "name": "cCommunication"
         },
         {
-          "name": "cEvenement",
-          "description": "Levier représentant l'investissement en argent pour les événements",
-          "type": 0
+          "name": "cEvenement"
         }
       ]
     },
     {
       "name": "argent disponible",
-      "description": "L'argent que dispose l'université",
+      "description": "Indicateur représentant l'argent dont dispose l'université",
       "levers": [
         {
-          "name": "revenue de valorisation",
-          "description": "",
-          "type": 0
+          "name": "revenue de valorisation"
         },
         {
-          "name": "rsubvention de l'état",
-          "description": "Levier représentant les subventions de l'état",
-          "type": 0
+          "name": "rsubvention de l'état"
         },
         {
-          "name": "fFrais d'inscription",
-          "description": "Levier représentant les frais d'inscription",
-          "type": 0
+          "name": "fFrais d'inscription"
         },
         {
-          "name": "revenus fondation",
-          "description": "",
-          "type": 0
+          "name": "revenus fondation"
         },
         {
-          "name": "fContractuel",
-          "description": "Levier représentant l'investissement en argent pour les contractuels pour la formation",
-          "type": 0
+          "name": "fContractuel"
+        },
+
         },
         {
-          "name": "fTitulaire",
-          "descrpition": "Levier représentant l'investissement en argent pour les titulaires pour la formation",
-          "type": 0
+          "name": "fPrimes de formation"
         },
         {
-          "name": "fPrimes de formation",
-          "description": "Levier représentant l'investissment en argent pour les primes attribués à la formation",
-          "type": 0
+          "name": "rContractuel"
         },
         {
-          "name": "rContractuel",
-          "description": "Levier représentant l'investissement en argent pour les contractuels pour la recherche",
-          "type": 0
+          "name": "rTitulaire"
         },
         {
-          "name": "rTitulaire",
-          "descrpition": "Levier représentant l'investissement en argent pour les titulaires pour la recherche",
-          "type": 0
+          "name": "rPrimes de recherche"
         },
         {
-          "name": "rPrimes de recherche",
-          "description": "Levier représentant l'investissment en argent pour les primes attribués à la recherche",
-          "type": 0
+          "name": "iConstruction"
         },
         {
-          "name": "iConstruction",
-          "description": "Levier représentant l'investissement en argent pour la construction des batîments",
-          "type": 0
+          "name": "iEntretien"
         },
         {
-          "name": "iEntretien",
-          "description": "Levier représentant l'investissement en argent pour l'entretien des batîments",
-          "type": 0
-        },
-        {
-          "name": "iRenovation",
-          "description": "Levier représentant l'investissement en argent pour la rénovation des batîments",
-          "type": 0
+          "name": "iRenovation"
         }
       ]
     },
@@ -356,24 +241,16 @@
       "description": "Indicateur représetant le nombre de professeurs",
       "levers": [
         {
-          "name": "fContractuel",
-          "description": "Levier représentant l'investissement en argent pour les contractuels pour la formation",
-          "type": 0
+          "name": "fContractuel"
         },
         {
-          "name": "fTitulaire",
-          "descrpition": "Levier représentant l'investissement en argent pour les titulaires pour la formation",
-          "type": 0
+          "name": "fTitulaire"
         },
         {
-          "name": "rContractuel",
-          "description": "Levier représentant l'investissement en argent pour les contractuels pour la recherche",
-          "type": 0
+          "name": "rContractuel"
         },
         {
-          "name": "rTitulaire",
-          "descrpition": "Levier représentant l'investissement en argent pour les titulaires pour la recherche",
-          "type": 0
+          "name": "rTitulaire"
         }
       ]
     },
@@ -382,48 +259,51 @@
       "description": "",
       "levers": [
         {
-          "name": "recherche appliquée",
-          "description": "Levier (indicateur) représentant le taux de recherche appliqué (un taux élevé représente une recherche dynamique",
-          "type": 159
+          "name": "recherche appliquée"
         },
         {
-          "name": "rValorisation",
-          "description": "",
-          "type": 159
+          "name": "rValorisation"
         }
       ]
     },
     {
       "name": "charge de travail",
-      "description": "Levier représentant le nombre d'étudiant à charge d'un professeur",
+      "description": "Indicateur représentant le nombre d'étudiant à charge d'un professeur",
       "levers": [
         {
-          "name": "nombre de professeur",
-          "description": "Levier représentant le nombre de professeur",
-          "type": 0
+          "name": "nombre de professeur"
         },
         {
-          "name": "nombre d'étudiant",
-          "description": "Levier représentant le nombre d'étudiant",
-          "type": 0
+          "name": "nombre d'étudiant"
         }
       ]
     },
     {
       "name": "nombre d'étudiant",
-      "description": "Levier (indicateur) représentant le nombre d'étudiant",
+      "description": "Indicateur représentant le nombre d'étudiant",
       "levers": [
         {
-          "name": "fFrais d'inscription",
-          "description": "Levier représentant les frais d'inscription",
-          "type": 0
+          "name": "fFrais d'inscription"
         },
         {
-          "name": "réputation de formation",
-          "description": "Levier (indicateur) représentant la réputation de la formation",
-          "type": 0
+          "name": "réputation de formation"
         }
       ]
+    },
+    {
+      "name": "état des batîments",
+      "description": "",
+      "levers": []
+    },
+    {
+      "name": "valorisation batiment",
+      "description": "",
+      "levers": []
+    },
+    {
+      "name": "valorisation bien",
+      "description": "",
+      "levers": []
     }
   ]
 }
