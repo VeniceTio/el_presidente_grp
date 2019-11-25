@@ -13,16 +13,26 @@ public class Nombre implements AbstractFormula {
     public void updateByLevers(Indicator indicator) {
         indicator.setValue(0);
         int value = 0;
-        int nbValue = 0;
+        int bit = 0;
         for (Map.Entry mapEntry : indicator.getFormula().entrySet()) {
             if (mapEntry.getValue() == "cI106") {
                 value += ((AbstractElement) mapEntry.getKey()).getValue()*60;
+                bit=1;
             }
             else if (mapEntry.getValue() == "cI104"){
                 value += ((AbstractElement) mapEntry.getKey()).getValue()*40;
+                bit=1;
+            }
+            else if (mapEntry.getValue() == "cI21"){
+                value = (int)((AbstractElement) mapEntry.getKey()).getValue();
             }
         }
-        indicator.setValue(courbeInter1(value/100));
+        if(bit==1) {
+            indicator.setValue(courbeInter1(value / 100));
+        }
+        else{
+            indicator.setValue(courbeInter2(value));
+        }
     }
 
     public static long courbeInter1(long value){
@@ -51,7 +61,25 @@ public class Nombre implements AbstractFormula {
         }
         return valCourbe;
     }
-    /**public static long courbeInter2(long value){
-        return ;
-    }**/
+    public static long courbeInter2(long value){
+        long valCourbe;
+        double max;
+        Random rand = new Random();
+        if (value <=0){
+            valCourbe = 0;
+        }
+        else{
+            if (value <= 80) {
+                max = 0.001625 * value +0.42;
+            } else if (value <= 96) {
+                max = 0.006875*value;
+            } else if (value <= 100) {
+                max = 0.2275*value -21.18;
+            } else{
+                max = 1.57;
+            }
+            valCourbe = (long)(rand.nextFloat()*max);
+        }
+        return valCourbe;
+    }
 }

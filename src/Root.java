@@ -177,6 +177,7 @@ public class Root {
         nombre_article_pub.addFacteur(taux_recherche_fondamentale,"cI104");
 
         /** Ajout des facteurs du nombre de prix nobel **/
+        nombre_prix_nobel.addFacteur(taux_recherche_fondamentale,"cI21");
 
 
         /** Ajout Famille Levier au ElementControl **/
@@ -229,7 +230,7 @@ public class Root {
         taux_recherche_fondamentale.initValue();
 
         nombre_article_pub.initValue();
-        //nombre_prix_nobel.initValue();
+        nombre_prix_nobel.initValue();
 
 
         Semestre.getInstance().ClockForvard();
