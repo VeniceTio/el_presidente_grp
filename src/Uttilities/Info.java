@@ -7,19 +7,25 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class info {
-    String file = "C:/Users/Elève/Documents/dutINFO/S3/UE33/T3/elpresidente/src/Uttilities/info.json";
+public class Info {
+    String indicatorsFile = "src/Uttilities/indicators.json";
+    String leversFile = "src/Uttilities/levers.json";
     private JSONArray indicators;
     private JSONArray levers;
 
     /**
      * Méthode permettant de créer une instance de classe info
      */
-    public info() {
+    public Info() {
         try {
-            String contents = new String((Files.readAllBytes(Paths.get(file))));
-            JSONObject obj = new JSONObject(contents);
-            indicators = obj.getJSONArray("indicators");
+            String indicatorsContents = new String((Files.readAllBytes(Paths.get(indicatorsFile))));
+            String leversContents = new String((Files.readAllBytes(Paths.get(leversFile))));
+
+            JSONObject indicatorObj = new JSONObject(indicatorsContents);
+            JSONObject leverObj = new JSONObject(leversContents);
+
+            indicators = indicatorObj.getJSONArray("indicators");
+            levers = leverObj.getJSONArray("levers");
         }
         catch(IOException e) {
             e.printStackTrace();
@@ -33,19 +39,23 @@ public class info {
      * @param array le tableau dans lequel l'indicateur ou le levier est répertorié
      * @return l'index de l'indicateur ou du levier qu'on recherche
      */
-    private Integer getIndex(String name, JSONArray array) {
+    private int getIndex(String name, JSONArray array) {
         boolean res = false;
-        int i = 0, index = -1;
+        int i = 0, index = 0;
 
-        while ((i < array.length()) && !res) {
-            JSONObject oIndic = array.getJSONObject(i);
-            if (oIndic.getString("name").equals(name)) {
-                index = i;
-                res = true;
+        if(!(name.isEmpty() && array.isEmpty())) {
+            while ((i < array.length()) && !res) {
+                JSONObject oIndic = array.getJSONObject(i);
+                if (oIndic.getString("name").equals(name)) {
+                    index = i;
+                    res = true;
+                }
+                else {
+                    index = -1;
+                }
+                i++;
             }
-            i++;
         }
-
         return index;
     }
 
@@ -54,9 +64,9 @@ public class info {
      * @param indicator l'indicateur recherché
      * @return l'index de l'indicateur recherché
      */
-    public Integer getIndicatorIndex(String indicator) {
+    public int getIndicatorIndex(String indicator) {
         if(getIndex(indicator, indicators) == -1) {
-            throw new IndexOutOfBoundsException();
+            System.out.println("Indicateur introuvable");
         }
         return getIndex(indicator, indicators);
     }
@@ -66,9 +76,9 @@ public class info {
      * @param lever le levier recherché
      * @return l'index du levier recherché
      */
-    public Integer getLeverIndex(String lever) {
+    public int getLeverIndex(String lever) {
         if(getIndex(lever, levers) == -1) {
-            throw new IndexOutOfBoundsException();
+            System.out.println("Lever introuvable");
         }
         return getIndex(lever, levers);
     }
@@ -82,13 +92,15 @@ public class info {
     public String getLeverInfluence(int i) {
         String res = "";
 
-        if(i == -1)
-            res = "Ce levier agira de manière négative, c'est-à-dire qu'il fera baisser la valeur de l'indicateur sur lequel il agit";
-        else if(i == 0)
-            res = "Ce levier agit de manière négative et positive, c'est-à-dire qu'il peut faire baisser ou augmenter l'indicateur qu'il influence";
-        else if(i == 1)
-            res = "Ce levier agira de manière positive, c'est-à-dire qu'il fera augmenter la valeur de l'indicateur sur lequel il agit";
-
+        if(i == -1) {
+            res = "(-)";
+        }
+        else if(i == 0) {
+            res = "(-/+)";
+        }
+        else if(i == 1) {
+            res = "(+)";
+        }
         return res;
     }
 
@@ -101,7 +113,8 @@ public class info {
     public String getIndicatorInfo(String indicator) {
         String indicInfo;
 
-        JSONObject oIndic = indicators.getJSONObject(getIndicatorIndex(indicator));
+        int indicatorLever = getIndicatorIndex(indicator);
+        JSONObject oIndic = indicators.getJSONObject(indicatorLever);
         indicInfo = oIndic.getString("description");
 
         return indicInfo;
@@ -109,31 +122,45 @@ public class info {
 
     /**
      * Méthode permettant de renvoyer une chaîne contenant les informations
-     * à propos d'un levier précis
-     * @param indicator l'indicateur sur lequel influe le levier
+     * du levier et la liste des indicateurs qu'il influe
      * @param lever le levier dont on souhaite récuperer les informations
      * @return la chaîne contenant les informations
      */
-    public String getLeverInfo(String indicator, String lever) {
+    public String getLeverInfo(String lever) {
         StringBuilder leverInfo = new StringBuilder();
-        int indicatorIndex = this.getIndicatorIndex(indicator);
-
-        JSONObject oIndic = indicators.getJSONObject(indicatorIndex);
-        levers = oIndic.getJSONArray("levers");
+        StringBuilder indicatorsList = new StringBuilder();
 
         int leverIndex = getLeverIndex(lever);
         JSONObject oLevers = levers.getJSONObject(leverIndex);
 
-        leverInfo.append(oLevers.getString("description")).append("\n");
-        leverInfo.append(getLeverInfluence(oLevers.getInt("type")));
+        leverInfo.append(oLevers.getString("description"));
+        leverInfo.append(" qui influe sur");
+        leverInfo.append("\n");
 
+        JSONArray leverIndicators = oLevers.getJSONArray("indicators");
+
+        System.out.println("\n");
+
+        for(int i = 0; i < leverIndicators.length(); i++) {
+            JSONObject objLevers = leverIndicators.getJSONObject(i);
+            indicatorsList.append("• ");
+            indicatorsList.append(objLevers.getString("name"));
+            indicatorsList.append(" ");
+            indicatorsList.append(getLeverInfluence(objLevers.getInt("type")));
+
+            if(i != leverIndicators.length() - 1) {
+                indicatorsList.append("\n");
+            }
+        }
+
+        leverInfo.append(indicatorsList);
         return leverInfo.toString();
     }
 
     public static void main(String[] args) {
-        info info = new info();
+        Info info = new Info();
         System.out.println(info.getIndicatorInfo("nombre d'étudiant"));
-        System.out.println(info.getLeverInfo("charge de travail", "nombre de professeur"));
+        System.out.println(info.getLeverInfo("iRenovation"));
     }
 }
 
