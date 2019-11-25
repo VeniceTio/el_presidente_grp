@@ -1,0 +1,365 @@
+{
+  "indicators": [
+    {
+      "name": "satisfaction étudiante",
+      "description": "Indicateur représentant la satisfaction générale des étudiant(e)s",
+      "levers": [
+        {
+          "name": "iConstruction",
+          "type": 0
+        },
+        {
+          "name": "iEntretien",
+          "type": 0
+        },
+        {
+          "name": "iRenovation",
+          "type": 0
+        },
+        {
+          "name": "cSubvention association",
+          "type": 0
+        },
+        {
+          "name": "qualité de la formation",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "satisfaction professeur",
+      "description": "Indicateur représentant la satisfaction générale des professeurs",
+      "levers": [
+        {
+          "name": "iConstruction",
+          "type": 0
+        },
+        {
+          "name": "iEntretien",
+          "type": 0
+        },
+        {
+          "name": "iRenovation",
+          "type": 0
+        },
+        {
+          "name": "cPrimes pour la central",
+          "type": 0
+        },
+        {
+          "name": "fDotationRecurrente",
+          "type": 0
+        },
+        {
+          "name": "rDotationRecurrente",
+          "type": 0
+        },
+        {
+          "name": "charge de travail",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "nombre d'article publié",
+      "description": "Indicateur représentant le nombre d'articles publiés",
+      "levers": [
+        {
+          "name": "recherche appliquée",
+          "type": 0
+        },
+        {
+          "name": "recherche fondamentale",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "nombre de prix nobel",
+      "description": "Indicateur représentant le nombre de prix nobel",
+      "levers": [
+        {
+          "name": "recherche fondamentale",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "recherche appliquée",
+      "description": "Indicateur représentant le taux de recherche appliqué (un taux élevé représente une recherche dynamique",
+      "levers": [
+        {
+          "name": "satisfaction professeur",
+          "type": 0
+        },
+        {
+          "name": "iConstruction",
+          "type": 0
+        },
+        {
+          "name": "iEntretien",
+          "type": 0
+        },
+        {
+          "name": "iRenovation",
+          "type": 0
+        },
+        {
+          "name": "rTitulaire",
+          "type": 0
+        },
+        {
+          "name": "rContractuel",
+          "type": 0
+        },
+        {
+          "name": "rDotation recurrente",
+          "type": 0
+        },
+        {
+          "name": "rDotation specifique",
+          "type": 0
+        },
+        {
+          "name": "rPrimes de recherche",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "recherche fondamentale",
+      "description": "Indicateur représentant le taux de recherche fondamentale (un taux élevé représente une recherche dynamique)",
+      "levers": [
+        {
+          "name": "satisfaction professeur",
+          "type": 0
+        },
+        {
+          "name": "iConstruction",
+          "type": 0
+        },
+        {
+          "name": "iEntretien",
+          "type": 0
+        },
+        {
+          "name": "iRenovation",
+          "type": 0
+        },
+        {
+          "name": "rTitulaire",
+          "type": 0
+        },
+        {
+          "name": "rContractuel",
+          "type": 0
+        },
+        {
+          "name": "rDotationRecurrente",
+          "type": 0
+        },
+        {
+          "name": "rPrimes de recherche",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "taux de réussite",
+      "description": "Indicateur représentant le taux de réussite des étudiant(e)s",
+      "levers": [
+        {
+          "name": "satisfaction professeur",
+          "type": 0
+        },
+        {
+          "name": "fDotationRecurrente",
+          "type": 0
+        },
+        {
+          "name": "fDotation specifique",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "réputation de formation",
+      "description": "Indicateur représentant la réputation de la formation",
+      "levers": [
+        {
+          "name": "taux de réussite",
+          "type": 0
+        },
+        {
+          "name": "cCommunication",
+          "type": 0
+        },
+        {
+          "name": "fDotation specifique",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "réputation de recherche",
+      "description": "Indicateur représentant la réputation de la recherche",
+      "levers": [
+        {
+          "name": "nombre de prix nobel",
+          "type": 0
+        },
+        {
+          "name": "nombre d'article publié",
+          "type": 0
+        },
+        {
+          "name": "cCommunication",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "taux d'insertion profesionnel",
+      "description": "Indicateur représentant le taux d'insertion profesionnel",
+      "levers": [
+        {
+          "name": "réputation de formation",
+          "type": 0
+        },
+        {
+          "name": "cCommunication",
+          "type": 0
+        },
+        {
+          "name": "cEvenement",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "argent disponible",
+      "description": "Indicateur représetant l 'argent que dispose l'université",
+      "levers": [
+        {
+          "name": "revenue de valorisation",
+          "description": "",
+          "type": 0
+        },
+        {
+          "name": "rsubvention de l'état",
+          "type": 0
+        },
+        {
+          "name": "fFrais d'inscription",
+          "type": 0
+        },
+        {
+          "name": "revenus fondation",
+          "description": "",
+          "type": 0
+        },
+        {
+          "name": "fContractuel",
+          "type": 0
+        },
+        {
+          "name": "fTitulaire",
+          "type": 0
+        },
+        {
+          "name": "fPrimes de formation",
+          "type": 0
+        },
+        {
+          "name": "rContractuel",
+          "type": 0
+        },
+        {
+          "name": "rTitulaire",
+          "type": 0
+        },
+        {
+          "name": "rPrimes de recherche",
+          "type": 0
+        },
+        {
+          "name": "iConstruction",
+          "type": 0
+        },
+        {
+          "name": "iEntretien",
+          "type": 0
+        },
+        {
+          "name": "iRenovation",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "nombre de professeur",
+      "description": "Indicateur représetant le nombre de professeurs",
+      "levers": [
+        {
+          "name": "fContractuel",
+          "type": 0
+        },
+        {
+          "name": "fTitulaire",
+          "type": 0
+        },
+        {
+          "name": "rContractuel",
+          "type": 0
+        },
+        {
+          "name": "rTitulaire",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "revenue de valorisation",
+      "description": "",
+      "levers": [
+        {
+          "name": "recherche appliquée",
+          "type": 159
+        },
+        {
+          "name": "rValorisation",
+          "description": "",
+          "type": 159
+        }
+      ]
+    },
+    {
+      "name": "charge de travail",
+      "description": "Indicateur représentant le nombre d'étudiant à charge d'un professeur",
+      "levers": [
+        {
+          "name": "nombre de professeur",
+          "type": 0
+        },
+        {
+          "name": "nombre d'étudiant",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "nombre d'étudiant",
+      "description": "Indicateur représentant le nombre d'étudiant",
+      "levers": [
+        {
+          "name": "fFrais d'inscription",
+          "type": 0
+        },
+        {
+          "name": "réputation de formation",
+          "type": 0
+        }
+      ]
+    }
+  ]
+}

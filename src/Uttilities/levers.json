@@ -1,0 +1,478 @@
+{
+  "levers": [
+    {
+      "name": "satisfaction professeur",
+      "description": "Levier (indicateur) représentant la satisfaction générale des professeurs",
+      "indicators": [
+        {
+          "name": "La recherche appliquée",
+          "type": 0
+        },
+        {
+          "name": "La recherche fondamentale",
+          "type": 0
+        },
+        {
+          "name": "Le taux de réussite",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "qualité de la formation",
+      "description": "Levier (indicateur) représentant la qualité de la formation",
+      "indicators": [
+        {
+          "name": "La satisfaction étudiante",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "charge de travail",
+      "description": "Levier (indicateur) représentant le nombre d'étudiant à charge d'un professeur",
+      "indicators": [
+        {
+          "name": "La satisfaction du personnel",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "recherche appliquée",
+      "description": "Levier (indicateur) représentant le taux de recherche appliqué (un taux élevé représente une recherche dynamique",
+      "indicators": [
+        {
+          "name": "Le nombre d'article publiés",
+          "type": 0
+        },
+        {
+          "name": "Le revenu de la valorisation",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "recherche fondamentale",
+      "description": "Levier (indicateur) représentant le taux de recherche fondamentale (un taux élevé représente une recherche dynamique",
+      "indicators": [
+        {
+          "name": "Le nombre d'article publiés",
+          "type": 0
+        },
+        {
+          "name": "Le nombre de prix nobel",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "taux de réussite",
+      "description": "Levier (indicateur) représentant le taux de réussite des étudiant(e)s",
+      "indicators": [
+        {
+          "name": "La réputation de la formation",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "nombre de prix nobel",
+      "description": "Levier (indicateur) représentant le nombre de prix nobel",
+      "indicators": [
+        {
+          "name": "La réputation de la recherche",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "nombre d'article publié",
+      "description": "Levier (indicateur) représentant le nombre d'articles publiés",
+      "indicators": [
+        {
+          "name": "La réputation de la recherche",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "réputation de formation",
+      "description": "Levier (indicateur) représentant la réputation de la formation",
+      "indicators": [
+        {
+          "name": "Le taux d'insertion professionelle",
+          "type": 0
+        },
+        {
+          "name": "Le nombre d'étudiant",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "revenue de valorisation",
+      "description": "",
+      "indicators": [
+        {
+          "name": "L'argent disponible",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "nombre de professeur",
+      "description": "Levier (indicateur) représentant le nombre de professeur",
+      "indicators": [
+        {
+          "name": "La charge de travail",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "nombre d'étudiant",
+      "description": "Levier (indicateur) représentant le nombre d'étudiant",
+      "indicators": [
+        {
+          "name": "La charge de travail",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "cPrimes pour la central",
+      "description": "Levier représentant l'investissement en argent pour les primes attribuées à la centrale",
+      "indicators": [
+        {
+          "name": "La satisfaction du personnel",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "cCommunication",
+      "description": "Levier représentant l'investissement en argent pour la communication générale",
+      "indicators": [
+        {
+          "name": "La réputation de la formation",
+          "type": 0
+        },
+        {
+          "name": "La réputation de la recherche",
+          "type": 0
+        },
+        {
+          "name": "Le taux d'insertion professionelle",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "cAdminCentrale",
+      "description": ""
+    },
+    {
+      "name": "cEvenement",
+      "description": "Levier représentant l'investissement en argent pour les événements",
+      "indicators": [
+        {
+          "name": "Le taux d'insertion professionelle",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "cSubvention association",
+      "description": "Levier représentant l'investissement en argent pour les subventions des associations étudiantes",
+      "indicators": [
+        {
+          "name": "La satisfation étudiante",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "iConstruction",
+      "description": "Levier représentant l'investissement en argent pour la construction des batîments",
+      "indicators": [
+        {
+          "name": "La satisfaction étudiante",
+          "type": 0
+        },
+        {
+          "name": "La satisfaction du personnel",
+          "type": 0
+        },
+        {
+          "name": "La recherche appliquée",
+          "type": 0
+        },
+        {
+          "name": "La recherche fondamentale",
+          "type": 0
+        },
+        {
+          "name": "L'argent disponible",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "iEntretien",
+      "description": "Levier représentant l'investissement en argent pour l'entretien des batîments",
+      "indicators": [
+        {
+          "name": "La satisfaction étudiante",
+          "type": 0
+        },
+        {
+          "name": "La satisfaction du personnel",
+          "type": 0
+        },
+        {
+          "name": "La recherche appliquée",
+          "type": 0
+        },
+        {
+          "name": "La recherche fondamentale",
+          "type": 0
+        },
+        {
+          "name": "L'argent disponible",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "iRenovation",
+      "description": "Levier représentant l'investissement en argent pour la rénovation des batîments",
+      "indicators": [
+        {
+          "name": "La satisfaction étudiante",
+          "type": 0
+        },
+        {
+          "name": "La satisfaction du personnel",
+          "type": 0
+        },
+        {
+          "name": "La recherche appliquée",
+          "type": 0
+        },
+        {
+          "name": "La recherche fondamentale",
+          "type": 0
+        },
+        {
+          "name": "L'argent disponible",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "fTitulaire",
+      "descrpition": "Levier représentant l'investissement en argent pour les titulaires pour la formation",
+      "indicators": [
+        {
+          "name": "L'argent disponible",
+          "type": 0
+        },
+        {
+          "name": "Le nombre de professeur",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "fContractuel",
+      "description": "Levier représentant l'investissement en argent pour les contractuels pour la formation",
+      "indicators": [
+        {
+          "name": "L'argent disponible",
+          "type": 0
+        },
+        {
+          "name": "Le nombre de professeur",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "fDotationRecurrente",
+      "description": "Levier représentant l'investissement en argent pour les dotations récurrentes pour la formation",
+      "indicators": [
+        {
+          "name": "La satisfaction du personnel",
+          "type": 0
+        },
+        {
+          "name": "Le taux de réussite",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "fDotation specifique",
+      "description": "Levier représentant l'investissement en argent pour les dotations récurrentes pour la formation",
+      "indicators": [
+        {
+          "name": "Le taux de réussite",
+          "type": 0
+        },
+        {
+          "name": "La réputation de la formation",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "fFrais d'inscription",
+      "description": "Levier représentant les frais d'inscription",
+      "indicators": [
+        {
+          "name": "L'argent disponible",
+          "type": 0
+        },
+        {
+          "name": "Le nombre d'étudiant",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "fPrimes de formation",
+      "description": "Levier représentant l'investissment en argent pour les primes attribués à la formation",
+      "indicators": [
+        {
+          "name": "L'argent disponible",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "fPartenariats",
+      "description": ""
+    },
+    {
+      "name": "rTitulaire",
+      "description": "Levier représentant l'investissement en argent pour les titulaires de la recherche",
+      "indicators": [
+        {
+          "name": "La recherche appliquée",
+          "type": 0
+        },
+        {
+          "name": "La recherche fondamentale",
+          "type": 0
+        },
+        {
+          "name": "L'argent disponible",
+          "type": 0
+        },
+        {
+          "name": "Le nombre de professeur",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "rContractuel",
+      "description": "Levier représentant l'investissement en argent pour les contractuels de la recherche",
+      "indicators": [
+        {
+          "name": "La recherche appliquée",
+          "type": 0
+        },
+        {
+          "name": "La recherche fondamentale",
+          "type": 0
+        },
+        {
+          "name": "L'argent disponible",
+          "type": 0
+        },
+        {
+          "name": "Le nombre de professeur",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "rDotation recurrente",
+      "description": "Levier représentant l'investissement en argent pour les dotations récurrentes pour la recherche",
+      "indicators": [
+        {
+          "name": "La satisfaction du personnel",
+          "type": 0
+        },
+        {
+          "name": "La recherche appliquée",
+          "type": 0
+        },
+        {
+          "name": "La recherche fondamentale",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "rDotation specifique",
+      "description": "Levier représentant l'investissement en argent pour les dotations récurrente pour la recherche",
+      "indicators": [
+        {
+          "name": "La recherche appliquée",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "rValorisation",
+      "description": "",
+      "indicators": [
+        {
+          "name": "Le revenu de la valorisation",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "rPrimes de recherche",
+      "descrpition": "Levier représentant l'investissement en argent pour les primes attribuées à la recherche",
+      "indicators": [
+        {
+          "name": "La recherche appliquée",
+          "type": 0
+        },
+        {
+          "name": "La recherche fondamentale",
+          "type": 0
+        },
+        {
+          "name": "L'argent disponible",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "rsubvention de l'état",
+      "description": "Levier représentant les subventions de l'état",
+      "indicators": [
+        {
+          "name": "L'argent disponible",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "revenus fondation",
+      "description": "",
+      "indicators":  [
+        {
+            "name": "L'argent disponible",
+          "type": 0
+        }
+      ]
+    }
+  ]
+}
