@@ -31,6 +31,7 @@ public class Root {
 
         Indicator nombre_article_pub = EC.createIndicator("nombre d'article publié",0,new Nombre(),true);
         Indicator nombre_prix_nobel = EC.createIndicator("nombre de prix nobel",0,new Nombre(),true);
+        Indicator reputation_recherche = EC.createIndicator("réputation de la recherche",0,new RepRec(),true);
 /**
         Indicator revenue_valorisation = EC.createIndicator("revenue de valorisation",0,new revenue(),true);
         **/
@@ -179,6 +180,10 @@ public class Root {
         /** Ajout des facteurs du nombre de prix nobel **/
         nombre_prix_nobel.addFacteur(taux_recherche_fondamentale,"cI21");
 
+        /** Ajout des facteurs de la réputation de recherche **/
+        reputation_recherche.addFacteur(cComm,"com");
+        reputation_recherche.addFacteur(nombre_article_pub,"val1");
+        reputation_recherche.addFacteur(nombre_prix_nobel,"val2");
 
         /** Ajout Famille Levier au ElementControl **/
         EC.addFamilyLever(Central);
