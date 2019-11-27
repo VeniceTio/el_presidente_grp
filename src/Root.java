@@ -1,6 +1,6 @@
-import Control.ElementControl;
-import Model.*;
-import View.ProvisoryView;
+import controller.ElementControl;
+import model.*;
+import view.ProvisoryView;
 
 public class Root {
     public Root(){
@@ -11,14 +11,14 @@ public class Root {
         Indicator nombre_eleve = EC.createIndicator("nombre d'étudiant",50000, new NombreEleve(),false);//50 000 étudiants pour commencer comme à strasbourg
         Indicator revenue_inscription = EC.createIndicator("revenue des inscription",1, new Argent(),false);
 
-        Indicator qualite_formation = EC.createIndicator("qualité de la formation",75, new qualiteFormation(),true);
-        Indicator satisfation_etudiante = EC.createIndicator("satisfaction étudiante",75,new pourcentSatisfaction(),true);
-        Indicator satisfation_professeur = EC.createIndicator("satisfaction professeur",75,new pourcentSatisfaction(),true);
-        Indicator charge_de_travail = EC.createIndicator("charge de travail",0,new rapport(),true);
+        Indicator qualite_formation = EC.createIndicator("qualité de la formation",75, new QualiteFormation(),true);
+        Indicator satisfation_etudiante = EC.createIndicator("satisfaction étudiante",75,new PourcentSatisfaction(),true);
+        Indicator satisfation_professeur = EC.createIndicator("satisfaction professeur",75,new PourcentSatisfaction(),true);
+        Indicator charge_de_travail = EC.createIndicator("charge de travail",0,new Rapport(),true);
 
-        Indicator val_batiment = EC.createIndicator("valorisation batiment",672000000,new degradation(),true);
-        Indicator val_bien = EC.createIndicator("valorisation bien",672000000,new neutre(),false);
-        Indicator etat_batiment = EC.createIndicator("état des batiments",100,new neutre(),true);
+        Indicator val_batiment = EC.createIndicator("valorisation batiment",672000000,new Degradation(),true);
+        Indicator val_bien = EC.createIndicator("valorisation bien",672000000,new Neutre(),false);
+        Indicator etat_batiment = EC.createIndicator("état des batiments",100,new Neutre(),true);
 
 
         Indicator taux_réussite = EC.createIndicator("taux de réussite",0,new Taux(),true);
