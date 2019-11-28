@@ -2,7 +2,16 @@ import controller.ElementControl;
 import model.*;
 import view.ProvisoryView;
 
-public class Root {
+import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+public class Root extends Application {
     public Root(){
         ElementControl EC = ElementControl.getInstance();
         /** Création Indicateur **/
@@ -244,7 +253,42 @@ public class Root {
         /** View **/
         ProvisoryView view = new ProvisoryView();
     }
+
+    /** *********** INTERFACE FINALE ********** **/
+    private double xOffset = 0;
+    private double yOffset = 0;
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent p = FXMLLoader.load(getClass().getResource("view/game_scene.fxml"));
+
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setResizable(false);
+        stage.setTitle("El Presidente");
+
+        // Association évènement pour le déplacement de la fenêtre
+        p.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+
+        // Gestion du déplacement de la fenêtre
+        p.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            }
+        });
+
+        stage.setScene(new Scene(p));
+        stage.show();
+    }
+
     public static void main(String[] args){
-        new Root();
+        launch(args);
     }
 }
