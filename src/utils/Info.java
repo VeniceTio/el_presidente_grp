@@ -8,8 +8,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Info {
-    String indicatorsFile = "src/Uttilities/indicators.json";
-    String leversFile = "src/Uttilities/levers.json";
+    String indicatorsFile = "src/utils/indicators.json";
+    String leversFile = "src/utils/levers.json";
     private JSONArray indicators;
     private JSONArray levers;
 
