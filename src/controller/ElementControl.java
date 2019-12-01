@@ -1,7 +1,6 @@
 package controller;
 
 import model.*;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -73,7 +72,7 @@ public class ElementControl implements Time{
      * @param boolStatic: paramètre permettant de savoir si l'indicateur statique ou pas (lors du clockForward: passage au semestre suivant, ce booléen permettra de savoir on met à jour l'indicateur ou pas)
      * @return l'indicateur qu'on vient de créer
      */
-    public Indicator createIndicator(String name, int value, AbstractFormula af, Boolean boolStatic){
+    public Indicator createIndicator(String name, int value, AbstractFormula af, boolean boolStatic){
         Indicator indicator = new Indicator(name, value, af, boolStatic);
         _mapElement.put(name, indicator);
         _elements.add(indicator);

@@ -17,8 +17,8 @@ public class Root extends Application {
         /** Création Indicateur **/
         Indicator argent_disponible = EC.createIndicator("argent disponible",0, new Argent(),true);
         Indicator nombre_professeur = EC.createIndicator("nombre de professeur",0, new NombreProfesseur(),false);
-        Indicator nombre_eleve = EC.createIndicator("nombre d'étudiant",50000, new NombreEleve(),false);//50 000 étudiants pour commencer comme à strasbourg
-        Indicator revenue_inscription = EC.createIndicator("revenue des inscription",1, new Argent(),false);
+        Indicator nombre_eleve = EC.createIndicator("nombre d'étudiant",50000, new NombreEleve(),true);//50 000 étudiants pour commencer comme à strasbourg
+        Indicator revenue_inscription = EC.createIndicator("revenue des inscription",1, new Argent(),true);
 
         Indicator qualite_formation = EC.createIndicator("qualité de la formation",75, new QualiteFormation(),true);
         Indicator satisfation_etudiante = EC.createIndicator("satisfaction étudiante",75,new PourcentSatisfaction(),true);
