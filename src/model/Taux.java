@@ -53,11 +53,8 @@ public class Taux implements AbstractFormula {
                 System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.18 courbe 3 val : "+ valMap/nb_prof_rec + "\n val courbe : "+courbe4(valMap/nb_prof_rec,0.3));
             }
             else if (mapEntry.getValue() == "40/100") {
-                long value =(long) (valMap * 0.4);
-                if (value==0){
-                    value = -40;
-                }
-                indicator.setValue(indicator.getValue() + value);
+                long value =(long) (valMap);
+                indicator.setValue(indicator.getValue() + courbe5(value,0.4));
                 System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 40/100 val : "+ value+" "+valMap);
             }
             else if (mapEntry.getValue() == "30/100") {
@@ -172,6 +169,20 @@ public class Taux implements AbstractFormula {
         }
         else {
             valCourbe = (long)(coef * 100);
+        }
+        return valCourbe;
+    }
+
+    public static long courbe5(long value, double coef){
+        long valCourbe;
+        if (value<=30){
+            valCourbe = 2*value-60;
+        }
+        else if (value<=95){
+            valCourbe=(long)(value*coef);
+        }
+        else {
+            valCourbe=value + (-2*value+200);
         }
         return valCourbe;
     }
