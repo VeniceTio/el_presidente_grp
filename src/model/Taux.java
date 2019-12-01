@@ -53,15 +53,27 @@ public class Taux implements AbstractFormula {
                 System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.18 courbe 3 val : "+ valMap/nb_prof_rec + "\n val courbe : "+courbe4(valMap/nb_prof_rec,0.3));
             }
             else if (mapEntry.getValue() == "40/100") {
-                indicator.setValue(indicator.getValue() + (long) (valMap * 0.4));
-                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 40/100 val : "+ (valMap * 0.4)+" "+valMap);
+                long value =(long) (valMap * 0.4);
+                if (value==0){
+                    value = -40;
+                }
+                indicator.setValue(indicator.getValue() + value);
+                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 40/100 val : "+ value+" "+valMap);
             }
             else if (mapEntry.getValue() == "30/100") {
-                indicator.setValue(indicator.getValue() + (long) (valMap * 0.3));
+                long value =(long) (valMap * 0.3);
+                if (value==0){
+                    value = -30;
+                }
+                indicator.setValue(indicator.getValue() + value);
                 System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 30/100 val : "+ (valMap * 0.3)+" "+valMap);
             }
             else if (mapEntry.getValue() == "25/100") {
-                indicator.setValue(indicator.getValue() + (long) (valMap * 0.25));
+                long value =(long) (valMap * 0.25);
+                if (value==0){
+                    value = -25;
+                }
+                indicator.setValue(indicator.getValue() + value);
                 System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 25/100 val : "+ (valMap * 0.25)+" "+valMap);
             }
             }
