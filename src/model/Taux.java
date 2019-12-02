@@ -89,7 +89,7 @@ public class Taux implements AbstractFormula {
     public static long courbe1(long value,double coef){
         long valCourbe;
         if (value <=0){
-            valCourbe = 0;
+            valCourbe = -30;
         }
         else if (value <=200000){
             //50valCourbe = (long)(((250/1000000)*value)*coef);
@@ -109,7 +109,7 @@ public class Taux implements AbstractFormula {
     public static long courbe2(long value,double coef){
         long valCourbe;
         if (value <=0){
-            valCourbe = 0;
+            valCourbe = -30;
         }
         else if (value <= 300000) {
             valCourbe = (long) (((66.6666 / 1000000) * value));
@@ -134,7 +134,7 @@ public class Taux implements AbstractFormula {
     public static long courbe3(long value,double coef){
         long valCourbe;
         if (value <=0){
-            valCourbe = 0;
+            valCourbe = -30;
         }
         else if (value <=100000){
             valCourbe = (long)((0.0001*value));
@@ -155,7 +155,7 @@ public class Taux implements AbstractFormula {
         long valCourbe;
         //System.out.println(nb_prof_rec +" " +value);
         if (value <=0){
-            valCourbe = 0;
+            valCourbe = -30;
         } else if (value <=4000){
             valCourbe = Math.round(((0.625/1000)*value)*coef);
         }
