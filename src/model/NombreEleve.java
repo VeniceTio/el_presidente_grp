@@ -21,11 +21,12 @@ public class NombreEleve implements AbstractFormula {
      */
     @Override
     public void updateByLevers(Indicator indicator) {
-        BigDecimal value = new BigDecimal(1000000).multiply(new BigDecimal(ElementControl.getInstance().getElement("réputation de formation").getValue()/100.0));
-        System.out.println("---#--# 1 000 000 * "+ElementControl.getInstance().getElement("réputation de formation").getValue()/100.0+" = "+value+" #--#---");
+        BigDecimal value = new BigDecimal(400000).multiply(new BigDecimal(courbeMalus(ElementControl.getInstance().getElement("réputation de formation").getValue())/100.0));
+        System.out.println("---#--# 600 000 * "+courbeMalus(ElementControl.getInstance().getElement("réputation de formation").getValue())/100.0+" = "+value+" #--#---");
         value = value.multiply(new BigDecimal(courbe1(ElementControl.getInstance().getElement("fFrais d'inscription").getValue())));
         System.out.println("---#--# "+value+" #--#---");
-        indicator.setValue(value.longValue());
+        long valueL = (value.longValue() + indicator.getValue()*3) /4;
+        indicator.setValue(valueL);
     }
     public static double courbe1(long value){
         double valCourbe;
@@ -61,6 +62,23 @@ public class NombreEleve implements AbstractFormula {
         }
         else {
             valCourbe = 0.000002;
+        }
+        return valCourbe;
+    }
+    public static long courbeMalus(long value){
+        long valCourbe;
+        if(value<0){
+            valCourbe=(long)(-0.05);
+        } else if(value<=16){
+            valCourbe = (long)(0.621875*value+0.005);
+        } else if (value<=50){
+            valCourbe = (long)(1.1764706*value-8.8235294);
+        }
+        else if (value<=100){
+            valCourbe=(long)(value);
+        }
+        else {
+            valCourbe=100;
         }
         return valCourbe;
     }
