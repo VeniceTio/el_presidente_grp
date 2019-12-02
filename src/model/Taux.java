@@ -112,22 +112,23 @@ public class Taux implements AbstractFormula {
             valCourbe = 0;
         }
         else if (value <= 300000) {
-            valCourbe = (long) (((66.6666 / 1000000) * value) * coef);
+            valCourbe = (long) (((66.6666 / 1000000) * value));
             //System.out.println("1");
         } else if (value <= 500000) {
             BigDecimal frac = new BigDecimal(300);
             frac = frac.divide(new BigDecimal(1000000));
-            valCourbe = frac.multiply(new BigDecimal(value)).subtract(new BigDecimal(70)).multiply(new BigDecimal(coef)).longValue();
+            valCourbe = frac.multiply(new BigDecimal(value)).subtract(new BigDecimal(70)).longValue();
         } else if (value <= 700000) {
-            valCourbe = (long) ((((87.5 / 1000000) * value) + 36.25) * coef);
+            valCourbe = (long) ((((87.5 / 1000000) * value) + 36.25));
             //System.out.println("3");
         } else if (value <= 1000000) {
-            valCourbe = Math.round((((8.33 / 1000000) * value) + 91.666) * coef*100)/100;
+            valCourbe = Math.round((((8.33 / 1000000) * value) + 91.666) *100)/100;
             //System.out.println("4");
         }
         else {
-            valCourbe = (long)(coef * 100);
+            valCourbe = (long)(100);
         }
+        valCourbe = (long)(courbeMalus(valCourbe)*coef);
         return valCourbe;
     }
     public static long courbe3(long value,double coef){
@@ -136,17 +137,18 @@ public class Taux implements AbstractFormula {
             valCourbe = 0;
         }
         else if (value <=100000){
-            valCourbe = (long)((0.0001*value)*coef);
+            valCourbe = (long)((0.0001*value));
         }
         else if (value <=400000){
-            valCourbe = (long)((((2.9666666/10000)*value)-19.166)*coef);
+            valCourbe = (long)((((2.9666666/10000)*value)-19.166));
         }
         else if (value <= 700000){
-            valCourbe = Math.round((((8.3333/1000000)*value)+94.16666)*coef*1000)/1000;
+            valCourbe = Math.round((((8.3333/1000000)*value)+94.16666)*1000)/1000;
         }
         else {
             valCourbe = (long)(coef * 100);
         }
+        valCourbe = (long)(courbeMalus(valCourbe)*coef);
         return valCourbe;
     }
     public static long courbe4(long value,double coef){
@@ -213,4 +215,20 @@ public class Taux implements AbstractFormula {
         return valCourbe;
     }
 
+    public static long courbeMalus(long value){
+        long valCourbe;
+        if(value<0){
+            valCourbe=(long)(-50);
+        }
+        if (value<=50){
+            valCourbe = (long)(2*value-50);
+        }
+        else if (value<=100){
+            valCourbe=(long)(value);
+        }
+        else {
+            valCourbe=100;
+        }
+        return valCourbe;
+    }
 }
