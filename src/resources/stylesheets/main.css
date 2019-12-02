@@ -1,10 +1,40 @@
+/*
+    =======================================
+    main.css - Feuille de style principale
+    =======================================
+*/
+
+/*
+    0. GLOBAL
+*/
+.btn-reset {
+    -fx-focus-color: transparent;
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+/*
+    1. GAME SCENE
+*/
 #scene {
     -fx-background-image: url('../images/background.png');
 }
 
-#title-bar {
-    -fx-background-color: #343333;
-    -fx-text-fill: #fff;
+#header {
+    -fx-background-image: url('../images/header.png');
+}
+#logo {
+    -fx-background-image: url('../images/logo.png');
 }
 
 
+/*
+    2. BUTTONS
+ */
+#btn_close {
+    -fx-background-image: url('../images/btn_close.png');
+}
+
+#btn_nextsemester {
+    -fx-background-image: url('../images/btn_nextsemester.png');
+}

@@ -266,7 +266,7 @@ public class Root extends Application {
         stage.setResizable(false);
         stage.setTitle("El Presidente");
 
-        // Association évènement pour le déplacement de la fenêtre
+        /* Association évènement pour le déplacement de la fenêtre
         p.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -275,16 +275,17 @@ public class Root extends Application {
             }
         });
 
-        // Gestion du déplacement de la fenêtre
+         Gestion du déplacement de la fenêtre
         p.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 stage.setX(event.getScreenX() - xOffset);
                 stage.setY(event.getScreenY() - yOffset);
             }
-        });
+        });*/
 
         stage.setScene(new Scene(p));
+        stage.setFullScreen(true);
         stage.show();
     }
 
