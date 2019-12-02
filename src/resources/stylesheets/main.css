@@ -1,5 +1,5 @@
 #scene {
-    -fx-background-color: lightblue;
+    -fx-background-image: url('../images/background.png');
 }
 
 #title-bar {
