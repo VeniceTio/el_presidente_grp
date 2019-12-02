@@ -141,7 +141,7 @@ public class Root extends Application {
         satisfation_etudiante.addFacteur(qualite_formation,"3");
 
         /** Ajout des facteurs de la satisfaction professeur **/
-        satisfation_professeur.addFacteur(etat_batiment,"3");
+        satisfation_professeur.addFacteur(etat_batiment,"50/100");
         satisfation_professeur.addFacteur(charge_de_travail,"25");
 
         /** Ajout des facteurs de la charge de travail **/

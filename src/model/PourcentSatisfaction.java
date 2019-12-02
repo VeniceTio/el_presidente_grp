@@ -46,7 +46,7 @@ public class PourcentSatisfaction implements AbstractFormula {
      */
     @Override
     public void updateByOneLever(Indicator indicator, Lever lever) {
-        long dif;
+        /*long dif;
         if(indicator.getFormula().get(lever) =="3"){
             if (lever.getOldValue() < lever.getValue()) {
                 dif = ((lever.getValue() / 3) - (lever.getOldValue() / 3));
@@ -71,7 +71,7 @@ public class PourcentSatisfaction implements AbstractFormula {
         //System.out.println(oldValue);
         if (indicator.getValue()>100){
             indicator.setValue(100);
-        }
+        }*/
     }
 
     /**
@@ -84,32 +84,14 @@ public class PourcentSatisfaction implements AbstractFormula {
         for (Map.Entry mapEntry : indicator.getFormula().entrySet()) {
             //System.out.println(mapEntry);
             if (mapEntry.getValue()=="r"){                                        //à modifier par des courbes
-                if (((AbstractElement) mapEntry.getKey()).getValue()>0){
-                    if (((AbstractElement) mapEntry.getKey()).getValue()>10000){
-                        if(((AbstractElement) mapEntry.getKey()).getValue()>50000){
-                            if(((AbstractElement) mapEntry.getKey()).getValue()>100000){
-                                if(((AbstractElement) mapEntry.getKey()).getValue()>1000000){
-                                    indicator.setValue(indicator.getValue() + 33);
-                                }
-                                else {
-                                    indicator.setValue(indicator.getValue() + 16);
-                                }
-                            }
-                            else {
-                                indicator.setValue(indicator.getValue() + 8);
-                            }
-                        }
-                        else {
-                            indicator.setValue(indicator.getValue() + 4);
-                        }
-                    }
-                    else {
-                        indicator.setValue(indicator.getValue() + 2);
-                    }
-                }
+                indicator.setValue(indicator.getValue() + (int)(courbe1(((AbstractElement)mapEntry.getKey()).getValue())*0.3333));
             }
             else if(mapEntry.getValue() =="3"){
-                indicator.setValue(indicator.getValue() + (((AbstractElement)mapEntry.getKey()).getValue()/3));
+                indicator.setValue(indicator.getValue() + (long)(((AbstractElement)mapEntry.getKey()).getValue()*0.3333));
+
+            }
+            else if(mapEntry.getValue() =="50/100"){
+                indicator.setValue(indicator.getValue() + (long)(((AbstractElement)mapEntry.getKey()).getValue()*0.5));
 
             }
             else if (mapEntry.getValue() =="25"){
@@ -117,18 +99,7 @@ public class PourcentSatisfaction implements AbstractFormula {
                 System.out.println("##########");
                 System.out.println("#   "+rapport+"   #");
                 System.out.println("##########");
-                if (rapport<11){
-                    indicator.setValue(indicator.getValue() + (100/3));
-                }
-                else if (rapport<21){
-                    indicator.setValue(indicator.getValue() + ((-rapport+110)/3));
-                }
-                else if (rapport<31){
-                    indicator.setValue(indicator.getValue() + ((-4*rapport+170)/3));
-                }
-                else{
-                    indicator.setValue(indicator.getValue() + ((-5*rapport+200)/3));
-                }
+                indicator.setValue(indicator.getValue() + (long)(courbe2(rapport)*0.5));
             }
         }
         if (indicator.getValue()>100){
@@ -137,5 +108,59 @@ public class PourcentSatisfaction implements AbstractFormula {
         if (indicator.getValue()<0){
             indicator.setValue(0);
         }
+    }
+
+    /**
+     * A=(0,-50),B=(30 000,10),C=(50 000,25),D=(100 000,50)
+     * E=(1 000 000,98),F=(15 000 000,100)
+     * @param value
+     * @return
+     */
+    public static int courbe1(long value){
+        int valCourbe=0;
+        if (value<0){
+            valCourbe = -50;
+        } else if (value <=30000){
+            valCourbe = (int)(0.002*value-50);
+        } else if (value <=50000){
+            valCourbe = (int)(0.00075*value-12.5);
+        } else if (value <= 100000){
+            valCourbe = (int)(0.0005*value);
+        } else if (value <= 1000000){
+        valCourbe = (int)(0.0000533*value+44.6666);
+        } else if (value <= 15000000){
+            valCourbe = (int)(0.000000142857*value+97.8571428);
+        } else {
+            valCourbe = 100;
+        }
+        if(valCourbe>100){
+            valCourbe = 100;
+        }
+        return valCourbe;
+    }
+    /**
+     * A=(0,100),B=(10,80),C=(20,70),D=(30,40),E=(60,-80)
+     * @param value
+     * @return
+     */
+    public static int courbe2(long value){
+        int valCourbe=0;
+        if (value<0){
+            valCourbe = 100;
+        } else if (value <=10){
+            valCourbe = (int)(-2*value+100);
+        } else if (value <=20){
+            valCourbe = (int)(-value+90);
+        } else if (value <= 30){
+            valCourbe = (int)(-3*value+130);
+        } else if (value <= 60){
+            valCourbe = (int)(-4*value+160);
+        } else {
+            valCourbe = -80;
+        }
+        if(valCourbe>100){
+            valCourbe = 100;
+        }
+        return valCourbe;
     }
 }
