@@ -136,12 +136,12 @@ public class Root extends Application {
         revenue_inscription.addFacteur(nombre_eleve,"*");
 
         /** Ajout des facteurs de la satisfaction des étudiants **/
-        satisfation_etudiante.addFacteur(etat_batiment,"3");
+        satisfation_etudiante.addFacteur(etat_batiment,"c33");
         satisfation_etudiante.addFacteur(cSubAssoc,"r");
-        satisfation_etudiante.addFacteur(qualite_formation,"3");
+        satisfation_etudiante.addFacteur(qualite_formation,"c33");
 
         /** Ajout des facteurs de la satisfaction professeur **/
-        satisfation_professeur.addFacteur(etat_batiment,"50/100");
+        satisfation_professeur.addFacteur(etat_batiment,"c35");
         satisfation_professeur.addFacteur(charge_de_travail,"25");
 
         /** Ajout des facteurs de la charge de travail **/

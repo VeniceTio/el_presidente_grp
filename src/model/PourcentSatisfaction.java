@@ -1,5 +1,7 @@
 package model;
 
+import controller.ElementControl;
+
 import java.util.Map;
 
 public class PourcentSatisfaction implements AbstractFormula {
@@ -83,18 +85,16 @@ public class PourcentSatisfaction implements AbstractFormula {
         indicator.setValue(0);
         for (Map.Entry mapEntry : indicator.getFormula().entrySet()) {
             //System.out.println(mapEntry);
-            if (mapEntry.getValue()=="r"){                                        //à modifier par des courbes
-                indicator.setValue(indicator.getValue() + (int)(courbe1(((AbstractElement)mapEntry.getKey()).getValue())*0.3333));
-            }
-            else if(mapEntry.getValue() =="3"){
+            if (mapEntry.getValue()=="r"){
+                long val = ElementControl.getInstance().getElement("nombre d'étudiant").getValue();
+                indicator.setValue(indicator.getValue() + (int)(courbe1(((AbstractElement)mapEntry.getKey()).getValue()/val)*0.3333));
+            } else if(mapEntry.getValue() =="3"){
                 indicator.setValue(indicator.getValue() + (long)(((AbstractElement)mapEntry.getKey()).getValue()*0.3333));
-
-            }
-            else if(mapEntry.getValue() =="50/100"){
-                indicator.setValue(indicator.getValue() + (long)(((AbstractElement)mapEntry.getKey()).getValue()*0.5));
-
-            }
-            else if (mapEntry.getValue() =="25"){
+            } else if(mapEntry.getValue() =="c35"){
+                indicator.setValue(indicator.getValue() + (long)(courbe3(((AbstractElement)mapEntry.getKey()).getValue())*0.5));
+            } else if(mapEntry.getValue() =="c33"){
+                indicator.setValue(indicator.getValue() + (long)(courbe3(((AbstractElement)mapEntry.getKey()).getValue())*0.333));
+            } else if (mapEntry.getValue() =="25"){
                 long rapport = ((AbstractElement) mapEntry.getKey()).getValue();
                 System.out.println("##########");
                 System.out.println("#   "+rapport+"   #");
@@ -111,8 +111,8 @@ public class PourcentSatisfaction implements AbstractFormula {
     }
 
     /**
-     * A=(0,-50),B=(30 000,10),C=(50 000,25),D=(100 000,50)
-     * E=(1 000 000,98),F=(15 000 000,100)
+     * A=(0,-50),B=(100,10),C=(200,40),D=(300,70)
+     * E=(600,100)
      * @param value
      * @return
      */
@@ -120,16 +120,12 @@ public class PourcentSatisfaction implements AbstractFormula {
         int valCourbe=0;
         if (value<0){
             valCourbe = -50;
-        } else if (value <=30000){
-            valCourbe = (int)(0.002*value-50);
-        } else if (value <=50000){
-            valCourbe = (int)(0.00075*value-12.5);
-        } else if (value <= 100000){
-            valCourbe = (int)(0.0005*value);
-        } else if (value <= 1000000){
-        valCourbe = (int)(0.0000533*value+44.6666);
-        } else if (value <= 15000000){
-            valCourbe = (int)(0.000000142857*value+97.8571428);
+        } else if (value <=100){
+            valCourbe = (int)(0.6*value-50);
+        } else if (value <=300){
+            valCourbe = (int)(0.3*value-20);
+        } else if (value <= 600){
+        valCourbe = (int)(0.1*value+40);
         } else {
             valCourbe = 100;
         }
@@ -157,6 +153,32 @@ public class PourcentSatisfaction implements AbstractFormula {
             valCourbe = (int)(-4*value+160);
         } else {
             valCourbe = -80;
+        }
+        if(valCourbe>100){
+            valCourbe = 100;
+        }
+        return valCourbe;
+    }
+
+    /**
+     * A=(0,-80),B=(40,10),C=(50,40),D=(80,90),E=(100,100)
+     * @param value
+     * @return
+     */
+    public static int courbe3(long value){
+        int valCourbe=0;
+        if (value<0){
+            valCourbe = -80;
+        } else if (value <=40){
+            valCourbe = (int)(2.25*value-80);
+        } else if (value <=50){
+            valCourbe = (int)(3*value-110);
+        } else if (value <= 80){
+            valCourbe = (int)(1.6666*value-43.3333);
+        } else if (value <= 100){
+            valCourbe = (int)(0.5*value+50);
+        } else {
+            valCourbe = 100;
         }
         if(valCourbe>100){
             valCourbe = 100;
