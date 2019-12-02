@@ -260,7 +260,7 @@ public class Root extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent p = FXMLLoader.load(getClass().getResource("view/game_scene.fxml"));
+        Parent p = FXMLLoader.load(getClass().getResource("resources/fxml/game_scene.fxml"));
 
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
