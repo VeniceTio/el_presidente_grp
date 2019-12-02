@@ -170,7 +170,8 @@
     },
     {
       "name": "cAdminCentrale",
-      "description": ""
+      "description": "",
+      "indicators": []
     },
     {
       "name": "cEvenement",
@@ -428,7 +429,7 @@
     },
     {
       "name": "rValorisation",
-      "description": "",
+      "description": "Levier représentant la valorisation de la recherche",
       "indicators": [
         {
           "name": "Le revenu de la valorisation",
@@ -466,11 +467,11 @@
     },
     {
       "name": "revenus fondation",
-      "description": "",
+      "description": "Levier représentant les revenus des fondations",
       "indicators":  [
         {
             "name": "L'argent disponible",
-          "type": 0
+            "type": 0
         }
       ]
     }
