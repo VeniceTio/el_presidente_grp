@@ -156,9 +156,10 @@ public class Root extends Application {
         val_batiment.addFacteur(iEntretien,"/");
 
         /** Ajout des facteurs du taux de réussite **/
-        taux_réussite.addFacteur(satisfation_professeur,"40/100");
-        taux_réussite.addFacteur(fDotRecur,"40c2");
+        taux_réussite.addFacteur(satisfation_professeur,"30/100");
+        taux_réussite.addFacteur(fDotRecur,"20c2");
         taux_réussite.addFacteur(fDotSpe,"20c1");
+        taux_réussite.addFacteur(qualite_formation,"30c6");
 
         /** Ajout des facteurs de la réputation de formation **/
         reputation_formation.addFacteur(taux_réussite,"40/100");
