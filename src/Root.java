@@ -260,13 +260,13 @@ public class Root extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent p = FXMLLoader.load(getClass().getResource("view/game_scene.fxml"));
+        Parent p = FXMLLoader.load(getClass().getResource("resources/fxml/game_scene.fxml"));
 
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("El Presidente");
 
-        // Association évènement pour le déplacement de la fenêtre
+        /* Association évènement pour le déplacement de la fenêtre
         p.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -275,16 +275,17 @@ public class Root extends Application {
             }
         });
 
-        // Gestion du déplacement de la fenêtre
+         Gestion du déplacement de la fenêtre
         p.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 stage.setX(event.getScreenX() - xOffset);
                 stage.setY(event.getScreenY() - yOffset);
             }
-        });
+        });*/
 
         stage.setScene(new Scene(p));
+        stage.setFullScreen(true);
         stage.show();
     }
 
