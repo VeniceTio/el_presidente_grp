@@ -38,3 +38,10 @@
 #btn_nextsemester {
     -fx-background-image: url('../images/btn_nextsemester.png');
 }
+
+/*
+    3. LEVERS
+*/
+.lever-controller {
+    -fx-font-size: 20px;
+}

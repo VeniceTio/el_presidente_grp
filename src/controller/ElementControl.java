@@ -24,6 +24,10 @@ public class ElementControl implements Time{
      */
     private ArrayList<Indicator> _indicators = new ArrayList<Indicator>();
     /**
+     * Liste contenant les leviers de l'application
+     */
+    private ArrayList<Lever> _levers = new ArrayList<Lever>();
+    /**
      * Attribut contenant l'instance de la classe
      */
     private static ElementControl _instance = null;
@@ -61,10 +65,18 @@ public class ElementControl implements Time{
 
     /**
      * Méthode permettant de renvoyer tous les indicateurs
-     * @return une collection d'indicateurs
+     * @return une ArrayList d'indicateurs
      */
     public ArrayList<Indicator> getIndicators() {
         return _indicators;
+    }
+
+    /**
+     * Méthode permettant de renvoyer tous les indicateurs
+     * @return une ArrayList de leviers
+     */
+    public ArrayList<Lever> getLevers() {
+        return _levers;
     }
 
     /**
@@ -102,6 +114,7 @@ public class ElementControl implements Time{
         Lever lever = new Lever(name, value);
         _mapElement.put(name,lever);
         _elements.add(lever);
+        _levers.add(lever);
         return lever;
     }
 
