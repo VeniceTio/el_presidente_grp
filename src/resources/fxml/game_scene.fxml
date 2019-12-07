@@ -28,11 +28,6 @@
                   <Font name="Roboto Bold" size="16.0" />
                </font>
             </Text>
-            <Text fill="#292929" layoutX="1063.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 €">
-               <font>
-                  <Font name="Roboto Bold" size="35.0" />
-               </font>
-            </Text>
             <ImageView fitHeight="118.0" fitWidth="118.0" layoutX="1774.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/avatar.png" />
@@ -47,13 +42,13 @@
       </AnchorPane>
       <AnchorPane id="container" prefHeight="771.0" prefWidth="1921.0">
          <children>
-            <AnchorPane layoutX="1100.0" prefHeight="786.0" prefWidth="821.0" />
-            <AnchorPane prefHeight="786.0" prefWidth="1094.0" />
+            <AnchorPane id="indicators" layoutX="1100.0" prefHeight="786.0" prefWidth="821.0" />
+            <AnchorPane id="levers" prefHeight="786.0" prefWidth="1094.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="96.0" prefWidth="1920.0">
          <children>
-            <Button id="btn_nextsemester" layoutX="1365.0" layoutY="16.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="541.0" styleClass="btn-reset" />
+            <Button id="btn_nextsemester" layoutX="1365.0" layoutY="16.0" mnemonicParsing="false" onAction="#nextSemesterButtonAction" prefHeight="64.0" prefWidth="541.0" styleClass="btn-reset" />
          </children>
       </AnchorPane>
     </children>

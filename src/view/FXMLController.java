@@ -3,6 +3,7 @@ package view;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controller.ElementControl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,8 +18,15 @@ public class FXMLController implements Initializable
         stage.close();
     }
 
+    @FXML
+    private void nextSemesterButtonAction(ActionEvent event) {
+        ElementControl.getInstance().ClockForvard();
+    }
+
     public FXMLController() {}
 
     @FXML
-    public void initialize(URL url, ResourceBundle rb) {}
+    public void initialize(URL url, ResourceBundle rb) {
+
+    }
 }

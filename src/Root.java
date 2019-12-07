@@ -1,13 +1,18 @@
 import controller.ElementControl;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import model.*;
+import view.IndicatorText;
 import view.ProvisoryView;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -256,34 +261,25 @@ public class Root extends Application {
     }
 
     /** *********** INTERFACE FINALE ********** **/
-    private double xOffset = 0;
-    private double yOffset = 0;
-
     @Override
     public void start(Stage stage) throws Exception {
         Parent p = FXMLLoader.load(getClass().getResource("resources/fxml/game_scene.fxml"));
 
+        VBox root = (VBox) p;
+        AnchorPane container = (AnchorPane) root.getChildren().get(1); // AnchorPane id "container"
+        AnchorPane indicatorsPane = (AnchorPane) container.getChildren().get(0); // AnchorPane id "indicators"
+
+        double offset = 0;
+        for(AbstractElement ae : ElementControl.getInstance().getIndicators()) {
+            Text itxt = new IndicatorText(ae.get_name()).getText();
+            itxt.setY(offset);
+            offset += 20.0;
+            indicatorsPane.getChildren().add(itxt);
+        }
+
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("El Presidente");
-
-        /* Association évènement pour le déplacement de la fenêtre
-        p.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                xOffset = event.getSceneX();
-                yOffset = event.getSceneY();
-            }
-        });
-
-         Gestion du déplacement de la fenêtre
-        p.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                stage.setX(event.getScreenX() - xOffset);
-                stage.setY(event.getScreenY() - yOffset);
-            }
-        });*/
 
         stage.setScene(new Scene(p));
         stage.setFullScreen(true);
