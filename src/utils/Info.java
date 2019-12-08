@@ -8,8 +8,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Info {
-    String indicatorsFile = "src/utils/indicators.json";
-    String leversFile = "src/utils/levers.json";
+    final String indicatorsFile = "elpresidente/src/utils/indicators.json";
+    final String leversFile = "elpresidente/src/utils/levers.json";
     private JSONArray indicators;
     private JSONArray levers;
 
@@ -65,9 +65,6 @@ public class Info {
      * @return l'index de l'indicateur recherché
      */
     public int getIndicatorIndex(String indicator) {
-        if(getIndex(indicator, indicators) == -1) {
-            System.out.println("Indicateur introuvable");
-        }
         return getIndex(indicator, indicators);
     }
 
@@ -77,9 +74,6 @@ public class Info {
      * @return l'index du levier recherché
      */
     public int getLeverIndex(String lever) {
-        if(getIndex(lever, levers) == -1) {
-            System.out.println("Lever introuvable");
-        }
         return getIndex(lever, levers);
     }
 
@@ -111,11 +105,14 @@ public class Info {
      * @return la chaîne contenant les informations
      */
     public String getIndicatorInfo(String indicator) {
-        String indicInfo;
+        String indicInfo = "Indicateur non-répertorié";
 
-        int indicatorLever = getIndicatorIndex(indicator);
-        JSONObject oIndic = indicators.getJSONObject(indicatorLever);
-        indicInfo = oIndic.getString("description");
+        int indicatorIndex = getIndicatorIndex(indicator);
+
+        if(indicatorIndex > 0) {
+            JSONObject oIndic = indicators.getJSONObject(indicatorIndex);
+            indicInfo = oIndic.getString("description");
+        }
 
         return indicInfo;
     }
@@ -127,33 +124,35 @@ public class Info {
      * @return la chaîne contenant les informations
      */
     public String getLeverInfo(String lever) {
-        StringBuilder leverInfo = new StringBuilder();
+        StringBuilder leverInfo = new StringBuilder("Levier non-répertorié");
         StringBuilder indicatorsList = new StringBuilder();
 
         int leverIndex = getLeverIndex(lever);
-        JSONObject oLevers = levers.getJSONObject(leverIndex);
 
-        leverInfo.append(oLevers.getString("description"));
-        leverInfo.append(" qui influe sur");
-        leverInfo.append("\n");
+        if(leverIndex > 0) {
+            JSONObject oLevers = levers.getJSONObject(leverIndex);
 
-        JSONArray leverIndicators = oLevers.getJSONArray("indicators");
+            leverInfo.append(oLevers.getString("description"));
+            leverInfo.append(" qui influe sur");
+            leverInfo.append("\n");
 
-        System.out.println("\n");
+            JSONArray leverIndicators = oLevers.getJSONArray("indicators");
 
-        for(int i = 0; i < leverIndicators.length(); i++) {
-            JSONObject objLevers = leverIndicators.getJSONObject(i);
-            indicatorsList.append("• ");
-            indicatorsList.append(objLevers.getString("name"));
-            indicatorsList.append(" ");
-            indicatorsList.append(getLeverInfluence(objLevers.getInt("type")));
+            for(int i = 0; i < leverIndicators.length(); i++) {
+                JSONObject objLevers = leverIndicators.getJSONObject(i);
+                indicatorsList.append("• ");
+                indicatorsList.append(objLevers.getString("name"));
+                indicatorsList.append(" ");
+                indicatorsList.append(getLeverInfluence(objLevers.getInt("type")));
 
-            if(i != leverIndicators.length() - 1) {
-                indicatorsList.append("\n");
+                if(i != leverIndicators.length() - 1) {
+                    indicatorsList.append("\n");
+                }
             }
+
+            leverInfo.append(indicatorsList);
         }
 
-        leverInfo.append(indicatorsList);
         return leverInfo.toString();
     }
 

@@ -25,6 +25,10 @@
         {
           "name": "La satisfaction étudiante",
           "type": 0
+        },
+        {
+          "name": "taux de réussite",
+          "type": 0
         }
       ]
     },
@@ -47,7 +51,7 @@
           "type": 0
         },
         {
-          "name": "Le revenu de la valorisation",
+          "name": "revenue de valorisation",
           "type": 0
         }
       ]
@@ -112,7 +116,7 @@
     },
     {
       "name": "revenue de valorisation",
-      "description": "",
+      "description": "Levier représentant la valorisation",
       "indicators": [
         {
           "name": "L'argent disponible",
@@ -136,6 +140,26 @@
       "indicators": [
         {
           "name": "La charge de travail",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "rsubvention de l'état",
+      "description": "Levier représentant les subventions de l'état",
+      "indicators": [
+        {
+          "name": "L'argent disponible",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "revenus fondation",
+      "description": "Levier représentant les revenus des fondations",
+      "indicators":  [
+        {
+          "name": "L'argent disponible",
           "type": 0
         }
       ]
@@ -452,26 +476,6 @@
         {
           "name": "L'argent disponible",
           "type": 0
-        }
-      ]
-    },
-    {
-      "name": "rsubvention de l'état",
-      "description": "Levier représentant les subventions de l'état",
-      "indicators": [
-        {
-          "name": "L'argent disponible",
-          "type": 0
-        }
-      ]
-    },
-    {
-      "name": "revenus fondation",
-      "description": "Levier représentant les revenus des fondations",
-      "indicators":  [
-        {
-            "name": "L'argent disponible",
-            "type": 0
         }
       ]
     }
