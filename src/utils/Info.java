@@ -81,19 +81,23 @@ public class Info {
      * Méthode permettant de renvoyer une chaîne qui précise si le levier
      * influe négativement, positivement ou les deux en même temps
      * @param i le type du levier
-     * @return un chaîne contenant les informations à propos de ce levier
+     * @return une chaîne contenant les informations à propos de ce levier
      */
     public String getLeverInfluence(int i) {
         String res = "";
 
-        if(i == -1) {
-            res = "(-)";
-        }
-        else if(i == 0) {
-            res = "(-/+)";
-        }
-        else if(i == 1) {
-            res = "(+)";
+        switch(i) {
+            case -1:
+                res = "(-)";
+                break;
+            case 0:
+                res = "(-/+)";
+                break;
+            case 1:
+                res = "(+)";
+                break;
+            default:
+                break;
         }
         return res;
     }
@@ -119,22 +123,22 @@ public class Info {
 
     /**
      * Méthode permettant de renvoyer une chaîne contenant les informations
-     * du levier et la liste des indicateurs qu'il influe
+     * du levier et la liste des indicateurs sur lequel in influe
      * @param lever le levier dont on souhaite récuperer les informations
      * @return la chaîne contenant les informations
      */
     public String getLeverInfo(String lever) {
-        StringBuilder leverInfo = new StringBuilder("Levier non-répertorié");
+        String leverInfo = "Levier non-répertorié";
         StringBuilder indicatorsList = new StringBuilder();
 
         int leverIndex = getLeverIndex(lever);
 
-        if(leverIndex > 0) {
+        if(leverIndex >= 0) {
             JSONObject oLevers = levers.getJSONObject(leverIndex);
 
-            leverInfo.append(oLevers.getString("description"));
-            leverInfo.append(" qui influe sur");
-            leverInfo.append("\n");
+            leverInfo = oLevers.getString("description");
+            leverInfo = leverInfo + " qui influe sur";
+            leverInfo = leverInfo + "\n";
 
             JSONArray leverIndicators = oLevers.getJSONArray("indicators");
 
@@ -150,10 +154,10 @@ public class Info {
                 }
             }
 
-            leverInfo.append(indicatorsList);
+            leverInfo = leverInfo + indicatorsList;
         }
 
-        return leverInfo.toString();
+        return leverInfo;
     }
 
     public static void main(String[] args) {
