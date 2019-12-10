@@ -7,6 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import model.*;
+import view.GameView;
 import view.IndicatorText;
 import view.LeverController;
 import view.ProvisoryView;
@@ -18,7 +19,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class Root extends Application {
+public class Root {
     public Root(){
         ElementControl EC = ElementControl.getInstance();
         /** Création Indicateur **/
@@ -257,58 +258,10 @@ public class Root extends Application {
 
         Semestre.getInstance().ClockForvard();
         System.out.println("argent disponible : " + argent_disponible.getValue());
-
-        /** View **/
-        // ProvisoryView view = new ProvisoryView();
     }
 
-    /** *********** INTERFACE FINALE ********** **/
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent p = FXMLLoader.load(getClass().getResource("resources/fxml/game_scene.fxml"));
-
-        VBox root = (VBox) p;
-        AnchorPane container = (AnchorPane) root.getChildren().get(1); // AnchorPane id "container"
-        AnchorPane indicatorsPane = (AnchorPane) container.getChildren().get(0); // AnchorPane id "indicators"
-        AnchorPane leversPane = (AnchorPane) container.getChildren().get(1); // AnchorPane id "levers"
-
-        // Génération dynamique des leviers et indicateurs
-        double offsetX = 0;
-        double offsetY = 0;
-
-        // Indicateurs
-        for(Indicator ind : ElementControl.getInstance().getIndicators()) {
-            Text itxt = new IndicatorText(ind.get_name()).getText();
-            itxt.setY(offsetY);
-            offsetY += 20;
-            indicatorsPane.getChildren().add(itxt);
-        }
-
-        // Leviers
-        offsetY = 0;
-        for(Lever lev : ElementControl.getInstance().getLevers()) {
-            Pane lcp = new LeverController(lev.get_name()).getPane();
-            lcp.setTranslateX(offsetX);
-            lcp.setTranslateY(offsetY);
-            offsetX += 250;
-            leversPane.getChildren().add(lcp);
-
-            if(offsetX > 2*250) {
-                offsetX = 0;
-                offsetY += 75;
-            }
-        }
-
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.setResizable(false);
-        stage.setTitle("El Presidente");
-
-        stage.setScene(new Scene(p));
-        stage.setFullScreen(true);
-        stage.show();
-    }
-
-    public static void main(String[] args){
-        launch(args);
+    public static void main(String[] args) {
+        new Root();
+        GameView.initialize();
     }
 }
