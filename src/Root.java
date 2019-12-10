@@ -22,6 +22,7 @@ public class Root extends Application {
     public Root(){
         ElementControl EC = ElementControl.getInstance();
         /** Création Indicateur **/
+        Indicator subEtat = EC.createIndicator("rsubvention de l'état",185000000,new aleaSub(),true);
         Indicator argent_disponible = EC.createIndicator("argent disponible",0, new Argent(),true);
         Indicator nombre_professeur = EC.createIndicator("nombre de professeur",0, new NombreProfesseur(),false);
         Indicator nombre_eleve = EC.createIndicator("nombre d'étudiant",50000, new NombreEleve(),true);//50 000 étudiants pour commencer comme à strasbourg
@@ -48,6 +49,8 @@ public class Root extends Application {
         Indicator nombre_article_pub = EC.createIndicator("nombre d'article publié",0,new Nombre(),true);
         Indicator nombre_prix_nobel = EC.createIndicator("nombre de prix nobel",0,new Nombre(),true);
         Indicator reputation_recherche = EC.createIndicator("réputation de la recherche",0,new RepRec(),true);
+
+
 /**
         Indicator revenue_valorisation = EC.createIndicator("revenue de valorisation",0,new revenue(),true);
         **/
@@ -108,7 +111,7 @@ public class Root extends Application {
         Recherche.addLever(rPrimes);
         Recherche.addLever(rValorisation);
 
-        Lever subEtat = EC.createLever("rsubvention de l'état",185000000);
+
 
         /** Ajout des facteurs de l'argent_disponible **/
         /** Manque frais d'inscription +revenue valorisation **/
