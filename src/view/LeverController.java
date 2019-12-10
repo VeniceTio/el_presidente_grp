@@ -7,10 +7,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import utils.ElementObserver;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 public class LeverController implements ElementObserver {
     Pane _pane;
@@ -24,10 +27,11 @@ public class LeverController implements ElementObserver {
         Parent cbase = FXMLLoader.load(getClass().getResource("../resources/fxml/lever_controller.fxml"));
         Pane croot = (Pane) cbase;;
         Text textValue = (Text)croot.getChildren().get(0); // Text[id=level-name]
-        textValue.setText(name);
+        textValue.setText(name.substring(1).toUpperCase());
         _pane = croot;
+        NumberFormat formatter = new DecimalFormat("##,###.##");
         _textValue = (Text)croot.getChildren().get(1); // Text[id=lever-value]
-        _textValue.setText(String.valueOf(_ec.getElement(_name).getValue()));
+        _textValue.setText(formatter.format(_ec.getElement(_name).getValue()));
 
         EventHandler<ActionEvent> buttonPlusHandler = new EventHandler<ActionEvent>() {
             @Override
@@ -61,7 +65,8 @@ public class LeverController implements ElementObserver {
 
     @Override
     public void update() {
-        _textValue.setText(String.valueOf(_ec.getElement(_name).getValue()));
+        NumberFormat formatter = new DecimalFormat("##,###.##");
+        _textValue.setText(formatter.format(_ec.getElement(_name).getValue()));
         // _labelLastValue.setText("valeur précedente : "+String.valueOf(_EC.getElement(_name).getLastValue()));
     }
 }
