@@ -297,7 +297,7 @@
     },
     {
       "name": "fTitulaire",
-      "descrpition": "Levier représentant l'investissement en argent pour les titulaires pour la formation",
+      "description": "Levier représentant l'investissement en argent pour les titulaires pour la formation",
       "indicators": [
         {
           "name": "L'argent disponible",
@@ -463,7 +463,7 @@
     },
     {
       "name": "rPrimes de recherche",
-      "descrpition": "Levier représentant l'investissement en argent pour les primes attribuées à la recherche",
+      "description": "Levier représentant l'investissement en argent pour les primes attribuées à la recherche",
       "indicators": [
         {
           "name": "La recherche appliquée",

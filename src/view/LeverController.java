@@ -4,12 +4,17 @@ import controller.ElementControl;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 import utils.ElementObserver;
+import utils.Info;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -53,8 +58,10 @@ public class LeverController implements ElementObserver {
         Button btnMinus = (Button)croot.getChildren().get(3); // Button[id=lever-btn-minus]
         btnMinus.setOnAction(buttonMinusHandler);
 
-        // System.out.println(croot.getChildren());
-
+        Info infoLevier = new Info();
+        ImageView info = (ImageView)croot.getChildren().get(4); // ImageView lctrl-info
+        System.out.println(_name);
+        Tooltip.install(info, new InfoTooltip(infoLevier.getLeverInfo(_name)));
         _ec.getElement(name).add(this);
     }
 
