@@ -1,7 +1,7 @@
 # El presidente
 
 <div style="width:100%;text-align:center">
-    <img src="Images/logo_ElPresidente.jpg" height="150px" />
+    <img src="images/logo_ElPresidente.jpg" height="150px" />
 </div>
 
 ## Présentation du jeu
@@ -9,7 +9,7 @@ El presidente est un jeu de gestion d'une université. Votre but : gérer le bud
 Ne vous laissez pas surprendre par la dificulté de la présidence d'une université !
 
 ## Captures d'écrans du jeu
-![Capture d'écran du jeu](Images/capture_ElPresidente.PNG)
+![Capture d'écran du jeu](images/capture_ElPresidente.PNG)
 
 ## Installation du jeu
 - Installer Java avec au minimum la version 8 : [ici](https://www.java.com/fr/download/ "Lien vers la dernière version de Java").
