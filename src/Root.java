@@ -143,8 +143,8 @@ public class Root {
         satisfation_etudiante.addFacteur(qualite_formation,"c33");
 
         /** Ajout des facteurs de la satisfaction professeur **/
-        satisfation_professeur.addFacteur(etat_batiment,"c35");
-        satisfation_professeur.addFacteur(charge_de_travail,"25");
+        satisfation_professeur.addFacteur(etat_batiment,"c34");
+        satisfation_professeur.addFacteur(charge_de_travail,"c26");
 
         /** Ajout des facteurs de la charge de travail **/
         charge_de_travail.addFacteur(nombre_eleve,"sur");
