@@ -71,15 +71,31 @@
 .lctrl-name {
     -fx-fill: #fff;
     -fx-font-size: 15px;
-    -fx-font-weight: 800;
+    -fx-font-weight: bold;
 }
 .lctrl-value {
     -fx-fill: #fff;
     -fx-font-size: 22px;
 }
-.lctrl-info {
+.lctrl-info, .indtxt-info {
     -fx-opacity: 0.5;
 }
-.lctrl-info:hover {
+.lctrl-info:hover, .indtxt-info:hover {
     -fx-opacity: 1;
+}
+
+/*
+    4. INDICATOR TEXT
+ */
+.indtxt-name {
+    -fx-fill: #e73f08;
+    -fx-font-size: 15px;
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-weight: 700;
+}
+.indtxt-value {
+    -fx-fill: #FFF;
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-weight: bold;
+    -fx-font-size: 32px;
 }

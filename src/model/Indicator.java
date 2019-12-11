@@ -72,6 +72,12 @@ public class Indicator extends AbstractElement{
     public String toString(){return this.get_name() + " : "+ this.getValue();}
 
     /**
+     * Méthode permettant de récupérer le type de l'indicateur
+     * @return IndicatorType type de l'indicateur
+     */
+    public IndicatorType getType(){return this._type;}
+
+    /**
      * Méthode permettant de passer au semestre suivant
      */
     public void ClockForvard(){
