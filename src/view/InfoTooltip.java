@@ -7,7 +7,8 @@ import javafx.util.Duration;
 public class InfoTooltip extends Tooltip {
     public InfoTooltip(String text) {
         super(text);
-        this.setFont(new Font("Roboto", 14));
+        this.setFont(new Font("Roboto", 15));
         this.setShowDelay(new Duration(0));
+        this.setStyle("-fx-background-color: #FFF; -fx-text-fill: #000;");
     }
 }
