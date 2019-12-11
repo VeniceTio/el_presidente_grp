@@ -115,16 +115,6 @@
       ]
     },
     {
-      "name": "revenue de valorisation",
-      "description": "Levier représentant la valorisation",
-      "indicators": [
-        {
-          "name": "L'argent disponible",
-          "type": 0
-        }
-      ]
-    },
-    {
       "name": "nombre de professeur",
       "description": "Levier (indicateur) représentant le nombre de professeur",
       "indicators": [
@@ -155,7 +145,7 @@
       ]
     },
     {
-      "name": "revenus fondation",
+      "name": "revenus fondation (**** à changer ****)",
       "description": "Levier représentant les revenus des fondations",
       "indicators":  [
         {
@@ -193,8 +183,8 @@
       ]
     },
     {
-      "name": "cAdminCentrale",
-      "description": "",
+      "name": "cAdministration",
+      "description": "Levier représentant l'investissement dans l'administration pour le central",
       "indicators": []
     },
     {
@@ -297,7 +287,7 @@
     },
     {
       "name": "fTitulaire",
-      "descrpition": "Levier représentant l'investissement en argent pour les titulaires pour la formation",
+      "description": "Levier représentant l'investissement en argent pour les titulaires pour la formation",
       "indicators": [
         {
           "name": "L'argent disponible",
@@ -376,8 +366,9 @@
       ]
     },
     {
-      "name": "fPartenariats",
-      "description": ""
+      "name": "fPartenariat",
+      "description": "Levier représentant l'investissement dans les partenariats",
+      "indicators": []
     },
     {
       "name": "rTitulaire",
@@ -463,7 +454,7 @@
     },
     {
       "name": "rPrimes de recherche",
-      "descrpition": "Levier représentant l'investissement en argent pour les primes attribuées à la recherche",
+      "description": "Levier représentant l'investissement en argent pour les primes attribuées à la recherche",
       "indicators": [
         {
           "name": "La recherche appliquée",

@@ -8,8 +8,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Info {
-    final String indicatorsFile = "elpresidente/src/utils/indicators.json";
-    final String leversFile = "elpresidente/src/utils/levers.json";
+    final String indicatorsFile = "src/utils/indicators.json";
+    final String leversFile = "src/utils/levers.json";
     private JSONArray indicators;
     private JSONArray levers;
 
@@ -18,8 +18,9 @@ public class Info {
      */
     public Info() {
         try {
-            String indicatorsContents = new String((Files.readAllBytes(Paths.get(indicatorsFile))));
-            String leversContents = new String((Files.readAllBytes(Paths.get(leversFile))));
+            String dir = new java.io.File( "." ).getCanonicalPath();
+            String indicatorsContents = new String((Files.readAllBytes(Paths.get(dir + "\\utils\\indicators.json"))));
+            String leversContents = new String((Files.readAllBytes(Paths.get(dir + "\\utils\\levers.json"))));
 
             JSONObject indicatorObj = new JSONObject(indicatorsContents);
             JSONObject leverObj = new JSONObject(leversContents);

@@ -40,8 +40,36 @@
 }
 
 /*
-    3. LEVERS
+    3. LEVER CONTROLLER
 */
-.lever-controller {
-    -fx-font-size: 20px;
+.lctrl {
+    -fx-background-image: url('../images/lctrl_bg.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 0px 19px;
+    -fx-font-family: 'Roboto', sans-serif;
+}
+.lctrl-minus, .lctrl-plus {
+    -fx-background-repeat: no-repeat;
+}
+
+.lctrl-minus {
+    -fx-background-image: url('../images/lctrl_minus.png');
+}
+.lctrl-plus {
+    -fx-background-image: url('../images/lctrl_plus.png');
+}
+.lctrl-name {
+    -fx-fill: #fff;
+    -fx-font-size: 15px;
+    -fx-font-weight: 800;
+}
+.lctrl-value {
+    -fx-fill: #fff;
+    -fx-font-size: 22px;
+}
+.lctrl-info {
+    -fx-opacity: 0.5;
+}
+.lctrl-info:hover {
+    -fx-opacity: 1;
 }

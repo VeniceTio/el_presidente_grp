@@ -46,11 +46,11 @@ public class Root {
         LeverFamily Recherche = new LeverFamily("Recherche");
 
         /** Création Levier categorie Central **/
-        Lever cPrimes = EC.createLever("cPrimes pour la central",1000000);       //1M
+        Lever cPrimes = EC.createLever("cPrimes centrales",1000000);       //1M
         Lever cComm = EC.createLever("cCommunication",1000000);                  //1M
         Lever cAdmin = EC.createLever("cAdministration",20000000);                //20M
         Lever cEvenement = EC.createLever("cEvenement",1000000);                 //1M
-        Lever cSubAssoc = EC.createLever("cSubvention association",1000000);     //1M             tot: 24M
+        Lever cSubAssoc = EC.createLever("cSubv. assoc.",1000000);     //1M             tot: 24M
         Central.addLever(cPrimes);
         Central.addLever(cComm);
         Central.addLever(cEvenement);
