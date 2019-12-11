@@ -8,7 +8,7 @@
 ## Présentation du jeu
 >Brève description de notre jeu. 
 
-El presidente est un jeu de gestion d'une université. Votre but : ***prendre la place du président de l'Université et ainsi être en charge de la gestion de toute l'Université***. Le but de notre jeu est d'instruire le joueur au sujet des responsabilités et du rôle de président d'une Université. Vous devrez donc ***prendre des décisions*** afin d'atteindre des objectifs qui vous seront données.
+El presidente est un jeu de gestion d'une université. Le but du joueur : ***prendre la place du président de l'Université et ainsi être en charge de la gestion de toute l'Université***. Le but de notre jeu est d'instruire le joueur au sujet des responsabilités et du rôle de président d'une Université. Vous devrez donc ***prendre des décisions*** afin d'atteindre des objectifs qui vous seront données.
 
 ## Captures d'écrans du jeu
 > Différentes captures d'écran du jeu vous sont présentées ici. 
@@ -42,16 +42,16 @@ El presidente est un jeu de gestion d'une université. Votre but : ***prendre la
 
 ### Lancement
 
-Au lancement du jeu, vous aurez en face de vous une interface d'accueil qui vous propose plusieurs options:
+Au lancement du jeu, le joueur aura en face de lui une interface d'accueil qui lui propose plusieurs options:
 * Lancer le jeu 
 * Les objectifs à atteindre dans le jeu
 * Le tutoriel
 * Quitter le jeu
 ### Déroulement
 
-Vous devrez donc prendre des ***décisions*** dans le but d'atteindre des objectifs qui seront fixés.
+Le joueur devra donc prendre des ***décisions*** par semestre dans le but d'atteindre des objectifs qui lui seront fixés. Les prises de décisions sont faîtes par semestre, c'est-à-dire qu'à semestre les indicateurs sont calculés par rapport aux décisions prises au travers des leviers. 
 
-Après avoir lancer le jeu, une fenêtre vous sera présenté avec d'un côté (gauche) les leviers et de l'autre (droit) indicateurs. Les ***leviers*** sont un ensemble de paramètres que vous pouvez modifier tout le long du jeu. C'est à travers ces leviers que vous appliquerez votre stratégie. Les ***indicateurs*** sont l'ensemble des informations affichées qui vous permettront de constater l'effet des décisions prises auparavant à travers les leviers. Les indicateurs sont donc influencées par un ou plusieurs leviers. 
+Après avoir lancer le jeu, une fenêtre sera présenté au joueur avec d'un côté (gauche) les leviers et de l'autre (droit) indicateurs. Les ***leviers*** sont un ensemble de paramètres que le joueur peut modifier tout le long du jeu. C'est à travers ces leviers que le joueur appliquera sa stratégie. Les ***indicateurs*** sont l'ensemble des informations affichées qui permettront au joueur de constater l'effet des décisions prises auparavant à travers les leviers. Les indicateurs sont donc influencées par un ou plusieurs leviers. 
 
 ## Crédits
 > Membres du projet 
