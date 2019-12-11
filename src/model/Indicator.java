@@ -16,6 +16,10 @@ public class Indicator extends AbstractElement{
      * Attribut permettant de savoir si l'indicateur statique ou pas (lors du clockForward: passage au semestre suivant, ce booléen permettra de savoir on met à jour l'indicateur ou pas)
      */
     private Boolean _statique;
+    /**
+     * Attribut contenant le type de l'indicateur (nombre ou pourcentage)
+     */
+    private IndicatorType _type;
 
     /**
      * Méthode permettant de créer une instance de la classe Indicator
@@ -24,10 +28,11 @@ public class Indicator extends AbstractElement{
      * @param maj la formule de l'indicateur
      * @param status paramètre permettant de savoir si l'indicateur statique ou pas (lors du clockForward: passage au semestre suivant, ce booléen permettra de savoir on met à jour l'indicateur ou pas)
      */
-    public Indicator(String name, int value, AbstractFormula maj, Boolean status){
+    public Indicator(String name, int value, AbstractFormula maj, Boolean status, IndicatorType type){
         super(name,value);
         _maj = maj;
         _statique = status;
+        _type = type;
     }
 
     /**
