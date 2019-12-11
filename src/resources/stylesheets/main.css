@@ -26,6 +26,16 @@
 #logo {
     -fx-background-image: url('../images/logo.png');
 }
+#player-name, #available-money {
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-weight: bold;
+}
+#player-name {
+    -fx-font-size: 35px;
+}
+#available-money {
+    -fx-font-size: 16px;
+}
 
 
 /*
