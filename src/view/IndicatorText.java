@@ -6,6 +6,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import utils.ElementObserver;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class IndicatorText implements ElementObserver {
     private Text _text;
     private ElementControl _EC;
@@ -15,9 +18,17 @@ public class IndicatorText implements ElementObserver {
         super();
         _EC = ElementControl.getInstance();
         _name = name;
-        _text = new Text(_EC.getElement(_name).toString());
-        _text.setFont(new Font("Roboto", 17.0));
-        _text.setFill(Color.WHITE);
+
+        if(_name == "argent disponible") {
+            NumberFormat formatter = new DecimalFormat("##,###.##");
+            _text = new Text(formatter.format(Integer.valueOf(_EC.getElement(_name).toString().replaceAll("[^\\d.]", ""))) + " €");
+            _text.setFont(new Font("Roboto Bold", 32.0));
+            _text.setFill(Color.BLACK);
+        } else {
+            _text = new Text(_EC.getElement(_name).toString());
+            _text.setFont(new Font("Roboto", 17.0));
+            _text.setFill(Color.WHITE);
+        }
         _EC.getElement(name).add(this);
     }
 
@@ -27,6 +38,12 @@ public class IndicatorText implements ElementObserver {
 
     @Override
     public void update() {
-        _text.setText(_EC.getElement(_name).toString());
+
+        if(_name == "argent disponible") {
+            NumberFormat formatter = new DecimalFormat("##,###.##");
+            _text.setText(formatter.format(Integer.valueOf(_EC.getElement(_name).toString().replaceAll("[^\\d.]", ""))) + " €");
+        } else {
+            _text.setText(_EC.getElement(_name).toString());
+        }
     }
 }

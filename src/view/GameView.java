@@ -15,6 +15,8 @@ import javafx.stage.StageStyle;
 import model.Indicator;
 import model.Lever;
 
+import java.awt.*;
+
 public class GameView extends Application {
     public void start(Stage stage) throws Exception {
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Roboto-Regular.ttf"), 16);
@@ -22,6 +24,8 @@ public class GameView extends Application {
         Parent p = FXMLLoader.load(getClass().getResource("../resources/fxml/game_scene.fxml"));
 
         VBox root = (VBox) p;
+        AnchorPane header = (AnchorPane) root.getChildren().get(0); // AnchorPane id "header"
+        AnchorPane availableMoneyPane = (AnchorPane) header.getChildren().get(4); // AnchorPane id "available-money-pane"
         AnchorPane container = (AnchorPane) root.getChildren().get(1); // AnchorPane id "container"
         AnchorPane indicatorsPane = (AnchorPane) container.getChildren().get(0); // AnchorPane id "indicators"
         AnchorPane leversPane = (AnchorPane) container.getChildren().get(1); // AnchorPane id "levers"
@@ -32,10 +36,17 @@ public class GameView extends Application {
 
         // Indicateurs
         for(Indicator ind : ElementControl.getInstance().getIndicators()) {
-            Text itxt = new IndicatorText(ind.get_name()).getText();
-            itxt.setY(offsetY);
-            offsetY += 20;
-            indicatorsPane.getChildren().add(itxt);
+            String indicatorName = ind.get_name();
+            Text itxt = new IndicatorText(indicatorName).getText();
+            if(indicatorName == "argent disponible") {
+                availableMoneyPane.getChildren().add(itxt);
+                itxt.setX(70);
+                itxt.setY(70);
+            } else {
+                itxt.setY(offsetY);
+                offsetY += 20;
+                indicatorsPane.getChildren().add(itxt);
+            }
         }
 
         // Leviers

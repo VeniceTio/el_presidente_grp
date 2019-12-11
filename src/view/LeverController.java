@@ -60,7 +60,6 @@ public class LeverController implements ElementObserver {
 
         Info infoLevier = new Info();
         ImageView info = (ImageView)croot.getChildren().get(4); // ImageView lctrl-info
-        System.out.println(_name);
         Tooltip.install(info, new InfoTooltip(infoLevier.getLeverInfo(_name)));
         _ec.getElement(name).add(this);
     }
