@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="222.0" styleClass="lctrl" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="222.0" styleClass="lctrl" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Text layoutX="29.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lctrl-name" text="LeverName" wrappingWidth="187.0" />
       <Text layoutX="47.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lctrl-value" text="99999" textAlignment="CENTER" wrappingWidth="128.0" />

@@ -1,7 +1,6 @@
 package view;
 
 import controller.ElementControl;
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,7 +19,15 @@ import model.LeverFamily;
 
 import java.util.ArrayList;
 
-public class GameView extends Application {
+public class GameView {
+    private static GameView _instance = null;
+
+    public static GameView getInstance() {
+        if(_instance == null)
+            _instance = new GameView();
+
+        return _instance;
+    }
     public void start(Stage stage) throws Exception {
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Cocogoose.ttf"), 16);
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Roboto-Regular.ttf"), 16);
@@ -105,9 +112,4 @@ public class GameView extends Application {
         stage.setFullScreen(true);
         stage.show();
     }
-
-    public static void initialize() {
-        launch();
-    }
-
 }

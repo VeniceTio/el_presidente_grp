@@ -19,8 +19,6 @@ public class Info {
     public Info() {
         try {
             String dir = new java.io.File( "." ).getCanonicalPath();
-
-            System.out.println(dir + indicatorsFile);
             String indicatorsContents = new String((Files.readAllBytes(Paths.get(dir + indicatorsFile))));
             String leversContents = new String((Files.readAllBytes(Paths.get(dir + leversFile))));
             JSONObject indicatorObj = new JSONObject(indicatorsContents);
