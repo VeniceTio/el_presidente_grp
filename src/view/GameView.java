@@ -18,6 +18,8 @@ import model.Indicator;
 import model.Lever;
 import model.LeverFamily;
 
+import java.util.ArrayList;
+
 public class GameView extends Application {
     public void start(Stage stage) throws Exception {
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Cocogoose.ttf"), 16);
@@ -50,15 +52,17 @@ public class GameView extends Application {
             leversPane.getChildren().add(famNameText);
             offsetY += 20;
             for(Lever l : lf.getLevers()) {
-                Pane lcp = new LeverController(l.get_name()).getPane();
-                lcp.setTranslateX(offsetX);
-                lcp.setTranslateY(offsetY);
-                offsetX += 250;
-                leversPane.getChildren().add(lcp);
+                if(l.get_name() != "rValorisation") {
+                    Pane lcp = new LeverController(l.get_name()).getPane();
+                    lcp.setTranslateX(offsetX);
+                    lcp.setTranslateY(offsetY);
+                    offsetX += 250;
+                    leversPane.getChildren().add(lcp);
 
-                if(offsetX > 3*250) {
-                    offsetX = 0;
-                    offsetY += 75;
+                    if (offsetX > 3 * 250) {
+                        offsetX = 0;
+                        offsetY += 75;
+                    }
                 }
             }
             offsetY += 150;
@@ -66,19 +70,30 @@ public class GameView extends Application {
         }
 
         // Indicateurs
+        offsetX = 0;
         offsetY = 0;
+        ArrayList<String> hiddenIndicators = new ArrayList<String>();
+        hiddenIndicators.add("revenue des inscription");
+        hiddenIndicators.add("valorisation batiment");
+        hiddenIndicators.add("valorisation bien");
         for(Indicator ind : ElementControl.getInstance().getIndicators()) {
-            String indicatorName = ind.get_name();
-            Text itxt = new IndicatorText(indicatorName).getText();
-            offsetY += 20;
-            if(indicatorName == "argent disponible") {
-                availableMoneyPane.getChildren().add(itxt);
-                itxt.setX(70);
-                itxt.setY(70);
-            } else {
-                itxt.setY(offsetY);
-                offsetY += 20;
-                indicatorsPane.getChildren().add(itxt);
+            if(!hiddenIndicators.contains(ind.get_name())) {
+                String indicatorName = ind.get_name();
+                Pane indicatorText = new IndicatorText(indicatorName).getPane();
+
+                /*if(indicatorName == "argent disponible") {
+                    availableMoneyPane.getChildren().add(indicatorText);
+                } else {*/
+                    indicatorText.setTranslateX(offsetX);
+                    indicatorText.setTranslateY(offsetY);
+                    indicatorsPane.getChildren().add(indicatorText);
+                    offsetX += 250;
+
+                    if(offsetX > 2*350) {
+                        offsetX = 0;
+                        offsetY += 100;
+                   // }
+                }
             }
         }
 
