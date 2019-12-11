@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import model.Lever;
 import utils.ElementObserver;
 import utils.Info;
 
@@ -25,6 +26,7 @@ public class LeverController implements ElementObserver {
     Text _textValue;
     String _name;
     ElementControl _ec;
+    long _scale;
 
     public LeverController(String name) throws IOException {
         _name = name;
@@ -37,18 +39,19 @@ public class LeverController implements ElementObserver {
         NumberFormat formatter = new DecimalFormat("##,###.##");
         _textValue = (Text)croot.getChildren().get(1); // Text[id=lever-value]
         _textValue.setText(formatter.format(_ec.getElement(_name).getValue()));
+        _scale = ((Lever)(_ec.getElement(_name))).getScale();
 
         EventHandler<ActionEvent> buttonPlusHandler = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                _ec.getElement(name).setValue(_ec.getElement(name).getValue() + 50000);
+                _ec.getElement(name).setValue(_ec.getElement(name).getValue() + _scale);
                 event.consume();
             }
         };
         EventHandler<ActionEvent> buttonMinusHandler = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                _ec.getElement(name).setValue(_ec.getElement(name).getValue() - 50000);
+                _ec.getElement(name).setValue(_ec.getElement(name).getValue() - _scale);
                 event.consume();
             }
         };
