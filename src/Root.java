@@ -16,6 +16,7 @@ public class Root {
     public Root(){
         ElementControl EC = ElementControl.getInstance();
         /** Création Indicateur **/
+        Indicator subEtat = EC.createIndicator("subvention de l'état",185000000,new aleaSub(),true,IndicatorType.NUMBER);
         Indicator argent_disponible = EC.createIndicator("argent disponible",0, new Argent(),true, IndicatorType.NUMBER);
         Indicator nombre_professeur = EC.createIndicator("nombre de professeur",0, new NombreProfesseur(),false, IndicatorType.NUMBER);
         Indicator nombre_eleve = EC.createIndicator("nombre d'étudiant",50000, new NombreEleve(),true, IndicatorType.NUMBER);//50 000 étudiants pour commencer comme à strasbourg
@@ -53,11 +54,11 @@ public class Root {
         LeverFamily Recherche = new LeverFamily("Recherche");
 
         /** Création Levier categorie Central **/
-        Lever cPrimes = EC.createLever("cPrimes centrales",1000000);       //1M
-        Lever cComm = EC.createLever("cCommunication",1000000);                  //1M
-        Lever cAdmin = EC.createLever("cAdministration",20000000);                //20M
-        Lever cEvenement = EC.createLever("cEvenement",1000000);                 //1M
-        Lever cSubAssoc = EC.createLever("cSubv. assoc.",1000000);     //1M             tot: 24M
+        Lever cPrimes = EC.createLever("cPrimes centrales",1000000,100000);       //1M
+        Lever cComm = EC.createLever("cCommunication",1000000,100000);                  //1M
+        Lever cAdmin = EC.createLever("cAdministration",20000000,500000);                //20M
+        Lever cEvenement = EC.createLever("cEvenement",1000000,50000);                 //1M
+        Lever cSubAssoc = EC.createLever("cSubv. assoc.",1000000,75000);     //1M             tot: 24M
         Central.addLever(cPrimes);
         Central.addLever(cComm);
         Central.addLever(cEvenement);
@@ -65,21 +66,21 @@ public class Root {
         Central.addLever(cSubAssoc);
 
         /** Création Levier categorie Immobilier **/
-        Lever iConstruction = EC.createLever("iConstruction",0);           //~
-        Lever iEntretien = EC.createLever("iEntretien",100800000);            //100.8M ~14.9%
-        Lever iRenovation = EC.createLever("iRenovation",0);               //~
+        Lever iConstruction = EC.createLever("iConstruction",0,100000);           //~
+        Lever iEntretien = EC.createLever("iEntretien",100800000,1000000);            //100.8M ~14.9%
+        Lever iRenovation = EC.createLever("iRenovation",0,100000);               //~
         Immobilier.addLever(iConstruction);
         Immobilier.addLever(iEntretien);
         Immobilier.addLever(iRenovation);
 
         /** Création Levier categorie formation **/
-        Lever fContractuel = EC.createLever("fContractuel", 20000000);     //20M
-        Lever fTitulaire = EC.createLever("fTitulaire", 18000000);         //18M ================
-        Lever fDotRecur = EC.createLever("fDotation Recurrente", 1000000);        //1M
-        Lever fDotSpe = EC.createLever("fDotation Specifique", 500000);         //0.5M
-        Lever fPrimes = EC.createLever("fPrimes de formation", 10000);     //~
-        Lever fPartenariats = EC.createLever("fPartenariat", 500000);           //0.5M
-        Lever fFraisInscri = EC.createLever("fFrais d'inscription", 300);
+        Lever fContractuel = EC.createLever("fContractuel", 20000000,200000);     //20M
+        Lever fTitulaire = EC.createLever("fTitulaire", 18000000,200000);         //18M ================
+        Lever fDotRecur = EC.createLever("fDotation Recurrente", 1000000,100000);        //1M
+        Lever fDotSpe = EC.createLever("fDotation Specifique", 500000,50000);         //0.5M
+        Lever fPrimes = EC.createLever("fPrimes de formation", 10000,1000);     //~
+        Lever fPartenariats = EC.createLever("fPartenariat", 500000,50000);           //0.5M
+        Lever fFraisInscri = EC.createLever("fFrais d'inscription", 300,200);
         Formation.addLever(fContractuel);
         Formation.addLever(fTitulaire);
         Formation.addLever(fDotRecur);
@@ -89,12 +90,12 @@ public class Root {
         Formation.addLever(fFraisInscri);
 
         /** Création Levier categorie recherche **/
-        Lever rContractuel = EC.createLever("rContractuel", 33000000);     //30M   --> 1222   -->tot:1898
-        Lever rTitulaire = EC.createLever("rTitulaire", 23000000);         //23M   --> 676           tot : 94M
-        Lever rDotRecur = EC.createLever("rDotation recurrente", 20000000);        //20M
-        Lever rDotSpe = EC.createLever("rDotation specifique", 20000000);         //20M
-        Lever rPrimes = EC.createLever("rPrimes de recherche", 20000);     //~
-        Lever rValorisation = EC.createLever("rValorisation", 0);          //~
+        Lever rContractuel = EC.createLever("rContractuel", 33000000,500000);     //30M   --> 1222   -->tot:1898
+        Lever rTitulaire = EC.createLever("rTitulaire", 23000000,500000);         //23M   --> 676           tot : 94M
+        Lever rDotRecur = EC.createLever("rDotation recurrente", 20000000,500000);        //20M
+        Lever rDotSpe = EC.createLever("rDotation specifique", 20000000,500000);         //20M
+        Lever rPrimes = EC.createLever("rPrimes de recherche", 20000,1000);     //~
+        Lever rValorisation = EC.createLever("rValorisation", 0,1000);          //~
         Recherche.addLever(rContractuel);
         Recherche.addLever(rTitulaire);
         Recherche.addLever(rDotRecur);
@@ -102,7 +103,7 @@ public class Root {
         Recherche.addLever(rPrimes);
         Recherche.addLever(rValorisation);
 
-        Lever subEtat = EC.createLever("rsubvention de l'état",185000000);
+
 
         /** Ajout des facteurs de l'argent_disponible **/
         /** Manque frais d'inscription +revenue valorisation **/

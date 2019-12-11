@@ -12,7 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Collection;
 import java.util.HashMap;
-
+/*
 /**
  * <b> <i>GraphicPie</i> est une classe qui permet d'afficher les graphiques circulaire.</b>
  * <p>

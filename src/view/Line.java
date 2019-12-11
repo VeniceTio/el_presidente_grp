@@ -53,7 +53,7 @@ public class Line extends JPanel {
      *
      * @since 3.0
      *//*
-//TODO:Fonction qui vérifie si une série est sur le graphique
+    faire Fonction qui vérifie si une série est sur le graphique*//*
     private double[] selectData(String name){
 
         int nombre = _stateList.getStates().size()-1;
