@@ -155,7 +155,7 @@
       ]
     },
     {
-      "name": "cPrimes pour la central",
+      "name": "cPrimes centrales",
       "description": "Levier représentant l'investissement en argent pour les primes attribuées à la centrale",
       "indicators": [
         {
@@ -198,7 +198,7 @@
       ]
     },
     {
-      "name": "cSubvention association",
+      "name": "cSubv. assoc.",
       "description": "Levier représentant l'investissement en argent pour les subventions des associations étudiantes",
       "indicators": [
         {
@@ -314,7 +314,7 @@
       ]
     },
     {
-      "name": "fDotationRecurrente",
+      "name": "fDotation Recurrente",
       "description": "Levier représentant l'investissement en argent pour les dotations récurrentes pour la formation",
       "indicators": [
         {
@@ -328,7 +328,7 @@
       ]
     },
     {
-      "name": "fDotation specifique",
+      "name": "fDotation Specifique",
       "description": "Levier représentant l'investissement en argent pour les dotations récurrentes pour la formation",
       "indicators": [
         {
