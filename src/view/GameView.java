@@ -5,20 +5,22 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Indicator;
 import model.Lever;
-
-import java.awt.*;
+import model.LeverFamily;
 
 public class GameView extends Application {
     public void start(Stage stage) throws Exception {
+        Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Cocogoose.ttf"), 16);
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Roboto-Regular.ttf"), 16);
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Roboto-Bold.ttf"), 16);
         Parent p = FXMLLoader.load(getClass().getResource("../resources/fxml/game_scene.fxml"));
@@ -34,10 +36,41 @@ public class GameView extends Application {
         double offsetX = 0;
         double offsetY = 0;
 
+        ElementControl ec = ElementControl.getInstance();
+        for(LeverFamily lf : ec.getFamilyLevers()) {
+            Text famNameText = new Text(lf.getName().toUpperCase());
+            DropShadow ds = new DropShadow();
+            ds.setRadius(0);
+            ds.setOffsetX(-2.0f);
+            ds.setColor(Color.rgb(231, 63, 8));
+            famNameText.setEffect(ds);
+            famNameText.setFont(new Font("Cocogoose", 32));
+            famNameText.setFill(Color.WHITE);
+            famNameText.setY(offsetY);
+            leversPane.getChildren().add(famNameText);
+            offsetY += 20;
+            for(Lever l : lf.getLevers()) {
+                Pane lcp = new LeverController(l.get_name()).getPane();
+                lcp.setTranslateX(offsetX);
+                lcp.setTranslateY(offsetY);
+                offsetX += 250;
+                leversPane.getChildren().add(lcp);
+
+                if(offsetX > 3*250) {
+                    offsetX = 0;
+                    offsetY += 75;
+                }
+            }
+            offsetY += 150;
+            offsetX = 0;
+        }
+
         // Indicateurs
+        offsetY = 0;
         for(Indicator ind : ElementControl.getInstance().getIndicators()) {
             String indicatorName = ind.get_name();
             Text itxt = new IndicatorText(indicatorName).getText();
+            offsetY += 20;
             if(indicatorName == "argent disponible") {
                 availableMoneyPane.getChildren().add(itxt);
                 itxt.setX(70);
@@ -46,21 +79,6 @@ public class GameView extends Application {
                 itxt.setY(offsetY);
                 offsetY += 20;
                 indicatorsPane.getChildren().add(itxt);
-            }
-        }
-
-        // Leviers
-        offsetY = 0;
-        for(Lever lev : ElementControl.getInstance().getLevers()) {
-            Pane lcp = new LeverController(lev.get_name()).getPane();
-            lcp.setTranslateX(offsetX);
-            lcp.setTranslateY(offsetY);
-            offsetX += 250;
-            leversPane.getChildren().add(lcp);
-
-            if(offsetX > 2*250) {
-                offsetX = 0;
-                offsetY += 75;
             }
         }
 
