@@ -8,14 +8,25 @@ public class Lever extends AbstractElement{
      * Liste contenant tous les indicateurs que le levier influence
      */
     private Collection<Indicator> _influencers = new ArrayList<Indicator>();
-
+    /**
+     * Attribut contenant le niveau d'augmentation
+     */
+    private long _scale;
     /**
      * Méthode permettant de créer une instance de la classe Lever
      * @param name le nom du levier
      * @param value la valeur du levier
      */
-    public Lever(String name, int value){
+    public Lever(String name, int value,long scale){
         super(name,value);
+        _scale = scale;
+    }
+    /**
+     * Méthode permettant de renvoyer l'ancienne valeur de l'AbstractElement
+     * @return l'ancienne valeur de l'AbstractElement
+     */
+    public long getScale(){
+        return _scale;
     }
 
     /**
@@ -38,8 +49,15 @@ public class Lever extends AbstractElement{
      */
     @Override
     public void setValue(long value){
-        _oldValue = _value;
-        _value = value;
+        if (value<0){
+            _oldValue = _value;
+            _value = 0;
+        }else {
+            _oldValue = _value;
+            _value = value;
+        }
+
+        //maj des indicateurs influencé
         for (Indicator indic: _influencers) {
             indic.MajOneValue(this);
         }

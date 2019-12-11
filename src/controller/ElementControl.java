@@ -110,8 +110,8 @@ public class ElementControl implements Time{
      * @param value la valeur du levier
      * @return le levier qu'on vient de créer
      */
-    public Lever createLever(String name, int value){
-        Lever lever = new Lever(name, value);
+    public Lever createLever(String name, int value, long scale){
+        Lever lever = new Lever(name, value, scale);
         _mapElement.put(name,lever);
         _elements.add(lever);
         _levers.add(lever);
