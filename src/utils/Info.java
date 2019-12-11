@@ -18,8 +18,9 @@ public class Info {
      */
     public Info() {
         try {
-            String indicatorsContents = new String((Files.readAllBytes(Paths.get(indicatorsFile))));
-            String leversContents = new String((Files.readAllBytes(Paths.get(leversFile))));
+            String dir = new java.io.File( "." ).getCanonicalPath();
+            String indicatorsContents = new String((Files.readAllBytes(Paths.get(dir + "\\utils\\indicators.json"))));
+            String leversContents = new String((Files.readAllBytes(Paths.get(dir + "\\utils\\levers.json"))));
 
             JSONObject indicatorObj = new JSONObject(indicatorsContents);
             JSONObject leverObj = new JSONObject(leversContents);
