@@ -66,4 +66,4 @@ Après avoir lancer le jeu, une fenêtre vous sera présenté avec d'un côté (
 
 -  [La documentation (Uniquement accessible depuis l'IUT)](https://webetu.iutrs.unistra.fr/~crostaqi/html/  "La documentation du code source (sur le serveur webetu)")
 
--  [Le Wiki](https://git.unistra.fr/t432_haj19_t3_b/elpresidente/wikis/home  "contient les informations scientifiques")
+-  [Le Wiki](https://git.unistra.fr/t432_haj19_t3_b/elpresidente/wikis/El-Presidente  "contient les informations scientifiques")
