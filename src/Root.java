@@ -167,15 +167,15 @@ public class Root {
 
         /** Ajout des facteurs de la recherche fondamental **/
         taux_recherche_fondamentale.addFacteur(satisfation_professeur,"30/100");
-        taux_recherche_fondamentale.addFacteur(etat_batiment,"25/100");//             <- à faire
-        taux_recherche_fondamentale.addFacteur(rDotRecur,"18c4");//             <- à faire
-        taux_recherche_fondamentale.addFacteur(rDotSpe,"27c4");//             <- à faire
+        taux_recherche_fondamentale.addFacteur(etat_batiment,"25/100");//
+        taux_recherche_fondamentale.addFacteur(rDotRecur,"18c4");//
+        taux_recherche_fondamentale.addFacteur(rDotSpe,"27c4");//
 
 
         /** Ajout des facteurs de la recherche appliqué **///                      <- verifier les coefficients
         taux_recherche_appliquee.addFacteur(satisfation_professeur,"30/100");
-        taux_recherche_appliquee.addFacteur(etat_batiment,"25/100");//             <- à faire
-        taux_recherche_appliquee.addFacteur(rDotRecur,"30c4");//             <- à faire
+        taux_recherche_appliquee.addFacteur(etat_batiment,"25/100");//
+        taux_recherche_appliquee.addFacteur(rDotRecur,"30c4");//
 
         /** Ajout des facteurs du nombre d'article publié **/
         nombre_article_pub.addFacteur(taux_recherche_appliquee,"cI106");
