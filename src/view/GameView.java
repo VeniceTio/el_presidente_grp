@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -16,6 +17,8 @@ import model.Lever;
 
 public class GameView extends Application {
     public void start(Stage stage) throws Exception {
+        Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Roboto-Regular.ttf"), 16);
+        Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Roboto-Bold.ttf"), 16);
         Parent p = FXMLLoader.load(getClass().getResource("../resources/fxml/game_scene.fxml"));
 
         VBox root = (VBox) p;
