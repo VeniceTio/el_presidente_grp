@@ -253,9 +253,4 @@ public class Root {
         Semestre.getInstance().ClockForvard();
         System.out.println("argent disponible : " + argent_disponible.getValue());
     }
-
-    public static void main(String[] args) {
-        new Root();
-        GameView.initialize();
-    }
 }
