@@ -22,27 +22,28 @@ public class Degradation implements AbstractFormula {
         long val = ElementControl.getInstance().getElement("valorisation batiment").getValue();
         long ent = ElementControl.getInstance().getElement("iEntretien").getValue();
         long ajout = 0;
+        long ajout1 = 0;
         long ajoutR = 0;
         float pourcent = ((float)(ent)/(float)(val))*2;
         if (pourcent<0.1){
-            indicator.setValue((long)(indicator.getValue()-(-5000000*pourcent+1000000)));
+            ajout = (long)(-5000000*pourcent+1000000);
         }
         else if (pourcent<0.2){
-            indicator.setValue((long)(indicator.getValue()-(-4000000*pourcent+900000)));
+            ajout = (long)(-4000000*pourcent+900000);
         }
         else if (pourcent<0.3){
-            indicator.setValue((long)(indicator.getValue()-(-800000*pourcent+250000)));
+            ajout = (long)(-800000*pourcent+250000);
         }
         else {
-            indicator.setValue(indicator.getValue()-10000);
+            ajout = 10000;
         }
         if (ElementControl.getInstance().getElement("iConstruction").getValue()>0){
-            ajout = ElementControl.getInstance().getElement("iConstruction").getValue();
+            ajout1 = ElementControl.getInstance().getElement("iConstruction").getValue();
         }
         if (ElementControl.getInstance().getElement("iRenovation").getValue()>0){
             ajoutR += ElementControl.getInstance().getElement("iRenovation").getValue();
         }
-        indicator.setValue(indicator.getValue()+ajout+ajoutR);
+        indicator.setValue(indicator.getValue()+ajout1+ajoutR-(ajout*6));
         ElementControl.getInstance().getElement("valorisation bien").setValue(ElementControl.getInstance().getElement("valorisation bien").getValue()+ajout);
         if(indicator.getValue()>ElementControl.getInstance().getElement("valorisation bien").getValue()){
             ElementControl.getInstance().getElement("valorisation bien").setValue(indicator.getValue());
