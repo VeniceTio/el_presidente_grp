@@ -5,7 +5,7 @@ public class Root {
     public Root(){
         ElementControl EC = ElementControl.getInstance();
         /** Création Indicateur **/
-        Indicator subEtat = EC.createIndicator("subventions de l'état",185000000,new aleaSub(),true,IndicatorType.NUMBER);
+        Indicator subEtat = EC.createIndicator("subventions de l'état",185000000,new AleaSub(),true,IndicatorType.NUMBER);
         Indicator argent_disponible = EC.createIndicator("argent disponible",0, new Argent(),true, IndicatorType.NUMBER);
         Indicator nombre_professeur = EC.createIndicator("nombre de professeurs",0, new NombreProfesseur(),false, IndicatorType.NUMBER);
         Indicator nombre_eleve = EC.createIndicator("nombre d'étudiants",50000, new NombreEleve(),true, IndicatorType.NUMBER);//50 000 étudiants pour commencer comme à strasbourg
