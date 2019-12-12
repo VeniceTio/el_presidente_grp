@@ -3,15 +3,15 @@ package view;
 import controller.ElementControl;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Tooltip;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import model.Indicator;
 import model.IndicatorType;
 import utils.ElementObserver;
+import utils.Info;
 
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
@@ -41,6 +41,11 @@ public class IndicatorText implements ElementObserver {
             _textValue.setStyle("-fx-fill: #000;");
         }
         _textValue.setText(txt);
+
+        Info infoLevier = new Info();
+        ImageView info = (ImageView)lroot.getChildren().get(2); // ImageView indtxt-info
+        Tooltip.install(info, new InfoTooltip(infoLevier.getLeverInfo(_name)));
+        
         _ec.getElement(name).add(this);
     }
 
