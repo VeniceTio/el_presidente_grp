@@ -25,6 +25,7 @@ public class Argent implements AbstractFormula {
         else {
             updateByLevers(indicator);
         }
+        System.out.println("Argent = "+indicator.getValue());
     }
 
     /**
@@ -33,7 +34,7 @@ public class Argent implements AbstractFormula {
      */
     public void updateByLevers(Indicator indicator){
         //indicateur.setValue(1);
-        if(indicator.get_name()!="argent disponible") {
+        if(!indicator.get_name().equals("argent disponible")) {
             indicator.setValue(1);}
         for (Map.Entry mapEntry : indicator.getFormula().entrySet()) {
             System.out.println(mapEntry);
@@ -47,5 +48,6 @@ public class Argent implements AbstractFormula {
                 indicator.setValue(indicator.getValue() * ((AbstractElement)mapEntry.getKey()).getValue());
             }
         }
+        System.out.println("Argent = "+indicator.getValue());
     }
 }

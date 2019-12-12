@@ -124,7 +124,7 @@ public class ElementControl implements Time{
     /**
      * Méthode permettant de parametrer la fin du jeu
      */
-    private void setEnd(EndStrategy end){
+    public void setEnd(EndStrategy end){
         _end = end;
     }
     /**
