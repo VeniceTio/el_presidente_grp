@@ -22,7 +22,7 @@ public class Root {
 
 
         Indicator taux_réussite = EC.createIndicator("taux de réussite",0,new Taux(),true, IndicatorType.PERCENTAGE);
-        Indicator reputation_formation = EC.createIndicator("réputation des formations",0,new Taux(),true, IndicatorType.PERCENTAGE);
+        Indicator reputation_formation = EC.createIndicator("réputation des formations",0,new RepFor(),true, IndicatorType.PERCENTAGE);
         Indicator taux_insertion_pro = EC.createIndicator("taux d'insertion pro.",0,new Taux(),true, IndicatorType.PERCENTAGE);
 
         Indicator taux_recherche_appliquee = EC.createIndicator("recherche appliquée",0,new Taux(),true, IndicatorType.PERCENTAGE);
