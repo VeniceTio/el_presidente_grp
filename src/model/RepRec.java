@@ -1,5 +1,9 @@
 package model;
 
+import controller.ElementControl;
+
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
@@ -54,18 +58,17 @@ public class RepRec implements AbstractFormula {
         return (long)max;
     }
     public static long courbe2(long value){
+        long nb_prof_rec = ElementControl.getInstance().getElement("rContractuel").getValue()/27000+ElementControl.getInstance().getElement("rTitulaire").getValue()/34000;
+        double ratio = new BigDecimal(value).divide(new BigDecimal(nb_prof_rec), MathContext.DECIMAL32).doubleValue();
         double max;
-        if (value <=0){
+        if (ratio <=0){
             max = 0;
         } else{
-            if (value <= 25000) {
-                max = 0.002 * value;
-            } else if (value <= 50000) {
-                max = 0.0016*value+10;
-            } else if (value <= 100000) {
-                max = 0.0002*value +80;
-            } else{
-                max = 100;
+            if (ratio<1.3){
+                max= 76.92307692*ratio;
+            }
+            else{
+                max=100;
             }
         }
         return (long)max;
