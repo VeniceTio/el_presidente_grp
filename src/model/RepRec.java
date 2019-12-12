@@ -33,7 +33,19 @@ public class RepRec implements AbstractFormula {
         if (val>100){
             val=100;
         }
-        indicator.setValue(val);
+        //mise dans le temps
+        long valuett = val;
+        ArrayList<Long> history = indicator.get_history();
+        int nbSemestre = Semestre.getInstance().getSemestre();
+        int debut = 1;
+        if (nbSemestre>5){
+            debut = nbSemestre-5;
+            for (int i = debut;i<nbSemestre;i++){
+                valuett += history.get(i);
+            }
+            valuett /=6;
+        }
+        indicator.setValue(valuett);
     }
     public static long courbe1(long value){
         double max = 0;

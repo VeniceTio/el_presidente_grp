@@ -2,6 +2,7 @@ package model;
 
 import controller.ElementControl;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Random;
 
@@ -30,7 +31,18 @@ public class Nombre implements AbstractFormula {
             }
         }
         if(bit==1) {
-            indicator.setValue(courbeInter1(value / 100));
+            long valuett = courbeInter1(value / 100);
+            ArrayList<Long> history = indicator.get_history();
+            int nbSemestre = Semestre.getInstance().getSemestre();
+            int debut = 0;
+            if (nbSemestre>2){
+                debut = nbSemestre-2;
+            }
+            for (int i = debut;i<nbSemestre;i++){
+                    valuett += history.get(i);
+            }
+            valuett /=3;
+            indicator.setValue(valuett);
         }
         else{
             indicator.setValue(courbeInter2(value));

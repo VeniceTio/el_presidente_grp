@@ -4,7 +4,7 @@ import controller.ElementControl;
 
 import java.util.ArrayList;
 
-public class DeadEnd implements EndStrategy{
+public class RepRecEnd8 implements EndStrategy{
     /**
      * attribut contenant le fait si la partie est gagné ou perdu
      */
@@ -36,17 +36,19 @@ public class DeadEnd implements EndStrategy{
     public boolean check() {
         boolean res = false;
         for (Indicator indicator:
-             ec.getIndicators()) {
-            if (indicator.getValue()<5 &&
+                ec.getIndicators()) {
+            if (indicator.getValue()<4 &&
                     indicator.get_name()!="charge de travail" &&
                     indicator.get_name()!="nombre de prix nobel"){
                 res=true;
                 _liste.add(indicator);
             }
         }
-        if (Semestre.getInstance().getSemestre()==32){
-            _win = true;
-            res = true;
+        if (Semestre.getInstance().getSemestre()==9){
+            res=true;
+            if(ec.getElement("réputation de la recherche").getValue()>45){
+                _win = true;
+            }
         }
         return res;
     }
