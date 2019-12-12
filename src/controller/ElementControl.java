@@ -30,6 +30,10 @@ public class ElementControl implements Time{
     /**
      * Attribut contenant l'instance de la classe
      */
+    private EndStrategy _end = null;
+    /**
+     * Attribut contenant l'instance de la classe
+     */
     private static ElementControl _instance = null;
     /**
      * Constructeur de la classe ElementControl
@@ -117,6 +121,19 @@ public class ElementControl implements Time{
         _levers.add(lever);
         return lever;
     }
+    /**
+     * Méthode permettant de parametrer la fin du jeu
+     */
+    private void setEnd(EndStrategy end){
+        _end = end;
+    }
+    /**
+     * Méthode renvoyant True si la condition d'arret est rempli
+     * @return True si c'est la fin, False sinon
+     */
+    private boolean checkFin(){
+        return _end.check();
+    }
 
     /**
      * Méthode permet de passer au semestre suivant
@@ -126,6 +143,10 @@ public class ElementControl implements Time{
         Semestre.getInstance().ClockForvard();
         for(AbstractElement element : _elements){
             element.ClockForvard();
+        }
+        if (checkFin()) {
+
+            //TODO : fin du jeu et lancement fenetre des scores
         }
 
     }
