@@ -29,7 +29,7 @@ public class GameView {
 
         return _instance;
     }
-    public void start(Stage stage) throws Exception {
+    public void start() throws Exception {
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Cocogoose.ttf"), 16);
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Roboto-Regular.ttf"), 16);
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Roboto-Bold.ttf"), 16);
@@ -105,6 +105,7 @@ public class GameView {
             }
         }
 
+        Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("El Presidente");
