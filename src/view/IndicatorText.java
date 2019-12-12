@@ -12,6 +12,7 @@ import model.IndicatorType;
 import utils.ElementObserver;
 import utils.Info;
 
+import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
@@ -62,7 +63,7 @@ public class IndicatorText implements ElementObserver {
         if(ind.getType() == IndicatorType.PERCENTAGE) {
             txt = txt + " %";
         } else if(_name == "argent disponible") {
-            txt = formatter.format(Integer.valueOf(_ec.getElement(_name).toString().replaceAll("[^\\d.]", ""))) + " €";
+            txt = formatter.format(Long.valueOf(_ec.getElement(_name).toString().replaceAll("[^\\d.]", ""))) + " €";
         }
         _textValue.setText(txt);
     }
