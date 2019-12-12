@@ -151,6 +151,21 @@
       ]
     },
     {
+      "name": "qualité des formations",
+      "description": "Indicateur représentant la qualité des formations de l'Université",
+      "levers": [
+        {
+          "name": "satisfaction professeurs"
+        },
+        {
+          "name": "nombre étudiants"
+        },
+        {
+          "name": "nombre professeurs"
+        }
+      ]
+    },
+    {
       "name": "réputation des formations",
       "description": "Indicateur représentant la réputation des formations de l'Université",
       "levers": [
@@ -293,6 +308,16 @@
           "name": "réputation des formations"
         }
       ]
+    },
+    {
+      "name": "état des batiments",
+      "description": "Indicateur représentant l'état dans lequel sont les batiments de l'Université.",
+      "levers": []
+    },
+    {
+      "name": "satisfaction étudiante",
+      "description": "Indicateur représentant la statisfaction globale des étudiants de l'Université.",
+      "levers": []
     }
   ]
 }

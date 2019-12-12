@@ -42,9 +42,9 @@ public class IndicatorText implements ElementObserver {
         }
         _textValue.setText(txt);
 
-        Info infoLevier = new Info();
+        Info infoIndicator = new Info();
         ImageView info = (ImageView)lroot.getChildren().get(2); // ImageView indtxt-info
-        Tooltip.install(info, new InfoTooltip(infoLevier.getLeverInfo(_name)));
+        Tooltip.install(info, new InfoTooltip(infoIndicator.getIndicatorInfo(_name)));
 
         _ec.getElement(name).add(this);
     }

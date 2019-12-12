@@ -14,11 +14,11 @@ public class Root {
         Indicator qualite_formation = EC.createIndicator("qualité des formations",75, new QualiteFormation(),true, IndicatorType.PERCENTAGE);
         Indicator satisfation_etudiante = EC.createIndicator("satisfaction étudiante",75,new PourcentSatisfaction(),true, IndicatorType.PERCENTAGE);
         Indicator satisfation_professeur = EC.createIndicator("satisfaction professeurs",75,new PourcentSatisfaction(),true, IndicatorType.PERCENTAGE);
-        Indicator charge_de_travail = EC.createIndicator("charge de travail",0,new Rapport(),true, IndicatorType.PERCENTAGE);
+        Indicator charge_de_travail = EC.createIndicator("charge de travail",0,new Rapport(),true, IndicatorType.NUMBER);
 
         Indicator val_batiment = EC.createIndicator("valorisation batiment",672000000,new Degradation(),true, IndicatorType.NUMBER);
         Indicator val_bien = EC.createIndicator("valorisation bien",672000000,new Neutre(),false, IndicatorType.NUMBER);
-        Indicator etat_batiment = EC.createIndicator("état des batiments",100,new Neutre(),true, IndicatorType.NUMBER);
+        Indicator etat_batiment = EC.createIndicator("état des batiments",100,new Neutre(),true, IndicatorType.PERCENTAGE);
 
 
         Indicator taux_réussite = EC.createIndicator("taux de réussite",0,new Taux(),true, IndicatorType.PERCENTAGE);
