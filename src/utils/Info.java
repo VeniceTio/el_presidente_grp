@@ -159,11 +159,5 @@ public class Info {
 
         return leverInfo;
     }
-
-    public static void main(String[] args) {
-        Info info = new Info();
-        System.out.println(info.getIndicatorInfo("nombre d'étudiant"));
-        System.out.println(info.getLeverInfo("iRenovation"));
-    }
 }
 
