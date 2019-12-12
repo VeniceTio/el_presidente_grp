@@ -5,7 +5,7 @@ public class Root {
     public Root(){
         ElementControl EC = ElementControl.getInstance();
         /** Création Indicateur **/
-        Indicator subEtat = EC.createIndicator("subventions de l'état",185000000,new aleaSub(),true,IndicatorType.NUMBER);
+        Indicator subEtat = EC.createIndicator("subventions de l'état",185000000,new AleaSub(),true,IndicatorType.NUMBER);
         Indicator argent_disponible = EC.createIndicator("argent disponible",0, new Argent(),true, IndicatorType.NUMBER);
         Indicator nombre_professeur = EC.createIndicator("nombre de professeurs",0, new NombreProfesseur(),false, IndicatorType.NUMBER);
         Indicator nombre_eleve = EC.createIndicator("nombre d'étudiants",50000, new NombreEleve(),true, IndicatorType.NUMBER);//50 000 étudiants pour commencer comme à strasbourg
@@ -22,7 +22,7 @@ public class Root {
 
 
         Indicator taux_réussite = EC.createIndicator("taux de réussite",0,new Taux(),true, IndicatorType.PERCENTAGE);
-        Indicator reputation_formation = EC.createIndicator("réputation des formations",0,new Taux(),true, IndicatorType.PERCENTAGE);
+        Indicator reputation_formation = EC.createIndicator("réputation des formations",0,new RepFor(),true, IndicatorType.PERCENTAGE);
         Indicator taux_insertion_pro = EC.createIndicator("taux d'insertion pro.",0,new Taux(),true, IndicatorType.PERCENTAGE);
 
         Indicator taux_recherche_appliquee = EC.createIndicator("recherche appliquée",0,new Taux(),true, IndicatorType.PERCENTAGE);
