@@ -63,6 +63,7 @@ public class Indicator extends AbstractElement{
      */
     public void initValue(){
         _maj.updateByLevers(this);
+        addToHystory(this.getValue());
     }
 
     /**
@@ -85,5 +86,6 @@ public class Indicator extends AbstractElement{
             initValue();
         }
         notifyObservers();
+
     }
 }

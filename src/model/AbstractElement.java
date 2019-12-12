@@ -80,16 +80,22 @@ public class AbstractElement extends Observable implements Time{
      * Méthode permettant de renvoyer la collection contenant l'historique des valeurs de l'AbstractElement
      * @return collection des valeurs de l'AbstractElement
      */
-    public Collection<Long> get_history() {
+    public ArrayList<Long> get_history() {
         return _history;
     }
 
+    /**
+     * Méthode permettant d'ajouter une valeur à _history
+     */
+    public void addToHystory(long value){
+        _history.add(value);
+    }
     /**
      * Méthode permettant de passer au semestre suivant
      */
     @Override
     public void ClockForvard() {
-        _history.add(this.getValue());
+        addToHystory(this.getValue());
         notifyObservers();
     }
 }
