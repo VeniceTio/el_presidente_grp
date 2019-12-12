@@ -4,6 +4,7 @@ import model.*;
 public class Root {
     public Root(){
         ElementControl EC = ElementControl.getInstance();
+        EC.setEnd(new DeadEnd());
         /** Création Indicateur **/
         Indicator subEtat = EC.createIndicator("subventions de l'état",185000000,new AleaSub(),true,IndicatorType.NUMBER);
         Indicator argent_disponible = EC.createIndicator("argent disponible",0, new Argent(),true, IndicatorType.NUMBER);
@@ -235,9 +236,10 @@ public class Root {
         taux_recherche_appliquee.initValue();
         taux_recherche_fondamentale.initValue();
 
+
         nombre_article_pub.initValue();
         nombre_prix_nobel.initValue();
-
+        reputation_recherche.initValue();
 
         Semestre.getInstance().ClockForvard();
         System.out.println("argent disponible : " + argent_disponible.getValue());
