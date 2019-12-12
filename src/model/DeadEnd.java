@@ -44,6 +44,10 @@ public class DeadEnd implements EndStrategy{
                 _liste.add(indicator);
             }
         }
+        if (Semestre.getInstance().getSemestre()==32){
+            _win = true;
+            res = true;
+        }
         return res;
     }
 
