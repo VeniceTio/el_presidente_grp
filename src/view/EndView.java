@@ -2,7 +2,10 @@ package view;
 
 import controller.ElementControl;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
@@ -10,18 +13,18 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model.Indicator;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class EndView extends Application {
     private static EndView _instance = null;
 
-    public EndView getInstance() {
+    public static EndView getInstance() {
         if(_instance == null) {
            _instance = new EndView();
         }
@@ -38,34 +41,27 @@ public class EndView extends Application {
         AnchorPane header = (AnchorPane) root.getChildren().get(0); // AnchorPane id "header"
         AnchorPane container = (AnchorPane) root.getChildren().get(1); // AnchorPane id "container"
         AnchorPane buttonsPane = (AnchorPane) container.getChildren().get(0); // Anchor id "button-pane"
+        AnchorPane graphicPane = (AnchorPane) container.getChildren().get(1); // Anchor id "graphic-pane"
 
-        double offsetX = 0;
-        double offsetY = 0;
+        EventHandler<ActionEvent> graphicButtonHandler = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                String indicatorName = ((Button) event.getSource()).getText();
 
-        ElementControl ec = ElementControl.getInstance();
+                System.out.println(indicatorName);
 
-        String[] hiddenIndicators = {"revenus des inscriptions", "valorisation batiment", "valorisation bien", "subventions de l'état"};
-        ArrayList<String> hiddenIndicatorsAL = new ArrayList<>(Arrays.asList(hiddenIndicators));
-        ArrayList<Indicator> indicatorsList = ec.getIndicators();
+                LineChart iChart = getIndicatorGraphic(indicatorName);
+                graphicPane.getChildren().add(iChart);
 
-        for(Indicator indic : indicatorsList) {
-            if(!hiddenIndicatorsAL.contains(indic.get_name())) {
-                String indicatorName = indic.get_name();
-                Button indicatorButton = new Button(indicatorName);
-
-                indicatorButton.setTranslateX(offsetX);
-                indicatorButton.setTranslateY(offsetY);
-
-                buttonsPane.getChildren().add(indicatorButton);
-
-                offsetY += 280;
+                event.consume();
             }
+        };
+
+        for(Node n : buttonsPane.getChildren()) {
+            Button b = (Button) n;
+
+            b.setOnAction(graphicButtonHandler);
         }
-
-        String indicatorName = "argent disponible";
-       // LineChart iChart = getIndicatorGraphic(indicatorName);
-
-       // root.getChildren().add(iChart);
 
         stage.setScene(new Scene(p));
         stage.setMaximized(true);
@@ -82,16 +78,19 @@ public class EndView extends Application {
             if (indic.get_name().equals(name)) {
                 indicatorIndex = i;
             }
+            System.out.println(indicatorIndex);
         }
 
-        ArrayList<Long> indicatorHistory = (ArrayList<Long>) indicatorList.get(indicatorIndex).get_history();
+        //ArrayList<Long> indicatorHistory = (ArrayList<Long>) indicatorList.get(indicatorIndex).get_history();
+
+        ArrayList<Integer> indicatorHistory = new ArrayList<Integer>(Arrays.asList(10000, 2000, 30000, 550000, 51000));
 
         NumberAxis xAxis = new NumberAxis(0, indicatorHistory.size() -1, 1);
         xAxis.setLabel("Semestre");
 
-        Long maxValue =  indicatorHistory.get(0);
+        int maxValue =  indicatorHistory.get(0);
 
-        for (Long tempValue : indicatorHistory) {
+        for (int tempValue : indicatorHistory) {
             if (maxValue < tempValue)
                 maxValue = tempValue;
         }
@@ -115,7 +114,6 @@ public class EndView extends Application {
         return indicatorChart;
     }
     public static void main(String[] args) {
-
         launch(args);
     }
 }
