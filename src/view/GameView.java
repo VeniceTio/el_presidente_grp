@@ -16,6 +16,7 @@ import javafx.stage.StageStyle;
 import model.Indicator;
 import model.Lever;
 import model.LeverFamily;
+import model.Semestre;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -104,6 +105,12 @@ public class GameView {
                 }
             }
         }
+
+        AnchorPane footer = (AnchorPane) root.getChildren().get(2);
+        Pane semesterPane = (Pane) footer.getChildren().get(1); // Pane id semester
+        SemesterText semesterText = new SemesterText(String.valueOf(Semestre.getInstance().getSemestre()));
+        Semestre.getInstance().add(semesterText);
+        semesterPane.getChildren().add(semesterText);
 
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);

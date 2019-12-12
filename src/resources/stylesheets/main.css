@@ -36,7 +36,9 @@
 #available-money {
     -fx-font-size: 16px;
 }
-
+#semester {
+    -fx-background-image: url('../images/semester.png');
+}
 
 /*
     2. BUTTONS
@@ -120,3 +122,7 @@
     -fx-cursor: hand;
     -fx-background-repeat: no-repeat;
 }
+
+/*
+
+ */
