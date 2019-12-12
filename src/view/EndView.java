@@ -46,9 +46,18 @@ public class EndView {
         EventHandler<ActionEvent> graphicButtonHandler = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                graphicPane.getChildren().clear();
+
                 String indicatorName = ((Button) event.getSource()).getText();
 
-                LineChart iChart = getIndicatorGraphic(indicatorName);
+                LineChart iChart = getIndicatorGraphic(indicatorName.toLowerCase());
+
+                iChart.setPrefWidth(graphicPane.getWidth() - 100);
+                iChart.setPrefHeight(graphicPane.getHeight() - 50);
+
+                iChart.setTitle("Graphique représentant l'évolution d'un indicateur par semestre");
+
+
                 graphicPane.getChildren().add(iChart);
 
                 event.consume();
@@ -56,14 +65,15 @@ public class EndView {
         };
 
         for(Node n : buttonsPane.getChildren()) {
-            Button b = (Button) n;
-
-            b.setOnAction(graphicButtonHandler);
+            if(n instanceof Button) {
+                Button b = (Button) n;
+                b.setOnAction(graphicButtonHandler);
+            }
         }
-        Stage stage = new Stage();
 
+        Stage stage = new Stage();
         stage.setScene(new Scene(p));
-        stage.setMaximized(true);
+        stage.setFullScreen(true);
         stage.show();
     }
 
@@ -94,13 +104,15 @@ public class EndView {
 
         int tickNum = Math.toIntExact(maxValue / 10);
 
-        NumberAxis yAxis = new NumberAxis(0, maxValue, tickNum);
+        NumberAxis yAxis = new NumberAxis(0, maxValue + tickNum, tickNum);
         yAxis.setLabel("Valeur de l'indicateur");
 
         LineChart indicatorChart = new LineChart(xAxis, yAxis);
 
         XYChart.Series series = new XYChart.Series();
-        series.setName("Évolution de l'indicateur sur chaque semestre");
+
+        String displayName = name.substring(0, 1).toUpperCase() + name.substring(1);
+        series.setName(displayName + " au cours des semestre");
 
         for(int i = 0; i < indicatorHistory.size(); i++) {
             series.getData().add(new XYChart.Data(i, indicatorHistory.get(i)));
