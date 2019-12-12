@@ -45,7 +45,7 @@ public class IndicatorText implements ElementObserver {
         Info infoLevier = new Info();
         ImageView info = (ImageView)lroot.getChildren().get(2); // ImageView indtxt-info
         Tooltip.install(info, new InfoTooltip(infoLevier.getLeverInfo(_name)));
-        
+
         _ec.getElement(name).add(this);
     }
 

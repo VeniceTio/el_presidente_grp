@@ -80,7 +80,7 @@ public class GameView {
         // Indicateurs
         offsetX = 0;
         offsetY = 0;
-        String[] hiddenIndicators = {"revenue des inscription", "valorisation batiment", "valorisation bien", "subvention de l'état"};
+        String[] hiddenIndicators = {"revenus des inscriptions", "valorisation batiment", "valorisation bien", "subventions de l'état"};
         ArrayList<String> hiddenIndicatosrAL = new ArrayList<String>(Arrays.asList(hiddenIndicators));
         for(Indicator ind : ElementControl.getInstance().getIndicators()) {
             if(!hiddenIndicatosrAL.contains(ind.get_name())) {

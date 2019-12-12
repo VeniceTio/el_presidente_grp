@@ -14,15 +14,15 @@
           "name": "iRenovation"
         },
         {
-          "name": "cSubvention association"
+          "name": "cSubv. assoc."
         },
         {
-          "name": "qualité de la formation"
+          "name": "qualité des formations"
         }
       ]
     },
     {
-      "name": "satisfaction professeur",
+      "name": "satisfaction professeurs",
       "description": "Indicateur représentant la satisfaction générale des professeurs",
       "levers": [
         {
@@ -35,7 +35,7 @@
           "name": "iRenovation"
         },
         {
-          "name": "cPrimes pour la central"
+          "name": "cPrimes centrales"
         },
         {
           "name": "fDotationRecurrente"
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "name": "nombre d'article publié",
+      "name": "nombre d'articles publiés",
       "description": "Indicateur représentant le nombre d'articles publiés",
       "levers": [
         {
@@ -107,7 +107,7 @@
       "description": "Indicateur représentant le taux de recherche fondamentale (un taux élevé représente une recherche dynamique)",
       "levers": [
         {
-          "name": "satisfaction professeur"
+          "name": "satisfaction professeurs"
         },
         {
           "name": "iConstruction"
@@ -137,7 +137,7 @@
       "description": "Indicateur représentant le taux de réussite des étudiant(e)s",
       "levers": [
         {
-          "name": "satisfaction professeur"
+          "name": "satisfaction professeurs"
         },
         {
           "name": "fDotationRecurrente"
@@ -146,13 +146,13 @@
           "name": "fDotation specifique"
         },
         {
-          "name": "qualité de la formation"
+          "name": "qualité des formations"
         }
       ]
     },
     {
-      "name": "réputation de formation",
-      "description": "Indicateur représentant la réputation de la formation",
+      "name": "réputation des formations",
+      "description": "Indicateur représentant la réputation des formations de l'Université",
       "levers": [
         {
           "name": "taux de réussite"
@@ -166,14 +166,14 @@
       ]
     },
     {
-      "name": "réputation de recherche",
+      "name": "réputation de la recherche",
       "description": "Indicateur représentant la réputation de la recherche",
       "levers": [
         {
           "name": "nombre de prix nobel"
         },
         {
-          "name": "nombre d'article publié"
+          "name": "nombre d'articles publiés"
         },
         {
           "name": "cCommunication"
@@ -181,11 +181,11 @@
       ]
     },
     {
-      "name": "taux d'insertion profesionnel",
-      "description": "Indicateur représentant le taux d'insertion profesionnel",
+      "name": "taux d'insertion pro.",
+      "description": "Indicateur représentant le taux d'insertion profesionnelle",
       "levers": [
         {
-          "name": "réputation de formation"
+          "name": "réputation des formations"
         },
         {
           "name": "cCommunication"
@@ -197,7 +197,7 @@
     },
     {
       "name": "argent disponible",
-      "description": "Indicateur représetant l 'argent que dispose l'université",
+      "description": "Indicateur représentant dont dispose l'Université dans ses caisses",
       "levers": [
         {
           "name": "revenue de valorisation"
@@ -241,7 +241,7 @@
       ]
     },
     {
-      "name": "nombre de professeur",
+      "name": "nombre de professeurs",
       "description": "Indicateur représetant le nombre de professeurs",
       "levers": [
         {
@@ -272,25 +272,25 @@
     },
     {
       "name": "charge de travail",
-      "description": "Indicateur représentant le nombre d'étudiant à charge d'un professeur",
+      "description": "Indicateur représentant le nombre d'étudiants à charge d'un professeur",
       "levers": [
         {
-          "name": "nombre de professeur"
+          "name": "nombre de professeurs"
         },
         {
-          "name": "nombre d'étudiant"
+          "name": "nombre d'étudiants"
         }
       ]
     },
     {
-      "name": "nombre d'étudiant",
-      "description": "Indicateur représentant le nombre d'étudiant",
+      "name": "nombre d'étudiants",
+      "description": "Indicateur représentant le nombre d'étudiants",
       "levers": [
         {
           "name": "fFrais d'inscription"
         },
         {
-          "name": "réputation de formation"
+          "name": "réputation des formations"
         }
       ]
     }
