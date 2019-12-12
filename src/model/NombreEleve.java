@@ -21,8 +21,8 @@ public class NombreEleve implements AbstractFormula {
      */
     @Override
     public void updateByLevers(Indicator indicator) {
-        BigDecimal value = new BigDecimal(400000).multiply(new BigDecimal(courbeMalus(ElementControl.getInstance().getElement("réputation des formations").getValue())/100.0));
-        System.out.println("---#--# 600 000 * "+courbeMalus(ElementControl.getInstance().getElement("réputation des formations").getValue())/100.0+" = "+value+" #--#---");
+        BigDecimal value = new BigDecimal(85000).multiply(new BigDecimal(courbeMalus(ElementControl.getInstance().getElement("réputation des formations").getValue())/100.0));
+        System.out.println("---#--# 85 000 * "+courbeMalus(ElementControl.getInstance().getElement("réputation des formations").getValue())/100.0+" = "+value+" #--#---");
         value = value.multiply(new BigDecimal(courbe1(ElementControl.getInstance().getElement("fFrais d'inscription").getValue())));
         System.out.println("---#--# "+value+" #--#---");
         long valueL = (value.longValue() + indicator.getValue()*3) /4;
@@ -31,19 +31,16 @@ public class NombreEleve implements AbstractFormula {
     public static double courbe1(long value){
         double valCourbe;
         if (value <=0){
-            valCourbe = 2;
+            valCourbe = 1;
         }
-        else if (value <=400){
-            valCourbe = -0.0025*value+2;
-        }
-        else if (value <=1200){
-            valCourbe = -0.000625*value + 1.25;
+        else if (value <=234){
+            valCourbe = -0.0012820512*value+1;
         }
         else if (value <= 5000){
-            valCourbe = -0.0001184211*value+0.642105;
+            valCourbe = -0.0000839278*value+0.7196;
         }
         else if (value <= 10000){
-            valCourbe = -0.0000094*value + 0.097;
+            valCourbe = -0.0000218*value + 0.409;
         }
         else if (value <= 20000){
             valCourbe = -0.00000027*value+0.0057;
@@ -68,7 +65,7 @@ public class NombreEleve implements AbstractFormula {
     public static long courbeMalus(long value){
         long valCourbe;
         if(value<0){
-            valCourbe=(long)(-0.05);
+            valCourbe=(long)(0.05);
         } else if(value<=16){
             valCourbe = (long)(0.621875*value+0.005);
         } else if (value<=50){
