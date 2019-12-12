@@ -5,6 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <VBox id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../stylesheets/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLController">
@@ -29,24 +30,34 @@
             <children>
                 <AnchorPane id="button-pane" layoutX="14.0" layoutY="14.0" prefHeight="864.0" prefWidth="472.0">
                     <children>
-                        <Button layoutX="56.0" layoutY="136.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="satisfaction étudiante" />
-                        <Button layoutX="56.0" layoutY="225.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="nombre d'étudiants" />
-                        <Button layoutX="56.0" layoutY="326.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="taux de réussite" />
-                        <Button layoutX="56.0" layoutY="420.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="recherche fondamentale" />
-                        <Button layoutX="56.0" layoutY="504.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="nombre d'articles publiés" />
-                        <Button layoutX="56.0" layoutY="593.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="réputation de la recherche" />
-                        <Button layoutX="56.0" layoutY="694.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="qualité des formations" />
-                        <Button layoutX="257.0" layoutY="694.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="état des batiments" />
-                        <Button layoutX="257.0" layoutY="136.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="satisfaction professeurs" />
-                        <Button layoutX="257.0" layoutY="225.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="nombre de professeurs" />
-                        <Button layoutX="257.0" layoutY="326.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="taux d'insertion pro." />
-                        <Button layoutX="257.0" layoutY="420.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="recherche appliquée" />
-                        <Button layoutX="257.0" layoutY="504.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="nombre de prix nobel" />
-                        <Button layoutX="257.0" layoutY="593.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="réputation des formations" />
-                        <Button layoutX="157.0" layoutY="54.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="argent disponible" />
+                        <Button layoutX="41.0" layoutY="95.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="Satisfaction étudiante" />
+                        <Button layoutX="59.0" layoutY="206.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="Nombre d'étudiants" />
+                        <Button layoutX="58.0" layoutY="316.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="Taux de réussite" />
+                        <Button layoutX="55.0" layoutY="543.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="Recherche fondamentale" />
+                        <Button layoutX="55.0" layoutY="702.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="Nombre d'articles publiés" />
+                        <Button layoutX="55.0" layoutY="429.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="Réputation de la recherche" />
+                        <Button layoutX="55.0" layoutY="621.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="Qualité des formations" />
+                        <Button layoutX="256.0" layoutY="621.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="État des batiments" />
+                        <Button layoutX="277.0" layoutY="95.0" mnemonicParsing="false" onAction="#graphicButtonHandler" prefHeight="47.0" prefWidth="159.0" text="Satisfaction professeurs" />
+                        <Button layoutX="260.0" layoutY="206.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="Nombre de professeurs" />
+                        <Button layoutX="259.0" layoutY="316.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="Taux d'insertion pro." />
+                        <Button layoutX="256.0" layoutY="543.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="Recherche appliquée" />
+                        <Button layoutX="256.0" layoutY="702.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="Nombre de prix nobel" />
+                        <Button layoutX="256.0" layoutY="429.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" text="Réputation des formations" />
+                        <Button layoutX="157.0" layoutY="770.0" mnemonicParsing="false" onAction="#graphicButtonHandler" prefHeight="47.0" prefWidth="159.0" text="Argent disponible" />
+                  <Text fill="WHITE" layoutX="38.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez sélectonner un indicateur dont vous souhaitez voir le graphique" wrappingWidth="395.13671875">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="144.0" layoutY="56.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="191.0" text="Satisfactions" />
+                  <Button disable="true" layoutX="142.0" layoutY="167.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="191.0" text="Nombres" />
+                  <Button layoutX="143.0" layoutY="275.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="191.0" text="Taux" />
+                  <Button layoutX="139.0" layoutY="499.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="191.0" text="Recherches" />
+                  <Button layoutX="138.0" layoutY="389.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="191.0" text="Réputations" />
                     </children>
                 </AnchorPane>
-                <AnchorPane id="graphic-pane" layoutX="486.0" layoutY="14.0" prefHeight="847.0" prefWidth="1418.0" />
+                <AnchorPane id="graphic-pane" layoutX="478.0" layoutY="16.0" prefHeight="847.0" prefWidth="1418.0" />
             </children>
         </AnchorPane>
     </children>
