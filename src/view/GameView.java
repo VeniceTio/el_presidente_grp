@@ -88,18 +88,20 @@ public class GameView {
                 String indicatorName = ind.get_name();
                 Pane indicatorText = new IndicatorText(indicatorName).getPane();
 
-                /*if(indicatorName == "argent disponible") {
+                if(indicatorName == "argent disponible") {
+                    indicatorText.setTranslateX(70);
+                    indicatorText.setTranslateY(16);
                     availableMoneyPane.getChildren().add(indicatorText);
-                } else {*/
+                } else {
                     indicatorText.setTranslateX(offsetX);
                     indicatorText.setTranslateY(offsetY);
                     indicatorsPane.getChildren().add(indicatorText);
-                    offsetX += 250;
+                    offsetX += 280;
 
                     if(offsetX > 2*350) {
                         offsetX = 0;
                         offsetY += 100;
-                   // }
+                    }
                 }
             }
         }

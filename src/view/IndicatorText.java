@@ -36,23 +36,11 @@ public class IndicatorText implements ElementObserver {
         Indicator ind = (Indicator) _ec.getElement(_name);
         if(ind.getType() == IndicatorType.PERCENTAGE) {
             txt = txt + " %";
+        } else if(_name == "argent disponible") {
+            txt = formatter.format(Integer.valueOf(_ec.getElement(_name).toString().replaceAll("[^\\d.]", ""))) + " €";
+            _textValue.setStyle("-fx-fill: #000;");
         }
         _textValue.setText(txt);
-
-        /*
-        if(_name == "argent disponible") {
-            NumberFormat formatter = new DecimalFormat("##,###.##");
-            this.setText(formatter.format(Integer.valueOf(_EC.getElement(_name).toString().replaceAll("[^\\d.]", ""))) + " €");
-            this.setFont(new Font("Roboto Bold", 32.0));
-            this.setFill(Color.BLACK);
-        } else {
-           this.setText(_EC.getElement(_name).get_name());
-           this.setFont(new Font("Roboto", 17.0));
-           this.setFill(Color.WHITE);
-        }
-        _EC.getElement(name).add(this);
-
-         */
         _ec.getElement(name).add(this);
     }
 
@@ -68,15 +56,9 @@ public class IndicatorText implements ElementObserver {
         Indicator ind = (Indicator) _ec.getElement(_name);
         if(ind.getType() == IndicatorType.PERCENTAGE) {
             txt = txt + " %";
+        } else if(_name == "argent disponible") {
+            txt = formatter.format(Integer.valueOf(_ec.getElement(_name).toString().replaceAll("[^\\d.]", ""))) + " €";
         }
         _textValue.setText(txt);
-
-/*
-        if(_name == "argent disponible") {
-            NumberFormat formatter = new DecimalFormat("##,###.##");
-            this.setText(formatter.format(Integer.valueOf(_EC.getElement(_name).toString().replaceAll("[^\\d.]", ""))) + " €");
-        } else {
-            this.setText(_EC.getElement(_name).toString());
-        }*/
     }
 }
