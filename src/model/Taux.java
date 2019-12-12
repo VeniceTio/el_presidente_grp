@@ -78,6 +78,9 @@ public class Taux implements AbstractFormula {
             }
             }
 
+            if (indicator.get_name()=="taux de réussite"){
+                indicator.setValue((long)(indicator.getValue()*0.4));
+            }
             if (indicator.getValue() < 0) {
                 indicator.setValue(0);
             } else if (indicator.getValue() > 100) {
