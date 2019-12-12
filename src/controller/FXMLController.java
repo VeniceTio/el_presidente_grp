@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import view.GameView;
 
 public class FXMLController implements Initializable
 {
@@ -16,6 +17,13 @@ public class FXMLController implements Initializable
     private void closeButtonAction(ActionEvent event) {
         Stage stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
         stage.close();
+    }
+    @FXML
+    private void playButtonAction(ActionEvent event) throws Exception {
+        Stage stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        stage.close();
+
+        GameView.getInstance().start();
     }
 
     @FXML

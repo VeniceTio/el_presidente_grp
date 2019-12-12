@@ -43,10 +43,12 @@
  */
 #btn_close {
     -fx-background-image: url('../images/btn_close.png');
+    -fx-cursor: hand;
 }
 
 #btn_nextsemester {
     -fx-background-image: url('../images/btn_nextsemester.png');
+    -fx-cursor: hand;
 }
 
 /*
@@ -64,9 +66,11 @@
 
 .lctrl-minus {
     -fx-background-image: url('../images/lctrl_minus.png');
+    -fx-cursor: hand;
 }
 .lctrl-plus {
     -fx-background-image: url('../images/lctrl_plus.png');
+    -fx-cursor: hand;
 }
 .lctrl-name {
     -fx-fill: #fff;
@@ -98,4 +102,24 @@
     -fx-font-family: 'Roboto', sans-serif;
     -fx-font-weight: bold;
     -fx-font-size: 32px;
+<<<<<<< HEAD
+=======
+}
+
+/*
+    6. INTRO SCENE
+ */
+#intro-scene {
+    -fx-background-image: url('../images/intro_background.png');
+}
+#btn-play {
+    -fx-background-image: url('../images/btn_play.png');
+    -fx-cursor: hand;
+}
+#btn-leave {
+    -fx-background-image: url('../images/btn_leave.png');
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-background-repeat: no-repeat;
+>>>>>>> d75147db90ac054a0bb1d1e98ad28877206bc974
 }
