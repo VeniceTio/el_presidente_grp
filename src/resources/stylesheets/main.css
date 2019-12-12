@@ -102,8 +102,6 @@
     -fx-font-family: 'Roboto', sans-serif;
     -fx-font-weight: bold;
     -fx-font-size: 32px;
-<<<<<<< HEAD
-=======
 }
 
 /*
@@ -121,5 +119,4 @@
     -fx-background-color: transparent;
     -fx-cursor: hand;
     -fx-background-repeat: no-repeat;
->>>>>>> d75147db90ac054a0bb1d1e98ad28877206bc974
 }
