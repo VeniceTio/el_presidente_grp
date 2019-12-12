@@ -81,7 +81,7 @@ public class RepRec implements AbstractFormula {
         int nbSemestre = Semestre.getInstance().getSemestre();
         int debut = 0;
         double max = 0;
-        ArrayList<Long> history = (ArrayList<Long>)(element.get_history());
+        ArrayList<Long> history = new ArrayList<Long>(element.get_history());
         if (nbSemestre>7){
             debut = nbSemestre-7;
         }

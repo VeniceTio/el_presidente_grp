@@ -1,5 +1,7 @@
 package model;
 
+import controller.ElementControl;
+
 import java.util.Map;
 import java.util.Random;
 
@@ -36,28 +38,31 @@ public class Nombre implements AbstractFormula {
     }
 
     public static long courbeInter1(long value){
+        long nb_prof_rec = ElementControl.getInstance().getElement("rContractuel").getValue()/27000+ElementControl.getInstance().getElement("rTitulaire").getValue()/34000;
         long valCourbe;
-        long min;
-        long max;
+        double min;
+        double max;
+        double ratio;
         Random rand = new Random();
         if (value <=0){
             valCourbe = 0;
         }
         else{
             if (value <= 10) {
-                min = 250 * value;
-                max = 875 * value;
+                min = 0.004*value;
+                max = 0.02 * value;
             } else if (value <= 50) {
-                min = (int)(187.5*value) + 625;
-                max = (int)(531.25*value) + 3437;
+                min = 0.004*value;
+                max = 0.01*value +0.1;
             } else if (value <= 80) {
-                min = (int)(333.33*value + 6666.66);
-                max = (int)(333.33*value + 13333.3);
+                min = 0.01*value-0.3;
+                max = 0.013333*value + 0.066666;
             } else{
-                min = (int)(436*value -14880);
-                max = (int)(500*value);
+                min = 0.01*value-0.3;
+                max = 0.025*value-1;
             }
-            valCourbe = min + rand.nextInt((int) (max - min));
+            ratio = min + rand.nextDouble()*(max - min);
+            valCourbe = (long)(ratio * nb_prof_rec);
         }
         return valCourbe;
     }
