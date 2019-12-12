@@ -1,46 +1,35 @@
 import controller.ElementControl;
 import model.*;
-import view.GameView;
-import view.IndicatorText;
-import view.LeverController;
-import view.ProvisoryView;
-
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class Root {
     public Root(){
         ElementControl EC = ElementControl.getInstance();
         /** Création Indicateur **/
-        Indicator subEtat = EC.createIndicator("subvention de l'état",185000000,new aleaSub(),true,IndicatorType.NUMBER);
+        Indicator subEtat = EC.createIndicator("subventions de l'état",185000000,new aleaSub(),true,IndicatorType.NUMBER);
         Indicator argent_disponible = EC.createIndicator("argent disponible",0, new Argent(),true, IndicatorType.NUMBER);
-        Indicator nombre_professeur = EC.createIndicator("nombre de professeur",0, new NombreProfesseur(),false, IndicatorType.NUMBER);
-        Indicator nombre_eleve = EC.createIndicator("nombre d'étudiant",50000, new NombreEleve(),true, IndicatorType.NUMBER);//50 000 étudiants pour commencer comme à strasbourg
-        Indicator revenue_inscription = EC.createIndicator("revenue des inscription",1, new Argent(),true, IndicatorType.NUMBER);
+        Indicator nombre_professeur = EC.createIndicator("nombre de professeurs",0, new NombreProfesseur(),false, IndicatorType.NUMBER);
+        Indicator nombre_eleve = EC.createIndicator("nombre d'étudiants",50000, new NombreEleve(),true, IndicatorType.NUMBER);//50 000 étudiants pour commencer comme à strasbourg
+        Indicator revenue_inscription = EC.createIndicator("revenus des inscriptions",1, new Argent(),true, IndicatorType.NUMBER);
 
-        Indicator qualite_formation = EC.createIndicator("qualité de la formation",75, new QualiteFormation(),true, IndicatorType.PERCENTAGE);
+        Indicator qualite_formation = EC.createIndicator("qualité des formations",75, new QualiteFormation(),true, IndicatorType.PERCENTAGE);
         Indicator satisfation_etudiante = EC.createIndicator("satisfaction étudiante",75,new PourcentSatisfaction(),true, IndicatorType.PERCENTAGE);
-        Indicator satisfation_professeur = EC.createIndicator("satisfaction professeur",75,new PourcentSatisfaction(),true, IndicatorType.PERCENTAGE);
-        Indicator charge_de_travail = EC.createIndicator("charge de travail",0,new Rapport(),true, IndicatorType.PERCENTAGE);
+        Indicator satisfation_professeur = EC.createIndicator("satisfaction professeurs",75,new PourcentSatisfaction(),true, IndicatorType.PERCENTAGE);
+        Indicator charge_de_travail = EC.createIndicator("charge de travail",0,new Rapport(),true, IndicatorType.NUMBER);
 
         Indicator val_batiment = EC.createIndicator("valorisation batiment",672000000,new Degradation(),true, IndicatorType.NUMBER);
         Indicator val_bien = EC.createIndicator("valorisation bien",672000000,new Neutre(),false, IndicatorType.NUMBER);
-        Indicator etat_batiment = EC.createIndicator("état des batiments",100,new Neutre(),true, IndicatorType.NUMBER);
+        Indicator etat_batiment = EC.createIndicator("état des batiments",100,new Neutre(),true, IndicatorType.PERCENTAGE);
 
 
         Indicator taux_réussite = EC.createIndicator("taux de réussite",0,new Taux(),true, IndicatorType.PERCENTAGE);
-        Indicator reputation_formation = EC.createIndicator("réputation de formation",0,new Taux(),true, IndicatorType.PERCENTAGE);
-        Indicator taux_insertion_pro = EC.createIndicator("taux d'insertion profesionnel",0,new Taux(),true, IndicatorType.PERCENTAGE);
+        Indicator reputation_formation = EC.createIndicator("réputation des formations",0,new Taux(),true, IndicatorType.PERCENTAGE);
+        Indicator taux_insertion_pro = EC.createIndicator("taux d'insertion pro.",0,new Taux(),true, IndicatorType.PERCENTAGE);
 
         Indicator taux_recherche_appliquee = EC.createIndicator("recherche appliquée",0,new Taux(),true, IndicatorType.PERCENTAGE);
         Indicator taux_recherche_fondamentale = EC.createIndicator("recherche fondamentale",0,new Taux(),true, IndicatorType.PERCENTAGE);
 
 
-        Indicator nombre_article_pub = EC.createIndicator("nombre d'article publié",0,new Nombre(),true, IndicatorType.NUMBER);
+        Indicator nombre_article_pub = EC.createIndicator("nombre d'articles publiés",0,new Nombre(),true, IndicatorType.NUMBER);
         Indicator nombre_prix_nobel = EC.createIndicator("nombre de prix nobel",0,new Nombre(),true, IndicatorType.NUMBER);
         Indicator reputation_recherche = EC.createIndicator("réputation de la recherche",0,new RepRec(),true, IndicatorType.PERCENTAGE);
 /**

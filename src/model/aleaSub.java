@@ -15,7 +15,7 @@ public class aleaSub implements AbstractFormula {
     @java.lang.Override
     public void updateByLevers(Indicator indicator) {
         long oldValue = indicator.getValue();
-        long nbStudent = ElementControl.getInstance().getElement("nombre d'étudiant").getValue();
+        long nbStudent = ElementControl.getInstance().getElement("nombre d'étudiants").getValue();
         long maxVal = (long)(-0.01*nbStudent)+4500;
         long minVal = (long)(-0.01*nbStudent)+3800;
         if (nbStudent >200000){

@@ -89,7 +89,7 @@ public class PourcentSatisfaction implements AbstractFormula {
             System.out.println("###################");
             System.out.println("#    "+mapEntry);
             if (mapEntry.getValue()=="r"){
-                long val = ElementControl.getInstance().getElement("nombre d'étudiant").getValue();
+                long val = ElementControl.getInstance().getElement("nombre d'étudiants").getValue();
                 indicator.setValue(indicator.getValue() + (int)(courbe1(((AbstractElement)mapEntry.getKey()).getValue()/val)*0.3333));
                 System.out.println("# courbe 1 : "+ (courbe1(((AbstractElement)mapEntry.getKey()).getValue()/val)*0.3333));
             } else if(mapEntry.getValue() =="3"){

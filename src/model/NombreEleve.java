@@ -21,8 +21,8 @@ public class NombreEleve implements AbstractFormula {
      */
     @Override
     public void updateByLevers(Indicator indicator) {
-        BigDecimal value = new BigDecimal(400000).multiply(new BigDecimal(courbeMalus(ElementControl.getInstance().getElement("réputation de formation").getValue())/100.0));
-        System.out.println("---#--# 600 000 * "+courbeMalus(ElementControl.getInstance().getElement("réputation de formation").getValue())/100.0+" = "+value+" #--#---");
+        BigDecimal value = new BigDecimal(400000).multiply(new BigDecimal(courbeMalus(ElementControl.getInstance().getElement("réputation des formations").getValue())/100.0));
+        System.out.println("---#--# 600 000 * "+courbeMalus(ElementControl.getInstance().getElement("réputation des formations").getValue())/100.0+" = "+value+" #--#---");
         value = value.multiply(new BigDecimal(courbe1(ElementControl.getInstance().getElement("fFrais d'inscription").getValue())));
         System.out.println("---#--# "+value+" #--#---");
         long valueL = (value.longValue() + indicator.getValue()*3) /4;

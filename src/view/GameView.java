@@ -18,6 +18,7 @@ import model.Lever;
 import model.LeverFamily;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class GameView {
     private static GameView _instance = null;
@@ -79,27 +80,27 @@ public class GameView {
         // Indicateurs
         offsetX = 0;
         offsetY = 0;
-        ArrayList<String> hiddenIndicators = new ArrayList<String>();
-        hiddenIndicators.add("revenue des inscription");
-        hiddenIndicators.add("valorisation batiment");
-        hiddenIndicators.add("valorisation bien");
+        String[] hiddenIndicators = {"revenus des inscriptions", "valorisation batiment", "valorisation bien", "subventions de l'état"};
+        ArrayList<String> hiddenIndicatosrAL = new ArrayList<String>(Arrays.asList(hiddenIndicators));
         for(Indicator ind : ElementControl.getInstance().getIndicators()) {
-            if(!hiddenIndicators.contains(ind.get_name())) {
+            if(!hiddenIndicatosrAL.contains(ind.get_name())) {
                 String indicatorName = ind.get_name();
                 Pane indicatorText = new IndicatorText(indicatorName).getPane();
 
-                /*if(indicatorName == "argent disponible") {
+                if(indicatorName == "argent disponible") {
+                    indicatorText.setTranslateX(70);
+                    indicatorText.setTranslateY(16);
                     availableMoneyPane.getChildren().add(indicatorText);
-                } else {*/
+                } else {
                     indicatorText.setTranslateX(offsetX);
                     indicatorText.setTranslateY(offsetY);
                     indicatorsPane.getChildren().add(indicatorText);
-                    offsetX += 250;
+                    offsetX += 280;
 
                     if(offsetX > 2*350) {
                         offsetX = 0;
                         offsetY += 100;
-                   // }
+                    }
                 }
             }
         }
