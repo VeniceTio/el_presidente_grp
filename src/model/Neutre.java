@@ -25,7 +25,7 @@ public class Neutre implements AbstractFormula {
         System.out.println("\n######################################################");
         System.out.println("valeur bat    : " + val_bat);
         System.out.println("valeur bien   : " + val_bien);
-        System.out.println("pourcent  : " + val_bien/val_bat);
+        System.out.println("pourcent  : " + val_bat/val_bien);
         System.out.println("######################################################");
     }
 }
