@@ -1,6 +1,18 @@
 {
   "indicators": [
     {
+      "name": "revenue de valorisation",
+      "description": "Indicateur représentant",
+      "levers": [
+        {
+          "name": "recherche appliquée"
+        },
+        {
+          "name": "rValorisation"
+        }
+      ]
+    },
+    {
       "name": "satisfaction étudiante",
       "description": "Indicateur représentant la satisfaction générale des étudiant(e)s",
       "levers": [
@@ -270,18 +282,6 @@
         },
         {
           "name": "rTitulaire"
-        }
-      ]
-    },
-    {
-      "name": "revenue de valorisation",
-      "description": "Indicateur représentant",
-      "levers": [
-        {
-          "name": "recherche appliquée"
-        },
-        {
-          "name": "rValorisation"
         }
       ]
     },
