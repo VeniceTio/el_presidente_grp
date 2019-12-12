@@ -107,7 +107,7 @@
 }
 
 /*
-    6. INTRO SCENE
+   5. INTRO SCENE
  */
 #intro-scene {
     -fx-background-image: url('../images/intro_background.png');
@@ -124,5 +124,24 @@
 }
 
 /*
-
+    6. OPTIONS SCENE
  */
+#options {
+    -fx-background-image: url('../images/options_background.png');
+}
+#btn-startgame {
+    -fx-background-image: url('../images/btn_startgame.png');
+    -fx-cursor: hand;
+}
+#playername-field {
+    -fx-background-color: #fff;
+    -fx-fill: #000;
+}
+
+.scenario-picture {
+    -fx-opacity: 0.6;
+    -fx-cursor: hand;
+}
+.scenario-picture:hover {
+    -fx-opacity: 1;
+}

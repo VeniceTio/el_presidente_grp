@@ -30,7 +30,7 @@ public class GameView {
 
         return _instance;
     }
-    public void start() throws Exception {
+    public void start(String playerName) throws Exception {
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Cocogoose.ttf"), 16);
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Roboto-Regular.ttf"), 16);
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Roboto-Bold.ttf"), 16);
