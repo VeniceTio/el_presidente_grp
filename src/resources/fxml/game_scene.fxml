@@ -36,8 +36,8 @@
       </AnchorPane>
       <AnchorPane id="container" prefHeight="771.0" prefWidth="1921.0">
          <children>
-            <AnchorPane id="indicators" layoutX="1100.0" prefHeight="786.0" prefWidth="821.0" />
-            <AnchorPane id="levers" layoutX="26.0" layoutY="25.0" prefHeight="761.0" prefWidth="1068.0" />
+            <AnchorPane id="indicators" layoutX="1051.0" prefHeight="786.0" prefWidth="870.0" />
+            <AnchorPane id="levers" layoutX="26.0" layoutY="25.0" prefHeight="761.0" prefWidth="1018.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="96.0" prefWidth="1920.0">
