@@ -4,11 +4,8 @@ import controller.ElementControl;
 
 import java.util.ArrayList;
 
-public class DeadEnd implements EndStrategy{
-    /**
-     * Booléen déterminant si la partie est gagnée ou non
-     */
-    boolean _win = false;
+public class DeadEnd extends EndStrategy{
+
 
     /**
      * liste contenant tous les indicateurs ayant fait perdre

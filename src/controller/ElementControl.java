@@ -158,7 +158,7 @@ public class ElementControl implements Time{
 
         if (checkFin()) {
             try {
-                GameView.getInstance().goToEndView();
+                GameView.getInstance().goToEndView(_end.getWin());
             } catch (Exception e) {
                 e.printStackTrace();
             }
