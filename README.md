@@ -1,69 +1,85 @@
+![Logo](readme_images/logo.png)
+# Projet T3 : El Presidente
 
-# El Presidente
-
-<div  style="width:100%;text-align:center">
-<img  src="images/logo_ElPresidente.jpg"  height="150px" />
-</div>
 
 ## Présentation du jeu
->Brève description de notre jeu. 
-
-El presidente est un jeu de gestion d'une université. Le but du joueur : ***prendre la place du président de l'Université et ainsi être en charge de la gestion de toute l'Université***. Le but de notre jeu est d'instruire le joueur au sujet des responsabilités et du rôle de président d'une Université. Vous devrez donc ***prendre des décisions*** afin d'atteindre des objectifs qui vous seront données.
+El Presidente est un [Serious Game](https://fr.wikipedia.org/wiki/Jeu_s%C3%A9rieux) où le joueur incarne le
+président d'une université. Il doit donc au fil de la partie prendre des décisions afin de répartir au mieux les différentes
+ressources de son université.<br /><br /> Au travers d'El Presidente le joueur se rendra compte de la complexité que représente la gestion
+d'une université et la nécessité de faire des compromis pour que l'université puisse fonctionner au mieux.
 
 ## Captures d'écrans du jeu
-> Différentes captures d'écran du jeu vous sont présentées ici. 
+Ecran d'accueil
+![Capture d'écran du jeu](readme_images/capture1.png)
 
-![Capture d'écran du jeu](images/capture_ElPresidente.PNG)
+Options de la partie
+![Capture d'écran du jeu](readme_images/capture2.png)
 
-## Installation du jeu
-> Dans cette section, vous trouverez toutes les informations en rapport avec l'installation du jeu.
+Ecran de jeu
+![Capture d'écran du jeu](readme_images/capture3.png)
 
-- Installer Java avec au minimum la version 8 : [ici](https://www.java.com/fr/download/  "Lien vers la dernière version de Java").
+Ecran de fin de partie
+![Capture d'écran du jeu](readme_images/capture4.png)
 
-- Télécharger [l'installeur de jeu](https://www.google.com "Lien vers l'installeur").
 
-- Lancer l'installateur et suivre les instructions demandées
+## Exécution du jeu
+El Presidente n'a pas besoin d'être installé, il suffit de lancer son exécutable.
+### Pré-requis
+Java doit être installé sur votre ordinateur (minimum en version 8) : [Téléchargement de Java](https://www.java.com/fr/download/  "Lien vers la dernière version de Java").
+
+### Exécution
+- Télécharger le [JAR exécutable](https://mega.nz/#!1oclFCDT!uf2vEvZwjd4v7s5EJXrjiJMuveqQu-qarmwIZA39KLw "Lien vers le JAR exécutable").
+
+- Lancer le JAR exécutable, soit en double-cliquant dessus (Windows) soit en ligne de commande (Windows et Linux) :
+```shell
+java -jar elpresidente.jar
+```
+
+**Note :** L'exécutable actuel ne permet pas de lancer le jeu (voir partie "Compilation"). Il est recommandé d'exécuter le projet
+depuis un IDE Java (comme Eclipse ou IntelliJ IDEA).
 
 ## Compilation du jeu (si modification du code)
-> Dans cette section, vous trouvez comment compiler le jeu sinon s'il y a modifiction du code. 
-- Avoir un jdk Java d'installé (minimum la version 11) : [ici](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html  "Lien vers le jdk11")
+Si vous souhaitez modifier le code et créer un nouvel exécutable suivez cette démarche (sur IntelliJ IDEA).
 
-- Importer le projet sous Intellij (ou une autre IDE si vous savez comment compiler un runnable java).
+### Pré-requis
+Le Java Development Kit (JDK) doit être installé sur votre ordinateur (minimum en version 8) : [Téléchargement de JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html  "Lien vers le JDK 11")
 
-- File > Project Structure -> Project Settings -> Artifacts ->  Icône + -> JAR -> From modules with dependencies ... -> Sélectionner la class GameView dans "Main Class" -> Ok
+### Compilation
+- Ouvrir l'ensemble du répertoire sur IntelliJ IDEA.
 
-- Build -> Build Artifact -> Sélectionner le jar précédemment générer -> Build
+- Dans *File > Project Structure -> Project Settings -> Artifacts ->  Icône + -> JAR -> From modules with dependencies* -> Sélectionner la class **GameView** dans "Main Class" puis **"Ok"**
 
-- Lancer le fichier avec l'extension ***.jar*** dans le dossier out -> Artifact.
+- Dans le menu *Build -> Build Artifact ->* Sélectionner l'artifact précedemment configuré puis **"Build"**
 
-## Déroulement de la partie
+- Le fichier *elpresidente.jar* a été créé dans le dossier *out -> artifacts -> elpresidente*
 
->Dans cette section, vous trouverez toutes les informations concernant le jeu.
+**ATTENTION :** La compilation de projets JavaFX est devenue impossible en utilisant le compileur JDK depuis la version 8,
+il existe des solutions (comme la convertion Maven ou le downgrade en version 8 dans certains cas). 
 
-### Lancement
+## Déroulement d'une partie
+### Lancement d'une partie
+A l'ouverture du jeu une courte introduction est présentée. Par la suite le joueur peut choisir un nom et un scénario.
+Actuellement il existe deux scénario :
+- **Mort subite :** le joueur doit maintenir l'université avec aucun indicateur dans un état critique (proche de 0) pendant 16 ans.
+- **Objectif :** le joueur doit atteindre un objectif pour gagner (actuellement l'objectif est de faire parvenir la réputation de la recherche à 45% en 9 semestres.
 
-Au lancement du jeu, le joueur aura en face de lui une interface d'accueil qui lui propose plusieurs options:
-* Lancer le jeu 
-* Les objectifs à atteindre dans le jeu
-* Le tutoriel
-* Quitter le jeu
-### Déroulement
+### En jeu
+Le jeu s'organise en semestres. Chaque semestre le joueur doit prendre des décisions pour répartir les ressources de son université.
+<br /></br >
+Après avoir lancé une partie, une fenêtre sera présentée au joueur avec d'un côté (gauche) les leviers et de l'autre (droit) indicateurs. Les ***leviers*** sont un ensemble de paramètres que le joueur peut modifier tout le long du jeu. C'est à travers de ces leviers que le joueur appliquera sa stratégie. Quant à eux les ***indicateurs*** sont l'ensemble des informations affichées qui permettront au joueur de constater l'effet des décisions prises auparavant à travers les leviers. Les indicateurs sont donc influencés par un ou plusieurs leviers. 
 
-Le joueur devra donc prendre des ***décisions*** par semestre dans le but d'atteindre des objectifs qui lui seront fixés. Les prises de décisions sont faîtes par semestre, c'est-à-dire qu'à semestre les indicateurs sont calculés par rapport aux décisions prises au travers des leviers. 
+### Fin de partie
+En fonction du scénario choisi la partie se terminera en fonction de conditions différentes. Que le joueur perde ou gagne il arrivera
+sur un écran final où il pourra lire les graphiques de l'évolution de ses différents indicateurs afin de se rendre compte de sa stratégie.
 
-Après avoir lancer le jeu, une fenêtre sera présenté au joueur avec d'un côté (gauche) les leviers et de l'autre (droit) indicateurs. Les ***leviers*** sont un ensemble de paramètres que le joueur peut modifier tout le long du jeu. C'est à travers ces leviers que le joueur appliquera sa stratégie. Les ***indicateurs*** sont l'ensemble des informations affichées qui permettront au joueur de constater l'effet des décisions prises auparavant à travers les leviers. Les indicateurs sont donc influencées par un ou plusieurs leviers. 
-
-## Crédits
-> Membres du projet 
+## Membres du projet
 * Yoann LOUAZEL
 * Farès ZOUITNI
 * Tony LE
 
 ## Liens
-> Vous trouverez ici différents liens (le jeu, documentation et wiki).
+-  [Téléchargement du JAR exécutable](https://mega.nz/#!1oclFCDT!uf2vEvZwjd4v7s5EJXrjiJMuveqQu-qarmwIZA39KLw "Lien vers le JAR exécutable")
 
--  [Téléchargement du jeu](#  "Lien vers l'installateur du jeu")
+-  [La documentation du code source](http://doc-elpresidente.1d-works.fr "Documentation du code El Presidente")  
 
--  [La documentation (Uniquement accessible depuis l'IUT)](https://webetu.iutrs.unistra.fr/~crostaqi/html/  "La documentation du code source (sur le serveur webetu)")
-
--  [Le Wiki](https://git.unistra.fr/t432_haj19_t3_b/elpresidente/wikis/Home  "contient les informations scientifiques")
+-  [Le Wiki du jeu](https://git.unistra.fr/t432_haj19_t3_b/elpresidente/wikis/Home  "Page Wiki du jeu afin d'acquérir des informations supplémentaires")
