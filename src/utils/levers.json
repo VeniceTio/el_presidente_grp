@@ -185,7 +185,12 @@
     {
       "name": "cAdministration",
       "description": "Levier représentant l'investissement dans l'administration pour le central",
-      "indicators": []
+      "indicators": [
+        {
+          "name": "L'argent disponible",
+          "type": 0
+        }
+      ]
     },
     {
       "name": "cEvenement",
