@@ -41,7 +41,7 @@ public class Graphic {
 
         String indicatorType = "";
         if(indicatorList.get(indicatorIndex).getType().equals(IndicatorType.PERCENTAGE)) {
-            indicatorType = "(%)";
+            indicatorType = " (%)";
             upperBoundY = 100;
             tickValue = 5;
         }
@@ -106,7 +106,7 @@ public class Graphic {
         IndicatorType iType2 = indicatorList.get(indexes.get(1)).getType();
 
         if(iType1.equals(IndicatorType.PERCENTAGE) && iType2.equals(IndicatorType.PERCENTAGE)) {
-            indicatorType = "(%)";
+            indicatorType = " (%)";
             upperBoundY = 100;
             tickValue = 5;
         }
