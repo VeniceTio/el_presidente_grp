@@ -5,14 +5,21 @@ import controller.ElementControl;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Map;
 
 public class RepRec implements AbstractFormula {
+    /**
+     * Méthode permettant de mettre à jour une valeur de l'indicateur à partir d'un levier
+     * @param indicator L'indicateur sur lequel agit le levier
+     * @param lever Le levier qui agit sur l'indicateur
+     */
     @Override
-    public void updateByOneLever(Indicator indicator, Lever lever) {
-    }
+    public void updateByOneLever(Indicator indicator, Lever lever) { }
 
+    /**
+     * Méthode permettant de mettre à jour la valeur de l'indicateur à partir de ses leviers
+     * @param indicator L'indicateur sur lequel les leviers agissent
+     */
     @Override
     public void updateByLevers(Indicator indicator) {
         long com = 0;
@@ -47,6 +54,12 @@ public class RepRec implements AbstractFormula {
         }
         indicator.setValue(valuett);
     }
+
+    /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
+     * @param value Valeur X dont on cherche la valeur Y sur la courbe
+     * @return Valeur Y correspondant au X donné sur la courbe
+     */
     public static long courbe1(long value){
         double max = 0;
         if (value <=0){
@@ -69,6 +82,12 @@ public class RepRec implements AbstractFormula {
         }
         return (long)max;
     }
+
+    /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
+     * @param value Valeur X dont on cherche la valeur Y sur la courbe
+     * @return Valeur Y correspondant au X donné sur la courbe
+     */
     public static long courbe2(long value){
         long nb_prof_rec = ElementControl.getInstance().getElement("rContractuel").getValue()/27000+ElementControl.getInstance().getElement("rTitulaire").getValue()/34000;
         double ratio = new BigDecimal(value).divide(new BigDecimal(nb_prof_rec), MathContext.DECIMAL32).doubleValue();
@@ -87,9 +106,9 @@ public class RepRec implements AbstractFormula {
     }
 
     /**
-     * courbe regissant le coefficient multiplicateur d'un prix nobel
-     * @param element
-     * @return
+     * Méthode régissant le multiplicateur prix Nobel
+     * @param element AbstractElement concerné
+     * @return Multiplicateur
      */
     public static double courbe3(AbstractElement element){
         long value = element.getValue();

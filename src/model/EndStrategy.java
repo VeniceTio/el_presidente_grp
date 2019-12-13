@@ -3,8 +3,8 @@ package model;
 public interface EndStrategy {
 
     /**
-     * verifie la condition d'arret
-     * @return True si condition d'arret atteint sinon false
+     * Méthode contenant la méthode dont la fin de partie est déterminée
+     * @return True si condition d'arret atteinte sinon False
      */
     public boolean check();
 

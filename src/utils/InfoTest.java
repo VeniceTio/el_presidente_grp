@@ -6,12 +6,22 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class InfoTest {
+    /**
+     * Instance de la classe Info
+     */
     Info _info;
+
+    /**
+     * Méthode de test permettant de mettre en place les éléments requis
+     */
     @BeforeEach
     void setUp() {
         _info = new Info();
     }
 
+    /**
+     * Méthode de test s'assurant que la méthode fonctionne comme voulu
+     */
     @Test
     void getIndicatorIndex() {
         int expected = 2;
@@ -19,6 +29,9 @@ class InfoTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Méthode de test s'assurant que la méthode fonctionne comme voulu
+     */
     @Test
     void getLeverIndex() {
         int expected = 5;
@@ -26,6 +39,9 @@ class InfoTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Méthode de test s'assurant que la méthode fonctionne comme voulu
+     */
     @Test
     void getLeverInfluence() {
         String expected = "(-/+)";
@@ -33,6 +49,9 @@ class InfoTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Méthode de test s'assurant que la méthode fonctionne comme voulu
+     */
     @Test
     void getIndicatorInfo() {
         String expected = "Indicateur représentant la satisfaction générale des étudiant(e)s";
@@ -40,6 +59,9 @@ class InfoTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Méthode de test s'assurant que la méthode fonctionne comme voulu
+     */
     @Test
     void getLeverInfo() {
         String expected = "Levier (indicateur) représentant la satisfaction générale des professeurs qui influe sur\n"

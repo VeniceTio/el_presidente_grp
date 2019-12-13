@@ -8,6 +8,10 @@ import model.Semestre;
 import utils.ElementObserver;
 
 public class SemesterText extends Text implements ElementObserver {
+    /**
+     * Constructeur de la classe SemesterText
+     * @param txt Texte initial pour le SemesterText
+     */
     public SemesterText(String txt) {
         super(txt);
         this.setFont(new Font("Roboto Bold", 25));
@@ -17,6 +21,9 @@ public class SemesterText extends Text implements ElementObserver {
         this.setY(50);
     }
 
+    /**
+     * Méthode permettant de mettre à jour la valeur du composant lorsque l'indicateur change
+     */
     @Override
     public void update() {
         this.setText(String.valueOf(Semestre.getInstance().getSemestre()));

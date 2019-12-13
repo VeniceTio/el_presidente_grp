@@ -5,11 +5,18 @@ import controller.ElementControl;
 import java.util.ArrayList;
 
 public class RepFor implements  AbstractFormula {
+    /**
+     * Méthode permettant de mettre à jour une valeur de l'indicateur à partir d'un levier
+     * @param indicator L'indicateur sur lequel agit le levier
+     * @param lever Le levier qui agit sur l'indicateur
+     */
     @Override
-    public void updateByOneLever(Indicator indicator, Lever lever) {
+    public void updateByOneLever(Indicator indicator, Lever lever) { }
 
-    }
-
+    /**
+     * Méthode permettant de mettre à jour la valeur de l'indicateur à partir de ses leviers
+     * @param indicator L'indicateur sur lequel les leviers agissent
+     */
     @Override
     public void updateByLevers(Indicator indicator) {
         ElementControl ec = ElementControl.getInstance();
@@ -37,6 +44,11 @@ public class RepFor implements  AbstractFormula {
         indicator.setValue(valuett);
     }
 
+    /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
+     * @param value Valeur X dont on cherche la valeur Y sur la courbe
+     * @return Valeur Y correspondant au X donné sur la courbe
+     */
     public static double courbe1(double value){
         double newValue = value/10000.0;
         if (newValue>100){

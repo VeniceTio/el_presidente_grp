@@ -5,8 +5,8 @@ import controller.ElementControl;
 public class QualiteFormation implements AbstractFormula {
     /**
      * Méthode permettant de mettre à jour une valeur de l'indicateur à partir d'un levier
-     * @param indicator l'indicateur sur lequelle agit le levier
-     * @param lever le levier qui agit sur l'indicateur
+     * @param indicator L'indicateur sur lequel agit le levier
+     * @param lever Le levier qui agit sur l'indicateur
      */
     @Override
     public void updateByOneLever(Indicator indicator, Lever lever) {
@@ -15,7 +15,7 @@ public class QualiteFormation implements AbstractFormula {
 
     /**
      * Méthode permettant de mettre à jour la valeur de l'indicateur à partir de ses leviers
-     * @param indicator l'indicateur sur lequelles les leviers agit
+     * @param indicator L'indicateur sur lequel les leviers agissent
      */
     @Override
     public void updateByLevers(Indicator indicator) {
@@ -30,6 +30,8 @@ public class QualiteFormation implements AbstractFormula {
             soust=100;
         }
         indicator.setValue(100-(long)(soust));
+
+        // Débug
         System.out.println("nbEleveProf : " + nbEleveProf);
         System.out.println("coef : " + coef);
         System.out.println("soust : " + soust);

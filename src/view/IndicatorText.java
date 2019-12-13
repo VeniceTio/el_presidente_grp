@@ -17,11 +17,18 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 public class IndicatorText implements ElementObserver {
+    /**
+     * Différents éléments essentiels au fonctionnement du composant
+     */
     private ElementControl _ec;
     private String _name;
     private Pane _pane;
     private Text _textValue;
 
+    /**
+     * Constructeur de la classe IndicatorText
+     * @param name Nom de l'indicateur auquel le composant fait référence
+     */
     public IndicatorText(String name) throws Exception {
         _name = name;
         _ec = ElementControl.getInstance();
@@ -50,10 +57,17 @@ public class IndicatorText implements ElementObserver {
         _ec.getElement(name).add(this);
     }
 
+    /**
+     * Méthode renvoyant le Pane du composant
+     * @return Pane du composant
+     */
     public Pane getPane() {
         return _pane;
     }
 
+    /**
+     * Méthode permettant de mettre à jour la valeur du composant lorsque l'indicateur change
+     */
     @Override
     public void update() {
         NumberFormat formatter = new DecimalFormat("##,###.##");

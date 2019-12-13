@@ -25,8 +25,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class EndView {
+    /**
+     * Instance de la vue
+     */
     private static EndView _instance = null;
 
+    /**
+     * Méthode renvoyant l'instance de la vue
+     * @return L'instance de la vue
+     */
     public static EndView getInstance() {
         if(_instance == null) {
            _instance = new EndView();
@@ -34,16 +41,21 @@ public class EndView {
         return _instance;
     }
 
+    /**
+     * Méthode permettant de construire puis afficher la vue
+     */
     @SuppressWarnings("unchecked")
     public void start() throws Exception {
         ElementControl ec = ElementControl.getInstance();
 
+        // Chargement des ressources nécessaires
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Cocogoose.ttf"), 16);
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Roboto-Regular.ttf"), 16);
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Roboto-Bold.ttf"), 16);
         Parent p = FXMLLoader.load(getClass().getResource("../resources/fxml/end_scene.fxml"));
-        VBox root = (VBox) p;
 
+        // Construction de la fenêtre
+        VBox root = (VBox) p;
         AnchorPane header = (AnchorPane) root.getChildren().get(0); // AnchorPane id "header"
         AnchorPane container = (AnchorPane) root.getChildren().get(1); // AnchorPane id "container"
         AnchorPane buttonsPane = (AnchorPane) container.getChildren().get(0); // AnchorPane id "button-pane"

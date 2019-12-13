@@ -7,11 +7,20 @@ import java.util.Map;
 import java.util.Random;
 
 public class Nombre implements AbstractFormula {
+    /**
+     * Méthode permettant de mettre à jour une valeur de l'indicateur à partir d'un levier
+     * @param indicator L'indicateur sur lequel agit le levier
+     * @param lever Le levier qui agit sur l'indicateur
+     */
     @Override
     public void updateByOneLever(Indicator indicator, Lever lever) {
 
     }
 
+    /**
+     * Méthode permettant de mettre à jour la valeur de l'indicateur à partir de ses leviers
+     * @param indicator L'indicateur sur lequel le levier agit
+     */
     @Override
     public void updateByLevers(Indicator indicator) {
         indicator.setValue(0);
@@ -49,6 +58,11 @@ public class Nombre implements AbstractFormula {
         }
     }
 
+     /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
+     * @param value Valeur X dont on cherche la valeur Y sur la courbe
+      * @return Valeur Y correspondant au X donné sur la courbe
+     */
     public static long courbeInter1(long value){
         long nb_prof_rec = ElementControl.getInstance().getElement("rContractuel").getValue()/27000+ElementControl.getInstance().getElement("rTitulaire").getValue()/34000;
         long valCourbe;
@@ -78,6 +92,12 @@ public class Nombre implements AbstractFormula {
         }
         return valCourbe;
     }
+
+    /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
+     * @param value Valeur X dont on cherche la valeur Y sur la courbe
+     * @return Valeur Y correspondant au X donné sur la courbe
+     */
     public static long courbeInter2(long value){
         long valCourbe;
         double max;

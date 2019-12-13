@@ -2,6 +2,10 @@ import controller.ElementControl;
 import model.*;
 
 public class Root {
+    /**
+     * Constructeur de la classe Root (racine)
+     * Les différents éléments essentiels au fonctionnement de la partie sont crées ici (leviers/indicateurs...)
+     */
     public Root(){
         ElementControl EC = ElementControl.getInstance();
         EC.setEnd(new DeadEnd());
