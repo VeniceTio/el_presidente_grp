@@ -37,8 +37,9 @@
       </AnchorPane>
       <AnchorPane id="container" prefHeight="771.0" prefWidth="1921.0">
          <children>
-            <AnchorPane id="indicators" layoutX="1051.0" prefHeight="786.0" prefWidth="870.0" />
+            <AnchorPane id="indicators" layoutX="1051.0" prefHeight="686.0" prefWidth="870.0" />
             <AnchorPane id="levers" layoutX="26.0" layoutY="25.0" prefHeight="761.0" prefWidth="1018.0" />
+            <ImageView id="mission" fitHeight="85.0" fitWidth="486.0" layoutX="1433.0" layoutY="697.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="96.0" prefWidth="1920.0">

@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -13,10 +15,7 @@ import javafx.scene.text.Text;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import model.Indicator;
-import model.Lever;
-import model.LeverFamily;
-import model.Semestre;
+import model.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -46,6 +45,17 @@ public class GameView {
 
         // Nom du joueur
         ((Text)header.getChildren().get(3)).setText(playerName); // Text id "player-name"
+
+        // Détails scénario
+        ImageView mission = (ImageView)container.getChildren().get(2);
+        if(ElementControl.getInstance().getEnd() instanceof RepRecEnd8) {
+            mission.setImage(new Image("file:src/resources/images/mission_objective.png"));
+        } else if(ElementControl.getInstance().getEnd() instanceof DeadEnd) {
+            mission.setImage(new Image("file:src/resources/images/mission_death.png"));
+        } else {
+            mission.setImage(new Image("file:src/resources/images/mission_none.png"));
+        }
+
 
         // Génération dynamique des leviers et indicateurs
         double offsetX = 0;
