@@ -69,9 +69,7 @@ public class EndView {
             iChart.setPrefHeight(graphicPane.getHeight() - 50);
 
             iChart.setTitle("Graphique représentant l'évolution des indicateurs par semestre");
-
             graphicPane.getChildren().add(iChart);
-
             event.consume();
         };
 
@@ -88,9 +86,7 @@ public class EndView {
             iChart.setPrefHeight(graphicPane.getHeight() - 50);
 
             iChart.setTitle("Graphique représentant l'évolution d'un indicateur par semestre");
-
             graphicPane.getChildren().add(iChart);
-
             event.consume();
         };
 
@@ -103,7 +99,9 @@ public class EndView {
         for(Node n : buttonsPane.getChildren()) {
             if(n instanceof Button) {
                 Button b = (Button) n;
-                if(indicators.contains(b.getText())) {
+                String bName = b.getText();
+                b.setTooltip(new InfoTooltip(bName));
+                if(indicators.contains(bName)) {
                     b.setOnAction(individualGraphicButton);
                 }
                 else {
