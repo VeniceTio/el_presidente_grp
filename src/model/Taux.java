@@ -93,6 +93,7 @@ public class Taux implements AbstractFormula {
             } else if (indicator.getValue() > 100) {
                 indicator.setValue(100);
             }
+            System.out.println(indicator.toString());
         System.out.println("#####################################");
         }
 
@@ -196,19 +197,16 @@ public class Taux implements AbstractFormula {
         if (value <=1){
             valCourbe = -30;
         } else if (value <=4000){
-            valCourbe = Math.round(((0.625/1000)*value)*coef);
-        }
-        else if (value <=15000){
-            valCourbe = Math.round((((3.409/1000)*value)-11.136)*coef);
+            valCourbe = Math.round((((0.75/100)*value)-30)*coef);
         }
         else if (value <=25000){
-            valCourbe = Math.round((((3/1000)*value)-5)*coef);
+            valCourbe = Math.round((((3.3333/1000)*value)-13.3333)*coef);
         }
         else if (value <= 30000){
-            valCourbe = Math.round(((0.004*value)-30)*coef);
+            valCourbe = Math.round((((5.0/1000)*value)-55)*coef);
         }
         else if (value <= 42000){
-            valCourbe = Math.round((((0.833/1000)*value)+65)*coef);
+            valCourbe = Math.round((((0.41666/1000)*value)+82.5)*coef);
         }
         else {
             valCourbe = (long)(coef * 100);

@@ -30,7 +30,7 @@ public class DeadEnd implements EndStrategy{
 
     /**
      * Méthode renvoyant la liste des indicateurs ayant fait perdre
-     * @param getListe() L'indicateur sur lequel le levier agit
+     * @return _liste L'indicateur sur lequel le levier agit
      */
     public ArrayList<Indicator> getListe(){
         return _liste;
