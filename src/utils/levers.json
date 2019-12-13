@@ -185,7 +185,12 @@
     {
       "name": "cAdministration",
       "description": "Levier représentant l'investissement dans l'administration pour le central",
-      "indicators": []
+      "indicators": [
+        {
+          "name": "L'argent disponible",
+          "type": 0
+        }
+      ]
     },
     {
       "name": "cEvenement",
@@ -287,7 +292,7 @@
     },
     {
       "name": "fTitulaire",
-      "description": "Levier représentant l'investissement en argent pour les titulaires pour la formation",
+      "description": "Levier représentant l'investissement en argent pour les titulaires de la formation",
       "indicators": [
         {
           "name": "L'argent disponible",
@@ -301,7 +306,7 @@
     },
     {
       "name": "fContractuel",
-      "description": "Levier représentant l'investissement en argent pour les contractuels pour la formation",
+      "description": "Levier représentant l'investissement en argent pour les contractuels de la formation",
       "indicators": [
         {
           "name": "L'argent disponible",
@@ -315,7 +320,7 @@
     },
     {
       "name": "fDotation Recurrente",
-      "description": "Levier représentant l'investissement en argent pour les dotations récurrentes pour la formation",
+      "description": "Levier représentant l'investissement en argent pour les dotations récurrentes de la formation",
       "indicators": [
         {
           "name": "La satisfaction du personnel",
@@ -329,7 +334,7 @@
     },
     {
       "name": "fDotation Specifique",
-      "description": "Levier représentant l'investissement en argent pour les dotations récurrentes pour la formation",
+      "description": "Levier représentant l'investissement en argent pour les dotations récurrentes de la formation",
       "indicators": [
         {
           "name": "Le taux de réussite",
@@ -368,7 +373,12 @@
     {
       "name": "fPartenariat",
       "description": "Levier représentant l'investissement dans les partenariats pour la formation",
-      "indicators": []
+      "indicators": [
+        {
+          "name": "Taux d'insertion professionnelle",
+          "type": 0
+        }
+      ]
     },
     {
       "name": "rTitulaire",
@@ -416,7 +426,7 @@
     },
     {
       "name": "rDotation recurrente",
-      "description": "Levier représentant l'investissement en argent pour les dotations récurrentes pour la recherche",
+      "description": "Levier représentant l'investissement en argent pour les dotations récurrentes de la recherche",
       "indicators": [
         {
           "name": "La satisfaction du personnel",
@@ -434,7 +444,7 @@
     },
     {
       "name": "rDotation specifique",
-      "description": "Levier représentant l'investissement en argent pour les dotations récurrente pour la recherche",
+      "description": "Levier représentant l'investissement en argent pour les dotations récurrente de la recherche",
       "indicators": [
         {
           "name": "La recherche appliquée",
