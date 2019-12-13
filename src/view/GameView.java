@@ -162,5 +162,6 @@ public class GameView {
     public void goToEndView(boolean win) throws Exception {
         _stage.close();
         EndView.getInstance().start(win);
+        ResultView.getInstance().start(win);
     }
 }

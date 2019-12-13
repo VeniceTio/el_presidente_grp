@@ -56,7 +56,7 @@
                   </Text>
                     </children>
                 </AnchorPane>
-                <AnchorPane id="graphic-pane" layoutX="478.0" layoutY="10.0" prefHeight="853.0" prefWidth="1418.0" />
+                <AnchorPane id="graphic-pane" layoutX="508.0" layoutY="10.0" prefHeight="853.0" prefWidth="1388.0" />
             </children>
         </AnchorPane>
     </children>
