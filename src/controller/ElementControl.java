@@ -1,6 +1,8 @@
 package controller;
 
 import model.*;
+import view.GameView;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -121,6 +123,10 @@ public class ElementControl implements Time{
         _levers.add(lever);
         return lever;
     }
+
+    public EndStrategy getEnd() {
+        return _end;
+    }
     /**
      * Méthode permettant de parametrer la fin du jeu
      */
@@ -145,8 +151,11 @@ public class ElementControl implements Time{
             element.ClockForvard();
         }
         if (checkFin()) {
-
-            //TODO : fin du jeu et lancement fenetre des scores
+            try {
+                GameView.getInstance().goToEndView();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }

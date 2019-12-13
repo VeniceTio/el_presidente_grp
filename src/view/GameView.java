@@ -23,6 +23,7 @@ import java.util.Arrays;
 
 public class GameView {
     private static GameView _instance = null;
+    private static Stage _stage = null;
 
     public static GameView getInstance() {
         if(_instance == null)
@@ -112,13 +113,18 @@ public class GameView {
         Semestre.getInstance().add(semesterText);
         semesterPane.getChildren().add(semesterText);
 
-        Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.setResizable(false);
-        stage.setTitle("El Presidente");
+        _stage = new Stage();
+        _stage.initStyle(StageStyle.UNDECORATED);
+        _stage.setResizable(false);
+        _stage.setTitle("El Presidente");
 
-        stage.setScene(new Scene(p));
-        stage.setFullScreen(true);
-        stage.show();
+        _stage.setScene(new Scene(p));
+        _stage.setFullScreen(true);
+        _stage.show();
+    }
+
+    public void goToEndView() throws Exception {
+        _stage.close();
+        EndView.getInstance().start();
     }
 }
