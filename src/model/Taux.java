@@ -7,11 +7,18 @@ import java.util.Map;
 
 public class Taux implements AbstractFormula {
 
+    /**
+     * Méthode permettant de mettre à jour une valeur de l'indicateur à partir d'un levier
+     * @param indicator L'indicateur sur lequel agit le levier
+     * @param lever Le levier qui agit sur l'indicateur
+     */
     @Override
-    public void updateByOneLever(Indicator indicator, Lever lever) {
+    public void updateByOneLever(Indicator indicator, Lever lever) { }
 
-    }
-
+    /**
+     * Méthode permettant de mettre à jour la valeur de l'indicateur à partir de ses leviers
+     * @param indicator L'indicateur sur lequel le levier agit
+     */
     @Override
     public void updateByLevers(Indicator indicator) {
         indicator.setValue(0);
@@ -89,6 +96,12 @@ public class Taux implements AbstractFormula {
         System.out.println("#####################################");
         }
 
+    /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
+     * @param value Valeur X dont on cherche la valeur Y sur la courbe
+     * @param coef Coefficient
+     * @return Valeur Y correspondant au X donné sur la courbe
+     */
     public static long courbe1(long value,double coef){
         long valCourbe;
         if (value <=1){
@@ -109,6 +122,13 @@ public class Taux implements AbstractFormula {
         }
         return valCourbe;
     }
+
+    /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
+     * @param value Valeur X dont on cherche la valeur Y sur la courbe
+     * @param coef Coefficient
+     * @return Valeur Y correspondant au X donné sur la courbe
+     */
     public static long courbe2(long value,double coef){
         long valCourbe;
         if (value <=1){
@@ -134,6 +154,13 @@ public class Taux implements AbstractFormula {
         valCourbe = (long)(courbeMalus(valCourbe)*coef);
         return valCourbe;
     }
+
+    /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
+     * @param value Valeur X dont on cherche la valeur Y sur la courbe
+     * @param coef Coefficient
+     * @return Valeur Y correspondant au X donné sur la courbe
+     */
     public static long courbe3(long value,double coef){
         long valCourbe;
         if (value <=1){
@@ -154,12 +181,14 @@ public class Taux implements AbstractFormula {
         valCourbe = (long)(courbeMalus(valCourbe)*coef);
         return valCourbe;
     }
+
     /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
      * A=(0,-30),B=(4 000, 2.5),C=(15 000,40)
      * D=(25 000, 70),E=(30 000,90),F=(42 000,100)
-     * @param value
-     * @param coef
-     * @return
+     * @param value Valeur X dont on cherche la valeur Y sur la courbe
+     * @param coef Coefficient
+     * @return Valeur Y correspondant au X donné sur la courbe
      */
     public static long courbe4(long value,double coef){
         long valCourbe;
@@ -187,6 +216,12 @@ public class Taux implements AbstractFormula {
         return valCourbe;
     }
 
+    /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
+     * @param value Valeur X dont on cherche la valeur Y sur la courbe
+     * @param coef Coefficient
+     * @return Valeur Y correspondant au X donné sur la courbe
+     */
     public static long courbe5(long value, double coef){
         long valCourbe;
         double opcoef = 2-coef;
@@ -208,10 +243,11 @@ public class Taux implements AbstractFormula {
     }
 
     /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
      * A=(0,-70),B=(50,50),C=(100,100)
-     * @param value
-     * @param coef
-     * @return
+     * @param value Valeur X dont on cherche la valeur Y sur la courbe
+     * @param coef Coefficient
+     * @return Valeur Y correspondant au X donné sur la courbe
      */
     public static long courbe6(long value, double coef){
         long valCourbe;
@@ -230,6 +266,11 @@ public class Taux implements AbstractFormula {
         return valCourbe;
     }
 
+    /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
+     * @param value Valeur X dont on cherche la valeur Y sur la courbe
+     * @return Valeur Y correspondant au X donné sur la courbe
+     */
     public static long courbeMalus(long value){
         long valCourbe;
         if(value<2){

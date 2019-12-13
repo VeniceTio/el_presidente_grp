@@ -5,39 +5,39 @@ import java.util.Collection;
 
 public class LeverFamily {
     /**
-     * Nom de la famille de levier
+     * Nom de la famille de leviers
      */
     private String _name;
     /**
-     * Liste contenant tous les leviers
+     * Liste contenant tous les leviers de la famille
      */
     private Collection<Lever> _levers = new ArrayList<Lever>();
 
     /**
-     * Méthode permettant de créer une instance de la classe LeverFamily
-     * @param name le nom de la famille de levier
+     *  Constructeur de la classe LeverFamily
+     * @param name Le nom de la famille de leviers
      */
     public LeverFamily(String name){_name = name;}
 
     /**
-     * Méthode permettant d'ajouter un levier à la liste
-     * @param lever
+     * Méthode permettant d'ajouter un levier à la famille
+     * @param lever Levier à ajouter à la famille
      */
     public void addLever(Lever lever){
         _levers.add(lever);
     }
 
     /**
-     * Méthode permettant de renvoyer la liste de famillle de leviers
-     * @return la liste de famille de leviers
+     * Méthode renvoyant la liste des famillles de leviers existantes
+     * @return La liste des familles de leviers existantes
      */
     public Collection<Lever> getLevers(){
         return _levers;
     }
 
     /**
-     * Méthode permettant de renvoyer le nom de la famille de levier
-     * @return le nom de la famille de levier
+     * Méthode renvoyant le nom de la famille de levier
+     * @return Le nom de la famille de levier
      */
     public String getName(){
         return _name;

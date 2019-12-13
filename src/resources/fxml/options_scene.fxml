@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox id="options" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="735.0" prefWidth="792.0" stylesheets="@../stylesheets/main.css" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLController">
+   <children>
+      <AnchorPane prefHeight="735.0" prefWidth="792.0">
+         <children>
+            <Button id="btn-leave" layoutX="660.0" layoutY="691.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="23.0" prefWidth="108.0" styleClass="btn-reset" />
+            <Button id="btn-startgame" layoutX="135.0" layoutY="604.0" mnemonicParsing="false" onAction="#startGameButtonAction" prefHeight="64.0" prefWidth="541.0" styleClass="btn-reset" />
+            <TextField id="playername-field" layoutX="48.0" layoutY="242.0" prefHeight="64.0" prefWidth="692.0">
+               <font>
+                  <Font name="Roboto" size="25.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="149.0" fitWidth="314.0" layoutX="48.0" layoutY="390.0" onMouseClicked="#scenarioDeathClick" pickOnBounds="true" preserveRatio="true" styleClass="scenario-picture">
+               <image>
+                  <Image url="@../images/scenario_death.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="149.0" fitWidth="314.0" layoutX="434.0" layoutY="389.0" onMouseClicked="#scenarioObjectiveClick" pickOnBounds="true" preserveRatio="true" styleClass="scenario-picture">
+               <image>
+                  <Image url="@../images/scenario_objective.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

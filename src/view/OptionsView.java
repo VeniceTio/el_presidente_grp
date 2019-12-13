@@ -6,31 +6,30 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-
-public class IntroView{
+public class OptionsView {
     /**
      * Instance de la vue
      */
-    private static IntroView _instance = null;
+    private static OptionsView _instance = null;
 
     /**
      * Méthode renvoyant l'instance de la vue
      * @return L'instance de la vue
      */
-    public static IntroView getInstance() {
+    public static OptionsView getInstance() {
         if(_instance == null)
-            _instance = new IntroView();
+            _instance = new OptionsView();
 
         return _instance;
     }
 
     /**
      * Méthode permettant de construire puis afficher la vue
-     * @param stage Fenêtre initiale générée par JavaFX
      */
-    public void start(Stage stage) throws Exception {
-        Parent p = FXMLLoader.load(getClass().getResource("../resources/fxml/intro_scene.fxml"));
+    public void start() throws Exception {
+        Parent p = FXMLLoader.load(getClass().getResource("../resources/fxml/options_scene.fxml"));
 
+        Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setTitle("El Presidente");

@@ -8,13 +8,20 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Info {
+    /**
+     * Chemins d'accès aux fichiers JSON pour les leviers et indicateurs
+     */
     final String indicatorsFile = "\\src\\utils\\indicators.json";
     final String leversFile = "\\src\\utils\\levers.json";
+
+    /**
+     * Tableaux JSON servant à stocker les indicateurs et leviers à partir des fichiers JSON
+     */
     private JSONArray indicators;
     private JSONArray levers;
 
     /**
-     * Méthode permettant de créer une instance de classe info
+     * Constructeur de la classe Info
      */
     public Info() {
         try {
@@ -33,11 +40,11 @@ public class Info {
     }
 
     /**
-     * Méhode permettant de renvoyer l'index d'un indicateur ou d'un levier
+     * Méhode renvoyant l'index d'un indicateur ou d'un levier
      * en spécifiant son nom et le tableau dans lequel il est
-     * @param name représente le nom de l'indicateur ou du levier recherché
-     * @param array le tableau dans lequel l'indicateur ou le levier est répertorié
-     * @return l'index de l'indicateur ou du levier qu'on recherche
+     * @param name Le nom de l'indicateur ou du levier recherché
+     * @param array Le tableau dans lequel l'indicateur ou le levier est répertorié
+     * @return L'index de l'indicateur ou du levier qu'on recherche
      */
     private int getIndex(String name, JSONArray array) {
         boolean res = false;
@@ -60,28 +67,28 @@ public class Info {
     }
 
     /**
-     * Méthode permettant de renvoyer l'index d'un indicateur
-     * @param indicator l'indicateur recherché
-     * @return l'index de l'indicateur recherché
+     * Méthode renvoyant l'index d'un indicateur
+     * @param indicator L'indicateur recherché
+     * @return L'index de l'indicateur recherché
      */
     public int getIndicatorIndex(String indicator) {
         return getIndex(indicator, indicators);
     }
 
     /**
-     * Méthode permettant de renvoyer l'index d'un levier
-     * @param lever le levier recherché
-     * @return l'index du levier recherché
+     * Méthode renvoyant l'index d'un levier
+     * @param lever Le levier recherché
+     * @return L'index du levier recherché
      */
     public int getLeverIndex(String lever) {
         return getIndex(lever, levers);
     }
 
     /**
-     * Méthode permettant de renvoyer une chaîne qui précise si le levier
+     * Méthode renvoyant une chaîne qui précise si le levier
      * influe négativement, positivement ou les deux en même temps
-     * @param i le type du levier
-     * @return une chaîne contenant les informations à propos de ce levier
+     * @param i Le type du levier
+     * @return Une chaîne contenant les informations à propos de ce levier
      */
     public String getLeverInfluence(int i) {
         String res = "";
@@ -105,8 +112,8 @@ public class Info {
     /**
      * Méthode permettant de renvoyer une chaîne contenant les informations
      * à propos d'un indicateur précis
-     * @param indicator l'indicateur dont on souhaite récuperer les informations
-     * @return la chaîne contenant les informations
+     * @param indicator L'indicateur dont on souhaite récuperer les informations
+     * @return La chaîne contenant les informations
      */
     public String getIndicatorInfo(String indicator) {
         String indicInfo = "Indicateur non-répertorié";
@@ -123,9 +130,9 @@ public class Info {
 
     /**
      * Méthode permettant de renvoyer une chaîne contenant les informations
-     * du levier et la liste des indicateurs sur lequel in influe
-     * @param lever le levier dont on souhaite récuperer les informations
-     * @return la chaîne contenant les informations
+     * du levier et la liste des indicateurs sur lequel il influe
+     * @param lever Le levier dont on souhaite récuperer les informations
+     * @return La chaîne contenant les informations
      */
     public String getLeverInfo(String lever) {
         String leverInfo = "Levier non-répertorié";

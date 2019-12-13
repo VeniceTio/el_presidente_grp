@@ -2,12 +2,12 @@ package model;
 
 public interface Time {
     /**
-     * Attribut contenant le nombre de semestre
+     * Nombre de semestre
      */
     public int _nbrSemestre = 0;
 
     /**
-     * Méthode permettant de passer au semestre suivant
+     * Méthode gérant le passage au semestre suivant
      */
     public void ClockForvard();
 }

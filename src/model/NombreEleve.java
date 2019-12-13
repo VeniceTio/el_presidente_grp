@@ -7,17 +7,15 @@ import java.math.BigDecimal;
 public class NombreEleve implements AbstractFormula {
     /**
      * Méthode permettant de mettre à jour une valeur de l'indicateur à partir d'un levier
-     * @param indicator l'indicateur sur lequelle agit le levier
-     * @param lever le levier qui agit sur l'indicateur
+     * @param indicator L'indicateur sur lequel agit le levier
+     * @param lever Le levier qui agit sur l'indicateur
      */
     @Override
-    public void updateByOneLever(Indicator indicator, Lever lever) {
-
-    }
+    public void updateByOneLever(Indicator indicator, Lever lever) { }
 
     /**
      * Méthode permettant de mettre à jour la valeur de l'indicateur à partir de ses leviers
-     * @param indicator l'indicateur sur lequelles les leviers agit
+     * @param indicator L'indicateur sur lequel le levier agit
      */
     @Override
     public void updateByLevers(Indicator indicator) {
@@ -28,6 +26,12 @@ public class NombreEleve implements AbstractFormula {
         long valueL = (value.longValue() + indicator.getValue()*3) /4;
         indicator.setValue(valueL);
     }
+
+    /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
+     * @param value Valeur X dont on cherche la valeur Y sur la courbe
+     * @return Valeur Y correspondant au X donné sur la courbe
+     */
     public static double courbe1(long value){
         double valCourbe;
         if (value <=0){
@@ -62,6 +66,12 @@ public class NombreEleve implements AbstractFormula {
         }
         return valCourbe;
     }
+
+    /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
+     * @param value Valeur X dont on cherche la valeur Y sur la courbe
+     * @return Valeur Y correspondant au X donné sur la courbe
+     */
     public static long courbeMalus(long value){
         long valCourbe;
         if(value<0){

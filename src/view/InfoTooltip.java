@@ -5,6 +5,11 @@ import javafx.scene.text.Font;
 import javafx.util.Duration;
 
 public class InfoTooltip extends Tooltip {
+
+    /**
+     * Constructeur de la classe InfoTooltip
+     * @param text Texte du tooltip
+     */
     public InfoTooltip(String text) {
         super(text);
         this.setFont(new Font("Roboto", 15));

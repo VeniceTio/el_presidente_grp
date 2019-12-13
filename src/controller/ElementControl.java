@@ -1,6 +1,8 @@
 package controller;
 
 import model.*;
+import view.GameView;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -12,7 +14,7 @@ public class ElementControl implements Time{
      */
     private Collection<LeverFamily> _familyLevers = new ArrayList<LeverFamily>();
     /**
-     * Map contenant tous les leviers et indicateurs de l'application
+     * HashMap contenant tous les leviers et indicateurs de l'application
      */
     private Map<String, AbstractElement> _mapElement = new HashMap<String, AbstractElement>();
     /**
@@ -28,21 +30,22 @@ public class ElementControl implements Time{
      */
     private ArrayList<Lever> _levers = new ArrayList<Lever>();
     /**
-     * Attribut contenant l'instance de la classe
+     * Stratégie courante (représente le scénario de la partie)
      */
     private EndStrategy _end = null;
     /**
-     * Attribut contenant l'instance de la classe
+     * L'instance de la classe ElementControl (Singleton)
      */
     private static ElementControl _instance = null;
+
     /**
      * Constructeur de la classe ElementControl
      */
     private ElementControl(){}
 
     /**
-     * Méthode permettant de créer l'instance de la classe
-     * @return l'instance de la classe
+     * Méthode permettant de créer l'instance de la classe ElementControl
+     * @return L'instance de la classe
      */
     public static ElementControl getInstance(){
         if(_instance == null){
@@ -53,52 +56,50 @@ public class ElementControl implements Time{
 
     /**
      * Méthode permettant d'ajouter une famille de levier à la liste des familles de levier
-     * @param fl la famille de levier qu'on doit ajouter
+     * @param fl Le nom de la famille de levier que l'on souhaite ajouter
      */
     public void addFamilyLever(LeverFamily fl){
         _familyLevers.add(fl);
     }
 
     /**
-     * Méthode permettant de renvoyer toutes les familles de leviers
-     * @return les familles de leviers
+     * Méthode renvoyant toutes les familles de leviers existantes
+     * @return La liste des familles de leviers
      */
     public Collection<LeverFamily> getFamilyLevers() {
         return _familyLevers;
     }
 
     /**
-     * Méthode permettant de renvoyer tous les indicateurs
-     * @return une ArrayList d'indicateurs
+     * Méthode renvoyant tous les indicateurs existants
+     * @return La liste des indicateurs
      */
     public ArrayList<Indicator> getIndicators() {
         return _indicators;
     }
 
     /**
-     * Méthode permettant de renvoyer tous les indicateurs
-     * @return une ArrayList de leviers
+     * Méthode renvoyant tous les leviers existants
+     * @return La liste des leviers
      */
-    public ArrayList<Lever> getLevers() {
-        return _levers;
-    }
+    public ArrayList<Lever> getLevers() { return _levers; }
 
     /**
      * Méthode permettant de renvoyer un indicateur ou un levier en fonction de son nom
-     * @param name la nom de l'indicateur/levier qu'on doit retourner
-     * @return l'indicateur/levier correspondant au nom du paramètre
+     * @param name Le nom de l'indicateur/levier qu'on souhaite récupérer
+     * @return L'indicateur/levier correspondant au nom du paramètre
      */
     public AbstractElement getElement(String name) {
         return _mapElement.get(name);
     }
 
     /**
-     * Méthode permettant de créer un nouvelle indicateur
-     * @param name le nom de l'indicateur
-     * @param value la valeur de l'indicateur
-     * @param af la formule utilisé pour l'indicateur qui vient d'être créer
-     * @param boolStatic: paramètre permettant de savoir si l'indicateur statique ou pas (lors du clockForward: passage au semestre suivant, ce booléen permettra de savoir on met à jour l'indicateur ou pas)
-     * @return l'indicateur qu'on vient de créer
+     * Méthode permettant de créer un nouvel indicateur
+     * @param name Le nom de l'indicateur
+     * @param value La valeur de l'indicateur
+     * @param af La formule permettant le calcul de la valeur de l'indicateur
+     * @param boolStatic: Le statut statique ou non de l'indicateur (utilisé pour le ClockForward())
+     * @return L'indicateur venant d'être créé
      */
     public Indicator createIndicator(String name, int value, AbstractFormula af, boolean boolStatic, IndicatorType type){
         Indicator indicator = new Indicator(name, value, af, boolStatic, type);
@@ -110,9 +111,9 @@ public class ElementControl implements Time{
 
     /**
      * Méthode permettant de créer un nouveau levier
-     * @param name le nom du levier
-     * @param value la valeur du levier
-     * @return le levier qu'on vient de créer
+     * @param name Le nom du levier
+     * @param value La valeur du levier
+     * @return Le levier venant d'être créé
      */
     public Lever createLever(String name, int value, long scale){
         Lever lever = new Lever(name, value, scale);
@@ -121,22 +122,32 @@ public class ElementControl implements Time{
         _levers.add(lever);
         return lever;
     }
+
     /**
-     * Méthode permettant de parametrer la fin du jeu
+     * Méthode renvoyant la stratégie courante (représente le Scénario de la partie)
+     * @return La stratégie courante
+     */
+    public EndStrategy getEnd() {
+        return _end;
+    }
+
+    /**
+     * Méthode permettant de changer la stratégie courante (paramètrage de la fin du jeu)
      */
     public void setEnd(EndStrategy end){
         _end = end;
     }
+
     /**
-     * Méthode renvoyant True si la condition d'arret est rempli
-     * @return True si c'est la fin, False sinon
+     * Méthode renvoyant Vrai ou Faux en fonction de si la partie est censée se terminer ou non
+     * @return True si la partie odit se terminer, False sinon
      */
     private boolean checkFin(){
         return _end.check();
     }
 
     /**
-     * Méthode permet de passer au semestre suivant
+     * Méthode permettant de passer au semestre suivant
      */
     @Override
     public void ClockForvard() {
@@ -144,9 +155,13 @@ public class ElementControl implements Time{
         for(AbstractElement element : _elements){
             element.ClockForvard();
         }
-        if (checkFin()) {
 
-            //TODO : fin du jeu et lancement fenetre des scores
+        if (checkFin()) {
+            try {
+                GameView.getInstance().goToEndView();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }
