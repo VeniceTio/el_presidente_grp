@@ -373,7 +373,12 @@
     {
       "name": "fPartenariat",
       "description": "Levier représentant l'investissement dans les partenariats pour la formation",
-      "indicators": []
+      "indicators": [
+        {
+          "name": "Taux d'insertion professionnelle",
+          "type": 0
+        }
+      ]
     },
     {
       "name": "rTitulaire",
