@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class NombreTest {
 
+    /**
+     * Méthode de test s'assurant que la valeur renvoyée soit la bonne
+     */
     @Test
     void courbeInter1() {
         long nbr;

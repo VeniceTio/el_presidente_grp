@@ -5,7 +5,7 @@ import java.util.Map;
 public class NombreProfesseur implements AbstractFormula {
     /**
      * Méthode permettant de mettre à jour une valeur de l'indicateur à partir d'un levier
-     * @param indicator l'indicateur sur lequelle agit le levier
+     * @param indicator L'indicateur sur lequel agit le levier
      * @param lever le levier qui agit sur l'indicateur
      */
     @Override
@@ -18,7 +18,7 @@ public class NombreProfesseur implements AbstractFormula {
 
     /**
      * Méthode permettant de mettre à jour la valeur de l'indicateur à partir de ses leviers
-     * @param indicator l'indicateur sur lequelles les leviers agit
+     * @param indicator l'indicateur sur lequel le levier agit
      */
     @Override
     public void updateByLevers(Indicator indicator) {

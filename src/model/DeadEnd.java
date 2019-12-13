@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class DeadEnd implements EndStrategy{
     /**
-     * attribut contenant le fait si la partie est gagné ou perdu
+     * Booléen déterminant si la partie est gagnée ou non
      */
     boolean _win = false;
 
@@ -16,25 +16,35 @@ public class DeadEnd implements EndStrategy{
     ArrayList<Indicator> _liste = new ArrayList<>();
 
     /**
-     * contient toute les données de jeu
+     * Récupération de l'instance de l'ElementControl (controleur principal)
      */
     ElementControl ec = ElementControl.getInstance();
 
     /**
-     * renvoie l'attribut _win
-     * @return True si la partie est gagné sinon False
+     * Méthode renvoyant Vrai ou Faux en fonction de si la partie est gagnée ou non
+     * @return True si la partie est gagnée sinon False
      */
     public boolean getWin(){
         return _win;
     }
 
+    /**
+     * Méthode renvoyant la liste des indicateurs ayant fait perdre
+     * @param getListe() L'indicateur sur lequel le levier agit
+     */
     public ArrayList<Indicator> getListe(){
         return _liste;
     }
 
+    /**
+     * Méthode permettant de définir la méthode dont la fin de la partie est vérifiée
+     * @return True si la partie est censée se terminer sinon False
+     */
     @Override
     public boolean check() {
         boolean res = false;
+
+        // On vérifie qu'aucun indicateur ne soit trop bas
         for (Indicator indicator:
              ec.getIndicators()) {
             if (indicator.getValue()<5 &&
@@ -44,6 +54,8 @@ public class DeadEnd implements EndStrategy{
                 _liste.add(indicator);
             }
         }
+
+        // Le joueur a réussit à tenir 32 semestres
         if (Semestre.getInstance().getSemestre()==32){
             _win = true;
             res = true;

@@ -4,10 +4,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../stylesheets/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLController">
+<VBox id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../stylesheets/main.css" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLController">
     <children>
       <AnchorPane id="header" prefHeight="201.0" prefWidth="1920.0">
          <children>
@@ -22,7 +23,7 @@
                   <Image url="@../images/avatar.png" />
                </image>
             </ImageView>
-            <Text id="player-name" fill="#292929" layoutX="1522.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PSEUDONYME" textAlignment="RIGHT" />
+            <Text id="player-name" fill="#292929" layoutX="1682.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" AnchorPane.rightAnchor="160.0" />
             <AnchorPane id="available-money-pane" layoutX="988.0" layoutY="19.0" prefHeight="95.0" prefWidth="293.0">
                <children>
                   <ImageView fitHeight="34.0" fitWidth="42.0" layoutX="22.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
@@ -36,13 +37,15 @@
       </AnchorPane>
       <AnchorPane id="container" prefHeight="771.0" prefWidth="1921.0">
          <children>
-            <AnchorPane id="indicators" layoutX="1051.0" prefHeight="786.0" prefWidth="870.0" />
+            <AnchorPane id="indicators" layoutX="1051.0" prefHeight="686.0" prefWidth="870.0" />
             <AnchorPane id="levers" layoutX="26.0" layoutY="25.0" prefHeight="761.0" prefWidth="1018.0" />
+            <ImageView id="mission" fitHeight="85.0" fitWidth="486.0" layoutX="1433.0" layoutY="697.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="96.0" prefWidth="1920.0">
          <children>
             <Button id="btn_nextsemester" layoutX="1365.0" layoutY="16.0" mnemonicParsing="false" onAction="#nextSemesterButtonAction" prefHeight="64.0" prefWidth="541.0" styleClass="btn-reset" />
+            <Pane id="semester" layoutX="1203.0" layoutY="16.0" prefHeight="64.0" prefWidth="151.0" />
          </children>
       </AnchorPane>
     </children>

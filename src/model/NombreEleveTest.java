@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class NombreEleveTest {
 
+    /**
+     * Méthode de test s'assurant que la valeur renvoyée soit la bonne
+     */
     @Test
     void courbe1() {
         assertEquals(2,NombreEleve.courbe1(-32));

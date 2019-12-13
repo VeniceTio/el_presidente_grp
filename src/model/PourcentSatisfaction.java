@@ -6,9 +6,9 @@ import java.util.Map;
 
 public class PourcentSatisfaction implements AbstractFormula {
     /**
-     * Méthode permettant de renvoyer le nombre de point en fonction de la grandeur de la valeurç
-     * @param value la valeur qu'on doit traiter
-     * @param chaine l'option de traitement
+     * Méthode renvoyant le nombre de points en fonction de la grandeur de la valeur
+     * @param value La valeur qu'on doit traiter
+     * @param chaine L'option de traitement
      * @return
      */
     public long getPoint(long value, String chaine){
@@ -43,8 +43,8 @@ public class PourcentSatisfaction implements AbstractFormula {
 
     /**
      * Méthode permettant de mettre à jour une valeur de l'indicateur à partir d'un levier
-     * @param indicator l'indicateur sur lequelle agit le levier
-     * @param lever le levier qui agit sur l'indicateur
+     * @param indicator L'indicateur sur lequel agit le levier
+     * @param lever Le levier qui agit sur l'indicateur
      */
     @Override
     public void updateByOneLever(Indicator indicator, Lever lever) {
@@ -78,7 +78,7 @@ public class PourcentSatisfaction implements AbstractFormula {
 
     /**
      * Méthode permettant de mettre à jour la valeur de l'indicateur à partir de ses leviers
-     * @param indicator l'indicateur sur lequelles les leviers agit
+     * @param indicator L'indicateur sur lequel le levier agit
      */
     @Override
     public void updateByLevers(Indicator indicator) {
@@ -121,10 +121,11 @@ public class PourcentSatisfaction implements AbstractFormula {
     }
 
     /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
      * A=(0,0),B=(100,10),C=(200,40),D=(300,70)
      * E=(600,100)
-     * @param value
-     * @return
+     * @param value Valeur X pour laquelle on cherche la valeur Y sur la courbe
+     * @return Valeur Y correspondant au X donné sur la courbe
      */
     public static int courbe1(long value){
         int valCourbe=0;
@@ -145,9 +146,10 @@ public class PourcentSatisfaction implements AbstractFormula {
         return valCourbe;
     }
     /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
      * A=(0,100),B=(10,80),C=(20,70),D=(30,40),E=(60,-80)
-     * @param value
-     * @return
+     * @param value Valeur X pour laquelle on cherche la valeur Y sur la courbe
+     * @return Valeur Y correspondant au X donné sur la courbe
      */
     public static int courbe2(long value){
         int valCourbe=0;
@@ -171,10 +173,12 @@ public class PourcentSatisfaction implements AbstractFormula {
     }
 
     /**
+     * Méthode renvoyant la valeur Y sur une courbe pour un X donné
      * A=(0,-30),B=(40,10),C=(50,40),D=(80,90),E=(100,100)
-     * @param value
-     * @return
+     * @param value Valeur X pour laquelle on cherche la valeur Y sur la courbe
+     * @return Valeur Y correspondant au X donné sur la courbe
      */
+
     public static int courbe3(long value){
         int valCourbe=0;
         if (value<0){

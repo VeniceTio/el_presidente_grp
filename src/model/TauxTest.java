@@ -12,10 +12,16 @@ class TauxTest {
         Taux tx = new Taux();
     }
 
+    /**
+     * Méthode de test s'assurant que la valeur renvoyée soit la bonne
+     */
     @Test
     void updateByLevers() {
     }
 
+    /**
+     * Méthode de test s'assurant que la valeur renvoyée soit la bonne
+     */
     @Test
     void courbe1() {
         assertEquals(0,Taux.courbe1(-32,1));
@@ -26,6 +32,9 @@ class TauxTest {
         assertEquals(100,Taux.courbe1(800000,1));
     }
 
+    /**
+     * Méthode de test s'assurant que la valeur renvoyée soit la bonne
+     */
     @Test
     void courbe2() {
         assertEquals(0,Taux.courbe2(-32,1));
@@ -38,6 +47,9 @@ class TauxTest {
         assertEquals(100,Taux.courbe2(2000000,1));
     }
 
+    /**
+     * Méthode de test s'assurant que la valeur renvoyée soit la bonne
+     */
     @Test
     void courbe3() {
         assertEquals(0,Taux.courbe3(-32,1));
@@ -49,6 +61,9 @@ class TauxTest {
 
     }
 
+    /**
+     * Méthode de test s'assurant que la valeur renvoyée soit la bonne
+     */
     @Test
     void courbe4() {
         assertEquals(0,Taux.courbe4(-32,1));

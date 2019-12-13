@@ -4,20 +4,22 @@ import utils.Observable;
 
 public class Semestre extends Observable implements Time{
     /**
-     * Le nombre de semestre en cours dans l'application
+     * Le nombre de semestres écoulés dans la partie
      */
     private int _nbrSemestre = 0;
     /**
      * Instance de la classe Semestre
      */
     private static Semestre Instance = null;
+
     /**
-     * Méthode permettant de créer une instance de class Semestre
+     * Constructeur de la classe Semestre
      */
     private Semestre(){}
+
     /**
-     * Méthode permettant de retourner l'instance de la classe Semestre
-     * @return
+     * Méthode renvoyant l'instance de la classe Semestre
+     * @return L'instance de la classe Semestre
      */
     public static Semestre getInstance(){
         if(Instance == null){
@@ -27,13 +29,13 @@ public class Semestre extends Observable implements Time{
     }
 
     /**
-     * Méthode permettant de renvoyer le nombre de semestre en cours
-     * @return le nombre de semestre
+     * Méthode renvoyant le nombre de semestres écoulés
+     * @return Le nombre de semestre écoulés
      */
     public int getSemestre(){return _nbrSemestre;}
 
     /**
-     * Méthode permettant de passer au semestre suivant
+     * Méthode gérant le passage au semestre suivant
      */
     @Override
     public void ClockForvard() {
@@ -43,7 +45,7 @@ public class Semestre extends Observable implements Time{
 
     /**
      * Méthode permettant d'afficher le nombre de semestre en cours
-     * @return la chaîne affichant le nom et la valeur
+     * @return la chaîne de caractères contenant le nom et la valeur
      */
     public String toString(){return "Semestre n°"+_nbrSemestre;}
 }

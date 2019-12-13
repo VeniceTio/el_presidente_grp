@@ -5,8 +5,8 @@ import controller.ElementControl;
 public class Degradation implements AbstractFormula {
     /**
      * Méthode permettant de mettre à jour une valeur de l'indicateur à partir d'un levier
-     * @param indicator l'indicateur sur lequelle agit le levier
-     * @param lever le levier qui agit sur l'indicateur
+     * @param indicator L'indicateur sur lequelle agit le levier
+     * @param lever Le levier qui agit sur l'indicateur
      */
     @Override
     public void updateByOneLever(Indicator indicator, Lever lever) {
@@ -15,7 +15,7 @@ public class Degradation implements AbstractFormula {
 
     /**
      * Méthode permettant de mettre à jour la valeur de l'indicateur à partir de ses leviers
-     * @param indicator l'indicateur sur lequelles les leviers agit
+     * @param indicator L'indicateur sur lequelles les leviers agit
      */
     @Override
     public void updateByLevers(Indicator indicator) {
@@ -49,7 +49,7 @@ public class Degradation implements AbstractFormula {
             ElementControl.getInstance().getElement("valorisation bien").setValue(indicator.getValue());
         }
 
-
+        // Débug
         System.out.println("\n######################################################");
         System.out.println("valeur    : " + val);
         System.out.println("entretien : " + ent);

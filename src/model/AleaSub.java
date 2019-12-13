@@ -1,18 +1,19 @@
 package model;
 
-
-import controller.ElementControl;
-
-import java.util.Map;
-import java.util.Random;
-
 public class AleaSub implements AbstractFormula {
-    @java.lang.Override
-    public void updateByOneLever(Indicator indicator, Lever lever) {
+    /**
+     * Méthode permettant de mettre à jour une valeur de l'indicateur à partir d'un levier
+     * @param indicator L'indicateur sur lequel agit le levier
+     * @param lever Le levier qui agit sur l'indicateur
+     */
+    @Override
+    public void updateByOneLever(Indicator indicator, Lever lever) {}
 
-    }
-
-    @java.lang.Override
+    /**
+     * Méthode permettant de mettre à jour la valeur de l'indicateur à partir de ses leviers
+     * @param indicator L'indicateur sur lequel le levier agit
+     */
+    @Override
     public void updateByLevers(Indicator indicator) {
         long Val = 174000000;
         /*long oldValue = indicator.getValue();

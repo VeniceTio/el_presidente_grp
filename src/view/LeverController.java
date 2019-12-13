@@ -22,12 +22,20 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 public class LeverController implements ElementObserver {
+    /**
+     * Différents éléments essentiels au fonctionnement du composant
+     */
     Pane _pane;
     Text _textValue;
     String _name;
     ElementControl _ec;
     long _scale;
 
+
+    /**
+     * Constructeur de la classe LeverController
+     * @param name Nom de du levier auquel le composant fait référence
+     */
     public LeverController(String name) throws IOException {
         _name = name;
         _ec = ElementControl.getInstance();
@@ -67,11 +75,17 @@ public class LeverController implements ElementObserver {
         _ec.getElement(name).add(this);
     }
 
-
+    /**
+     * Méthode renvoyant le Pane du composant
+     * @return Pane du composant
+     */
     public Pane getPane() {
         return _pane;
     }
 
+    /**
+     * Méthode permettant de mettre à jour la valeur du composant lorsque l'indicateur change
+     */
     @Override
     public void update() {
         NumberFormat formatter = new DecimalFormat("##,###.##");

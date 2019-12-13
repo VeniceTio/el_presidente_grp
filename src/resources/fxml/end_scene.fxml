@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../stylesheets/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLController">
+<VBox id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../stylesheets/main.css" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLController">
     <children>
         <AnchorPane id="header" prefHeight="201.0" prefWidth="1920.0">
             <children>
@@ -18,12 +18,11 @@
                         <Image url="@../images/logo.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="118.0" fitWidth="118.0" layoutX="1774.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../images/avatar.png" />
-                    </image>
-                </ImageView>
-                <Text id="player-name" fill="#292929" layoutX="1522.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PSEUDONYME" textAlignment="RIGHT" />
+            <ImageView fitHeight="153.0" fitWidth="436.0" layoutX="1423.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/gameover.png" />
+               </image>
+            </ImageView>
             </children>
         </AnchorPane>
         <AnchorPane id="container" prefHeight="771.0" prefWidth="1921.0">
@@ -51,7 +50,7 @@
                      </font>
                   </Text>
                   <Button layoutX="144.0" layoutY="56.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="191.0" text="Satisfactions" />
-                  <Button layoutX="142.0" layoutY="167.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="191.0" text="Nombres" />
+                  <Button disable="true" layoutX="142.0" layoutY="167.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="191.0" text="Nombres" />
                   <Button layoutX="143.0" layoutY="275.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="191.0" text="Taux" />
                   <Button layoutX="139.0" layoutY="499.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="191.0" text="Recherches" />
                   <Button layoutX="138.0" layoutY="389.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="191.0" text="Réputations" />
