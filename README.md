@@ -9,52 +9,36 @@ ressources de son université.<br /><br /> Au travers d'El Presidente le joueur 
 d'une université et la nécessité de faire des compromis pour que l'université puisse fonctionner au mieux.
 
 ## Captures d'écrans du jeu
-Ecran d'accueil
+>ECRAN D'ACCUEIL
 ![Capture d'écran du jeu](readme_images/capture1.png)
 
-Options de la partie
+>OPTIONS DE LA PARTIE
 ![Capture d'écran du jeu](readme_images/capture2.png)
 
-Ecran de jeu
+>ECRAN DE JEU
 ![Capture d'écran du jeu](readme_images/capture3.png)
 
-Ecran de fin de partie
+>ECRAN DE FIN DE PARTIE
 ![Capture d'écran du jeu](readme_images/capture4.png)
 
 
 ## Exécution du jeu
 El Presidente n'a pas besoin d'être installé, il suffit de lancer son exécutable.
 ### Pré-requis
-Java doit être installé sur votre ordinateur (minimum en version 8) : [Téléchargement de Java](https://www.java.com/fr/download/  "Lien vers la dernière version de Java").
+- Votre système d'exploitation doit être **Windows** !
+- **Java** doit être installé sur votre ordinateur (minimum en version 8) : [Téléchargement de Java](https://www.java.com/fr/download/  "Page de téléchargement de Java").
 
 ### Exécution
-- Télécharger le [JAR exécutable](https://mega.nz/#!1oclFCDT!uf2vEvZwjd4v7s5EJXrjiJMuveqQu-qarmwIZA39KLw "Lien vers le JAR exécutable").
+- Télécharger l'[archive .zip](https://mega.nz/#!A4tliY7J!pr7KjSFXlip580p9ClOgKIjvS0sO7zHHS2VCM2jzLdc "Lien vers l'archive du jeu") du jeu. (Un problème avec ce lien ? [Lien secondaire](https://drive.google.com/open?id=1UT3694LgiCn9dvvI-zjPiU8nZbyKMG3l "Lien secondaire"))
 
-- Lancer le JAR exécutable, soit en double-cliquant dessus (Windows) soit en ligne de commande (Windows et Linux) :
-```shell
-java -jar elpresidente.jar
-```
+- Extraire l'archive à l'aide d'un logiciel comme WinRAR ou 7Zip.
 
-**Note :** L'exécutable actuel ne permet pas de lancer le jeu (voir partie "Compilation"). Il est recommandé d'exécuter le projet
-depuis un IDE Java (comme Eclipse ou IntelliJ IDEA).
+- Ouvrir le dossier ainsi créé.
 
-## Compilation du jeu (si modification du code)
-Si vous souhaitez modifier le code et créer un nouvel exécutable suivez cette démarche (sur IntelliJ IDEA).
+- Lancer le fichier **ElPresidente.bat** en double-cliquant dessus.
 
-### Pré-requis
-Le Java Development Kit (JDK) doit être installé sur votre ordinateur (minimum en version 8) : [Téléchargement de JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html  "Lien vers le JDK 11")
+- El Presidente est lancé, bon jeu !
 
-### Compilation
-- Ouvrir l'ensemble du répertoire sur IntelliJ IDEA.
-
-- Dans *File > Project Structure -> Project Settings -> Artifacts ->  Icône + -> JAR -> From modules with dependencies* -> Sélectionner la class **GameView** dans "Main Class" puis **"Ok"**
-
-- Dans le menu *Build -> Build Artifact ->* Sélectionner l'artifact précedemment configuré puis **"Build"**
-
-- Le fichier *elpresidente.jar* a été créé dans le dossier *out -> artifacts -> elpresidente*
-
-**ATTENTION :** La compilation de projets JavaFX est devenue impossible en utilisant le compileur JDK depuis la version 8,
-il existe des solutions (comme la convertion Maven ou le downgrade en version 8 dans certains cas). 
 
 ## Déroulement d'une partie
 ### Lancement d'une partie
@@ -78,8 +62,10 @@ sur un écran final où il pourra lire les graphiques de l'évolution de ses dif
 * Tony LE
 
 ## Liens
--  [Téléchargement du JAR exécutable](https://mega.nz/#!1oclFCDT!uf2vEvZwjd4v7s5EJXrjiJMuveqQu-qarmwIZA39KLw "Lien vers le JAR exécutable")
+-  [Archive .zip du jeu](https://mega.nz/#!A4tliY7J!pr7KjSFXlip580p9ClOgKIjvS0sO7zHHS2VCM2jzLdc "Lien vers l'archive du jeu")
+
+-  [Lien secondaire](https://drive.google.com/open?id=1UT3694LgiCn9dvvI-zjPiU8nZbyKMG3l "Lien secondaire vers l'archive du jeu")
 
 -  [La documentation du code source](http://doc-elpresidente.1d-works.fr "Documentation du code El Presidente")  
 
--  [Le Wiki du jeu](https://git.unistra.fr/t432_haj19_t3_b/elpresidente/wikis/Home  "Page Wiki du jeu afin d'acquérir des informations supplémentaires")
+-  [Le Wiki du jeu](https://git.unistra.fr/t432_haj19_t3_b/elpresidente/wikis/Home  "Page Wiki d'El Presidente")
