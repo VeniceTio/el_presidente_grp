@@ -142,6 +142,11 @@ public class Info {
 
             JSONArray leverIndicators = oLevers.getJSONArray("indicators");
 
+            int arraySize = leverIndicators.length();
+            if(arraySize == 0) {
+                indicatorsList.append("• Aucun");
+            }
+
             for(int i = 0; i < leverIndicators.length(); i++) {
                 JSONObject objLevers = leverIndicators.getJSONObject(i);
                 indicatorsList.append("• ");
