@@ -4,12 +4,7 @@ import controller.ElementControl;
 
 import java.util.ArrayList;
 
-public class RepRecEnd8 implements EndStrategy{
-    /**
-     * Booléen variant en fonction de si la partie est gagnée ou non
-     */
-    boolean _win = false;
-
+public class RepRecEnd8 extends EndStrategy{
     /**
      * liste contenant tous les indicateurs ayant fait perdre
      */

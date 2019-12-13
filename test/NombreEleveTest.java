@@ -1,5 +1,5 @@
-package model;
-
+import model.NombreEleve;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,7 +11,7 @@ class NombreEleveTest {
      */
     @Test
     void courbe1() {
-        assertEquals(2,NombreEleve.courbe1(-32));
+        Assertions.assertEquals(2, NombreEleve.courbe1(-32));
         assertEquals(1,NombreEleve.courbe1(400));
         assertEquals(0.5,NombreEleve.courbe1(1200));
         assertEquals(0.05,NombreEleve.courbe1(5000),0.001);

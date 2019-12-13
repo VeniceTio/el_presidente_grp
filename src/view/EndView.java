@@ -33,7 +33,7 @@ public class EndView {
 
     ElementControl ec = ElementControl.getInstance();
 
-    public void start() throws Exception {
+    public void start(boolean win) throws Exception {
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Cocogoose.ttf"), 16);
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Roboto-Regular.ttf"), 16);
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Roboto-Bold.ttf"), 16);

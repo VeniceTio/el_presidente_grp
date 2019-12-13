@@ -4,11 +4,8 @@ import controller.ElementControl;
 
 import java.util.ArrayList;
 
-public class DeadEnd implements EndStrategy{
-    /**
-     * Booléen déterminant si la partie est gagnée ou non
-     */
-    boolean _win = false;
+public class DeadEnd extends EndStrategy{
+
 
     /**
      * liste contenant tous les indicateurs ayant fait perdre
@@ -30,7 +27,7 @@ public class DeadEnd implements EndStrategy{
 
     /**
      * Méthode renvoyant la liste des indicateurs ayant fait perdre
-     * @param getListe() L'indicateur sur lequel le levier agit
+     * @return _liste L'indicateur sur lequel le levier agit
      */
     public ArrayList<Indicator> getListe(){
         return _liste;

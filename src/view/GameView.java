@@ -159,8 +159,8 @@ public class GameView {
     /**
      * Méthode permettant de passer à l'écran de fin de partie
      */
-    public void goToEndView() throws Exception {
+    public void goToEndView(boolean win) throws Exception {
         _stage.close();
-        EndView.getInstance().start();
+        EndView.getInstance().start(win);
     }
 }
