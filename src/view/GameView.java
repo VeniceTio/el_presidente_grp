@@ -44,6 +44,9 @@ public class GameView {
         AnchorPane indicatorsPane = (AnchorPane) container.getChildren().get(0); // AnchorPane id "indicators"
         AnchorPane leversPane = (AnchorPane) container.getChildren().get(1); // AnchorPane id "levers"
 
+        // Nom du joueur
+        ((Text)header.getChildren().get(3)).setText(playerName); // Text id "player-name"
+
         // Génération dynamique des leviers et indicateurs
         double offsetX = 0;
         double offsetY = 0;
