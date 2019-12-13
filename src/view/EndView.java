@@ -22,8 +22,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class EndView {
+    /**
+     * Instance de la vue
+     */
     private static EndView _instance = null;
 
+    /**
+     * Méthode renvoyant l'instance de la vue
+     * @return l'instance de la vue
+     */
     public static EndView getInstance() {
         if(_instance == null) {
            _instance = new EndView();
@@ -33,18 +40,25 @@ public class EndView {
 
     ElementControl ec = ElementControl.getInstance();
 
+    /**
+     * Méthode permettant de construire la vue puis l'afficher
+     */
     public void start() throws Exception {
+        // Chargement de toutes les ressources nécessaires (polices et scène)
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Cocogoose.ttf"), 16);
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Roboto-Regular.ttf"), 16);
         Font.loadFont(getClass().getResourceAsStream("../resources/fonts/Roboto-Bold.ttf"), 16);
         Parent p = FXMLLoader.load(getClass().getResource("../resources/fxml/end_scene.fxml"));
-        VBox root = (VBox) p;
 
+        // On récupère les différents conteneurs principaux pour construire la fenêtre ensuite
+        VBox root = (VBox) p;
         AnchorPane header = (AnchorPane) root.getChildren().get(0); // AnchorPane id "header"
         AnchorPane container = (AnchorPane) root.getChildren().get(1); // AnchorPane id "container"
         AnchorPane buttonsPane = (AnchorPane) container.getChildren().get(0); // AnchorPane id "button-pane"
         AnchorPane graphicPane = (AnchorPane) container.getChildren().get(1); // AnchorPane id "graphic-pane"
 
+
+        //Évenemment permettant l'affichage d'un grapique pour un indicateur donné en paramètre
         EventHandler<ActionEvent> individualGraphicButton = event -> {
             graphicPane.getChildren().clear();
 
@@ -62,6 +76,7 @@ public class EndView {
             event.consume();
         };
 
+        //Évemment permettant l'affichage de plusieurs graphiques
         EventHandler<ActionEvent> groupGraphicButton = event -> {
             graphicPane.getChildren().clear();
 
@@ -108,6 +123,12 @@ public class EndView {
         stage.show();
     }
 
+    /**
+     * Méthode construisant un graphique de type "LineChart"
+     * d'un graphique puis le renvoie
+     * @param name l'indicateur sur lequel on créer le graphe
+     * @return le graphe de l'indicateur
+     */
     private LineChart<Integer, Long> getIndicatorGraphic(String name) {
         ArrayList<Indicator> indicatorList = ec.getIndicators();
         int indicatorIndex = -1;
@@ -158,6 +179,12 @@ public class EndView {
         return indicatorChart;
     }
 
+    /**
+     * Méthode construisant une graphique de plusieurs graphiques
+     * de type "LineChart" puis le renvoie
+     * @param name le nom de la famille de l'indicateur
+     * @return le graphe des indicateurs
+     */
     private LineChart<Integer, Long> getIndicatorsGraphic(String name) {
         ArrayList<Indicator> indicatorList = ec.getIndicators();
         ArrayList<Integer> indexes = new ArrayList<>();

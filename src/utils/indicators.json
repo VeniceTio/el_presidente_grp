@@ -269,7 +269,7 @@
     },
     {
       "name": "nombre de professeurs",
-      "description": "Indicateur représetant le nombre de professeurs",
+      "description": "Indicateur représentant le nombre de professeurs",
       "levers": [
         {
           "name": "fContractuel"
