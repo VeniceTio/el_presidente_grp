@@ -163,3 +163,19 @@
     -fx-font-family: "Roboto";
     -fx-cursor: hand;
 }
+
+/*
+   8. Charts
+ */
+.chart-title {
+    -fx-text-fill: white;
+    -fx-font-size: 1.6em;
+}
+
+.axis-label {
+    -fx-text-fill: white;
+}
+
+.chart-legend {
+    -fx-background-color: white;
+}
