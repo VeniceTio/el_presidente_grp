@@ -16,7 +16,7 @@ public class Nombre implements AbstractFormula {
     public void updateByOneLever(Indicator indicator, Lever lever) {
 
     }
-
+    private static Random rand = new Random();
     /**
      * Méthode permettant de mettre à jour la valeur de l'indicateur à partir de ses leviers
      * @param indicator L'indicateur sur lequel le levier agit
@@ -69,7 +69,7 @@ public class Nombre implements AbstractFormula {
         double min;
         double max;
         double ratio;
-        Random rand = new Random();
+
         if (value <=0){
             valCourbe = 0;
         }
@@ -101,7 +101,6 @@ public class Nombre implements AbstractFormula {
     public static long courbeInter2(long value){
         long valCourbe;
         double max;
-        Random rand = new Random();
         if (value <=0){
             valCourbe = 0;
         }
