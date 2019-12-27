@@ -23,65 +23,65 @@ public class Taux implements AbstractFormula {
     public void updateByLevers(Indicator indicator) {
         indicator.setValue(0);
         long valMap;
-        System.out.println("#####################################");
-        System.out.println("nom indicateur : "+ indicator.get_name());
+        //System.out.println("#####################################");
+        //System.out.println("nom indicateur : "+ indicator.get_name());
         for (Map.Entry mapEntry : indicator.getFormula().entrySet()) {
-            System.out.println("# # # # # # # # # # # # # # # # # # #");
+            //System.out.println("# # # # # # # # # # # # # # # # # # #");
             valMap = ((AbstractElement) mapEntry.getKey()).getValue();
             if (mapEntry.getValue() == "20c1") {
                 indicator.setValue(indicator.getValue() + courbe1(valMap,0.2));
-                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.2 courbe 1 val : "+ valMap + "\n val courbe : "+courbe1(valMap,0.2));
+                //System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.2 courbe 1 val : "+ valMap + "\n val courbe : "+courbe1(valMap,0.2));
             } else if (mapEntry.getValue() == "20c2") {
                 indicator.setValue(indicator.getValue() + courbe2(valMap,0.2));
-                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.2 courbe 2 val : "+ valMap + "\n val courbe : "+courbe2(valMap,0.2));
+                //System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.2 courbe 2 val : "+ valMap + "\n val courbe : "+courbe2(valMap,0.2));
             } else if (mapEntry.getValue() == "30c6") {
                 indicator.setValue(indicator.getValue() + courbe6(valMap,0.3));
-                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.3 courbe 6 val : "+ valMap + "\n val courbe : "+courbe6(valMap,0.3));
+                //System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.3 courbe 6 val : "+ valMap + "\n val courbe : "+courbe6(valMap,0.3));
             }
             else if (mapEntry.getValue() == "40c2") {
                 indicator.setValue(indicator.getValue() + courbe2(valMap,0.4));
-                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() + " coeff 0.4 courbe 2 val : "+ valMap + "\n val courbe : "+courbe2(valMap,0.4));
+                //System.out.println(((AbstractElement) mapEntry.getKey()).get_name() + " coeff 0.4 courbe 2 val : "+ valMap + "\n val courbe : "+courbe2(valMap,0.4));
             } else if (mapEntry.getValue() == "30c2") {
                 indicator.setValue(indicator.getValue() + courbe2(valMap,0.3));
-                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() + " coeff 0.3 courbe 2 val : "+ valMap + "\n val courbe : "+courbe2(valMap,0.4));
+                //System.out.println(((AbstractElement) mapEntry.getKey()).get_name() + " coeff 0.3 courbe 2 val : "+ valMap + "\n val courbe : "+courbe2(valMap,0.4));
             }
             else if (mapEntry.getValue() == "35c2") {
                 indicator.setValue(indicator.getValue() + courbe2(valMap,0.35));
-                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.35 courbe 2 val : "+ valMap + "\n val courbe : "+courbe2(valMap,0.35));
+                //System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.35 courbe 2 val : "+ valMap + "\n val courbe : "+courbe2(valMap,0.35));
                 }
             else if (mapEntry.getValue() == "35c3") {
                 indicator.setValue(indicator.getValue() + courbe3(valMap,0.35));
-                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.35 courbe 3 val : "+ valMap + "\n val courbe : "+courbe3(valMap,0.35));
+                //System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.35 courbe 3 val : "+ valMap + "\n val courbe : "+courbe3(valMap,0.35));
                 }
             else if (mapEntry.getValue() == "18c4") {
                 long nb_prof_rec = ElementControl.getInstance().getElement("rContractuel").getValue()/27000+ElementControl.getInstance().getElement("rTitulaire").getValue()/34000;
                 indicator.setValue(indicator.getValue() + courbe4(valMap/nb_prof_rec,0.18));
-                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.18 courbe 4 val : "+ valMap/nb_prof_rec + "\n val courbe : "+courbe4(valMap/nb_prof_rec,0.18));
+                //System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.18 courbe 4 val : "+ valMap/nb_prof_rec + "\n val courbe : "+courbe4(valMap/nb_prof_rec,0.18));
             }
             else if (mapEntry.getValue() == "27c4") {
                 long nb_prof_rec = ElementControl.getInstance().getElement("rContractuel").getValue()/27000+ElementControl.getInstance().getElement("rTitulaire").getValue()/34000;
                 indicator.setValue(indicator.getValue() + courbe4(valMap/nb_prof_rec,0.27));
-                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.27 courbe 4 val : "+ valMap/nb_prof_rec + "\n val courbe : "+courbe4(valMap/nb_prof_rec,0.27));
+                //System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.27 courbe 4 val : "+ valMap/nb_prof_rec + "\n val courbe : "+courbe4(valMap/nb_prof_rec,0.27));
             }
             else if (mapEntry.getValue() == "30c4") {
                 long nb_prof_rec = ElementControl.getInstance().getElement("rContractuel").getValue()/27000+ElementControl.getInstance().getElement("rTitulaire").getValue()/34000;
                 indicator.setValue(indicator.getValue() + courbe4(valMap/nb_prof_rec,0.3));
-                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.18 courbe 3 val : "+ valMap/nb_prof_rec + "\n val courbe : "+courbe4(valMap/nb_prof_rec,0.3));
+                //System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 0.18 courbe 3 val : "+ valMap/nb_prof_rec + "\n val courbe : "+courbe4(valMap/nb_prof_rec,0.3));
             }
             else if (mapEntry.getValue() == "40/100") {
                 long value =(long) (valMap);
                 indicator.setValue(indicator.getValue() + courbe5(value,0.4));
-                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 40/100 val : "+ courbe5(value,0.4)+" av "+valMap);
+                //System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 40/100 val : "+ courbe5(value,0.4)+" av "+valMap);
             }
             else if (mapEntry.getValue() == "30/100") {
                 long value =valMap;
                 indicator.setValue(indicator.getValue() + courbe5(value,0.3));
-                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 30/100 val : "+ courbe5(value,0.3)+" "+valMap);
+                //System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 30/100 val : "+ courbe5(value,0.3)+" "+valMap);
             }
             else if (mapEntry.getValue() == "25/100") {
                 long value =valMap;
                 indicator.setValue(indicator.getValue() + courbe5(value,0.25));
-                System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 25/100 val : "+ courbe5(value,0.25)+" "+valMap);
+                //System.out.println(((AbstractElement) mapEntry.getKey()).get_name() +" coeff 25/100 val : "+ courbe5(value,0.25)+" "+valMap);
             }
             }
 
@@ -93,8 +93,8 @@ public class Taux implements AbstractFormula {
             } else if (indicator.getValue() > 100) {
                 indicator.setValue(100);
             }
-            System.out.println(indicator.toString());
-        System.out.println("#####################################");
+            //System.out.println(indicator.toString());
+        //System.out.println("#####################################");
         }
 
     /**
