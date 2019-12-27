@@ -2,9 +2,9 @@ package model;
 
 import controller.ElementControl;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Random;
 
 public class Nombre implements AbstractFormula {
     /**
@@ -16,7 +16,7 @@ public class Nombre implements AbstractFormula {
     public void updateByOneLever(Indicator indicator, Lever lever) {
 
     }
-    private static Random rand = new Random();
+    private static SecureRandom rand = new SecureRandom();
     /**
      * Méthode permettant de mettre à jour la valeur de l'indicateur à partir de ses leviers
      * @param indicator L'indicateur sur lequel le levier agit
