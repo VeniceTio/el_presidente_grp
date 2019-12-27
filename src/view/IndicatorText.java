@@ -44,7 +44,7 @@ public class IndicatorText implements ElementObserver {
         Indicator ind = (Indicator) _ec.getElement(_name);
         if(ind.getType() == IndicatorType.PERCENTAGE) {
             txt = txt + " %";
-        } else if(_name == "argent disponible") {
+        } else if(_name.equals("argent disponible")) {
             txt = formatter.format(Integer.valueOf(_ec.getElement(_name).toString().replaceAll("[^\\d-]", ""))) + " €";
             _textValue.setStyle("-fx-fill: #000;");
         }
@@ -76,7 +76,7 @@ public class IndicatorText implements ElementObserver {
         Indicator ind = (Indicator) _ec.getElement(_name);
         if(ind.getType() == IndicatorType.PERCENTAGE) {
             txt = txt + " %";
-        } else if(_name == "argent disponible") {
+        } else if(_name.equals("argent disponible")) {
             txt = formatter.format(Long.valueOf(_ec.getElement(_name).toString().replaceAll("[^\\d-]", ""))) + " €";
         }
         _textValue.setText(txt);
