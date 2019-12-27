@@ -5,41 +5,6 @@ import controller.ElementControl;
 import java.util.Map;
 
 public class PourcentSatisfaction implements AbstractFormula {
-    /**
-     * Méthode renvoyant le nombre de points en fonction de la grandeur de la valeur
-     * @param value La valeur qu'on doit traiter
-     * @param chaine L'option de traitement
-     * @return
-     */
-    public long getPoint(long value, String chaine){
-        long nbPoint = 0;
-        if (chaine=="r"){
-            if (value>0){
-                if (value>10000){
-                    if(value>50000){
-                        if(value>100000){
-                            if(value>1000000){
-                                nbPoint = 32;
-                            }
-                            else {
-                                nbPoint = 16;
-                            }
-                        }
-                        else {
-                            nbPoint = 8;
-                        }
-                    }
-                    else {
-                        nbPoint = 4;
-                    }
-                }
-                else {
-                    nbPoint = 2;
-                }
-            }
-        }
-        return nbPoint;
-    }
 
     /**
      * Méthode permettant de mettre à jour une valeur de l'indicateur à partir d'un levier
@@ -48,32 +13,6 @@ public class PourcentSatisfaction implements AbstractFormula {
      */
     @Override
     public void updateByOneLever(Indicator indicator, Lever lever) {
-        /*long dif;
-        if(indicator.getFormula().get(lever) =="3"){
-            if (lever.getOldValue() < lever.getValue()) {
-                dif = ((lever.getValue() / 3) - (lever.getOldValue() / 3));
-                indicator.setValue(indicator.getValue() + dif);
-            }
-            else {
-                dif = (lever.getOldValue() / 3) - (lever.getValue() / 3);
-                indicator.setValue(indicator.getValue() - dif);
-            }
-        }
-        else{
-
-            long oldValue = getPoint(lever.getOldValue(),indicator.getFormula().get(lever));
-            long IndicValue = getPoint(lever.getValue(),indicator.getFormula().get(lever));
-            if (oldValue < IndicValue) {
-                indicator.setValue(indicator.getValue()+(IndicValue-oldValue));
-            }
-            else{
-                indicator.setValue(indicator.getValue()-(oldValue-IndicValue));
-            }
-        }
-        //System.out.println(oldValue);
-        if (indicator.getValue()>100){
-            indicator.setValue(100);
-        }*/
     }
 
     /**
